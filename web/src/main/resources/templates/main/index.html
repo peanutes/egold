@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 首页</title>
+    <script type="text/javascript">
+	    (function () {
+
+		    var sUserAgent = navigator.userAgent.toLowerCase();
+		    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+		    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+		    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+		    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+		    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+		    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+		    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+		    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+		    var bIsIE = sUserAgent.match(/iemobile/i) == "iemobile";
+		    if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || bIsIE) {
+		    } else {
+			    window.location.href = '/pc';
+		    }
+	    })();
+
+    </script>
+    <script type="text/javascript" src="../js/flexible.js" th:src="@{'/js/flexible.js'}"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="/css/reveal.css"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css" th:href="@{'/widget/mui/css/mui.min.css'}"/>
+    <link rel="stylesheet" href="../css/home.css" th:href="@{'/css/home.css'}"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div th:replace="include/template::header"></div>
+<div class="banner">
+    <div class="mui-slider banner-slider">
+        <div class="mui-slider-group mui-slider-loop" id="focus-picture">
+        </div>
+    </div>
+</div>
+<div class="notice" id="notice" style="display:none">
+    <div class="notice_titles">
+        <ul id="notice_list">
+        </ul>
+    </div>
+    <div class="close_notice"></div>
+</div>
+<div style="clear: both"></div>
+<div class="main_bar">
+    <a href="/user/invitation">
+        <div class="invite_4_gold2">邀请送黄金</div>
+    </a>
+    <!--<a href="/goldMall/skuList" th:href="@{/goldMall/index}">
+        <div class="gold_market2">黄金商城</div>
+    </a>-->
+    <a href="/wap/security?terminalType=wap&terminalId=wap" >
+        <div class="gold_market2">安全保障</div>
+    </a>
+</div>
+
+<div class="price_reference">
+    <div class="price_note">参考上海黄金交易所实时金价[元/克]</div>
+    <div class="refresh_price"><img class="refresh_price_img" src="../images/refresh.png"/></div>
+</div>
+<div>
+    <ul class="current_gold">
+        <li class="price_compare">
+            <div class="current_price " style="text-align: center" id="current_price">加载中</div>
+            <div class="market_price">(市场价：<span style="text-decoration: line-through"><span
+                    th:text="${homeFinancialProduct.currentDepositProduct.marketPrice}">311.18</span>)</span></div>
+        </li>
+        <li class="buy_gold"><a href="#"
+                                th:href="@{'/gold/goldDetail?id='+${homeFinancialProduct.currentDepositProduct.id}}"><img
+                class="buy_gold_btn" src="../images/buy_gold_btn.png"/></a>
+        </li>
+        <li class="trend" id="gold_trend_btn"><a href="/wap/discover"><img class="buy_gold_btn"
+                                                                           src="../images/gold_trend_btn.png"/><span>金价走势</span></a>
+        </li>
+    </ul>
+
+</div>
+<a href="/wap/buyGold">
+    <div class="hot_product">
+        <div class="hot_product_title">热门产品</div>
+        <div class="hot_product_more">更多&nbsp;&gt;</div>
+    </div>
+</a>
+
+<!-- 新手专享金开始 -->
+<th:block
+        th:if="${isNewUser == true  }">
+    <div class="gold_type new_commer">
+        <span class="gold_type_title" th:text="${homeFinancialProduct.newUserProduct.productName}">新手特权金</span>
+        <span class="product_short_desc" th:text="${homeFinancialProduct.newUserProduct.keyPoint}">稳定生息， 省心省力</span>
+    </div>
+    <a href="#" th:href="@{'/gold/goldDetail?id='+${homeFinancialProduct.newUserProduct.id}}">
+        <div class="current_gold_buy_now">
+            <ul class="number">
+                <li th:text="${#numbers.formatDecimal(homeFinancialProduct.newUserProduct.annualRate,0,2)}+'%'"></li>
+                <li class="price"
+                    th:text="${#numbers.formatDecimal(homeFinancialProduct.newUserProduct.price,0,2)}+'元/克'">
+                </li>
+                <li class="day" th:text="${homeFinancialProduct.newUserProduct.term}+'天'"></li>
+            </ul>
+            　
+            <ul class="desc">
+                <li>预期年化收益</li>
+                <li class="price">优惠金价</li>
+                <li class="day">期限</li>
+            </ul>
+        </div>
+        <div class="buy_gold_now">
+            <img src="../images/buy_gold_now.png"/>
+        </div>
+    </a>
+</th:block>
+<!-- 新手专享金结束 -->
+
+<!-- 定期金开始 -->
+<div class="gold_type spot_gold">
+    <span class="gold_type_title" th:text="${homeFinancialProduct.termDepositProduct.productName}"></span>
+    <span class="product_short_desc"
+          th:text="${homeFinancialProduct.termDepositProduct.keyPoint}">稳定生息， 省心省力</span>
+</div>
+<a href="#" th:href="@{'/gold/goldDetail?id='+${homeFinancialProduct.termDepositProduct.id}}">
+    <div class="current_gold_buy_now">
+        <ul class="number">
+            <li th:text="${homeFinancialProduct.termDepositProduct.annualRate} + '%'"></li>
+            <li class="day" th:text="${homeFinancialProduct.termDepositProduct.term}+'天'"></li>
+        </ul>
+        　
+        <ul class="desc">
+            <li>预期年化收益</li>
+            <li class="day">期限</li>
+        </ul>
+
+    </div>
+</a>
+<!-- 定期金结束 -->
+
+<div class="security_guard">
+    <a href="/wap/security"> <img src="../images/security_guard.png"/></a>
+</div>
+<div class="product_intro">
+    <a href="/product/introduction">
+        <div class="intro_title" th:text="${homeFinancialProduct.productDescDto.title}">产品介绍</div>
+        <div class="intro_short" th:text="${homeFinancialProduct.productDescDto.keyPoint}">会赚钱的黄金投资产品</div>
+        <div class="view_product_intro">点击查看</div>
+    </a>
+</div>
+
+<div class="cooperation-party">
+    <p>合作伙伴</p>
+</div>
+
+<div class="cooperation-party-list">
+    <ul>
+        <li><a href="#"><img src="../images/party/huangjinxiehui_logo.jpg"/></a></li>
+        <li><a href="#"><img src="../images/party/youzhengyinhang_logo.jpg"/></a></li>
+        <li><a href="#"><img src="../images/party/zhaofeng_logo.jpg"/></a></li>
+        <li><a href="#"><img src="../images/party/aliyun_logo.jpg"/></a></li>
+    </ul>
+</div>
+
+<div th:replace="include/template::securityInfo"></div>
+<div th:replace="include/template::footer"></div>
+<script type="text/javascript" src="/js/wap/index.js"></script>
+<script type="text/javascript" src="/widget/reveal/jquery.reveal.js"></script>
+<script type="text/javascript" src="/js/posfixed.js"></script>
+</body>
+</html>

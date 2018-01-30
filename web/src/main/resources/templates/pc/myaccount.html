@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8"/>
+	<title>E黄金 - 我的帐户</title>
+	<meta name="keywords" content="黄金买卖，黄金投资"/>
+	<meta name="description" content="黄金买卖，黄金投资"/>
+	<link rel="stylesheet" href="../css/css_reset.css"/>
+	<link rel="stylesheet" href="../css/pc.css"/>
+	<link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+	<link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+
+	<style type="text/css">
+
+	</style>
+</head>
+<body class="body">
+
+<div id="wrapper_login">
+	<div th:include="pc/include/template :: header(tab='myAccount')"></div>
+
+</div>
+
+<div class="real_time_gold_price">
+	<p class="color_ff8800">实时金价</p>
+
+	<p style="border-right:1px solid #dddddd;"><span class="current_price color_ff8800">222.22</span>元/克</p>
+
+	<p style="text-align: right"><a href="#" th:href="@{/pc/gotoGoldPrice}" >金价趋势</a></p>
+</div>
+<div class="account_summary">
+	<div class="section">
+		<div class="left">
+			<p th:text="${session.auth_member_session.mobilePhone}">18818809940</p>
+
+			<p th:text="${'注册时间:'+ #calendars.format(session.auth_member_session.createDate,'yyyy-MM-dd')}"
+			   style="color:#929292">注册时间:2017-09-09</p>
+		</div>
+		<div class="right">
+			<button id="rechargeBtn" class="pc_btn_1">充值</button>
+		</div>
+	</div>
+	<div id="summaryChart" style="width: 1100px;height:300px;">
+	</div>
+</div>
+<div class="cb"></div>
+<div th:include="pc/include/template :: homeFooter"></div>
+
+<script type="text/javascript" src="../js/echarts.js"></script>
+
+<script type="text/javascript" th:inline="javascript">
+	/*<![CDATA[*/
+
+	var myChart = echarts.init(document.getElementById('summaryChart'));
+
+	var accountData = [[${accountOverVies}]];
+	var accountLabels = [[${accountLabels}]];
+
+
+
+	// 指定图表的配置项和数据
+	var
+			option = {
+				tooltip: { //提示框组件
+					trigger: 'item', //触发类型(饼状图片就是用这个)
+					formatter: "{b} : {c} ({d}%)" //提示框浮层内容格式器
+				},
+				color: ['#48cda6', '#fd87ab', '#11abff', '#ffdf33', '#968ade'],  //手动设置每个图例的颜色
+				legend: {  //图例组件
+					//right:100,  //图例组件离右边的距离
+					orient: 'horizontal',  //布局  纵向布局 图例标记居文字的左边 vertical则反之
+					width: 40,      //图行例组件的宽度,默认自适应
+					x: 'right',   //图例显示在右边
+					y: 'center',   //图例在垂直方向上面显示居中
+					itemWidth: 10,  //图例标记的图形宽度
+					itemHeight: 10, //图例标记的图形高度
+					data: ['现金余额 100.09元', '黄金资产 10.00元', '理财账户 999.99元'],
+					textStyle: {    //图例文字的样式
+						color: '#333',  //文字颜色
+						fontSize: 16    //文字大小
+					}
+				},
+				series: [ //系列列表
+					{
+						name: '',  //系列名称
+						type: 'pie',   //类型 pie表示饼图
+						center: ['30%', '50%'], //设置饼的原心坐标 不设置就会默认在中心的位置
+						radius: ['50%', '70%'],  //饼图的半径,第一项是内半径,第二项是外半径,内半径为0就是真的饼,不是环形
+						itemStyle: {  //图形样式
+							normal: { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+								label: {  //饼图图形上的文本标签
+									show: false  //平常不显示
+								},
+								labelLine: {     //标签的视觉引导线样式
+									show: false  //平常不显示
+								}
+							},
+							emphasis: {   //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+								label: {  //饼图图形上的文本标签
+									show: true,
+									position: 'center',
+									textStyle: {
+										fontSize: '14',
+										fontWeight: 'bold'
+									}
+								}
+							}
+						}
+					}
+				]
+			};
+
+
+	option.legend.data = JSON.parse(accountLabels);
+	option.series[0].data = JSON.parse(accountData);
+	myChart.setOption(option);
+
+
+	$(function () {
+		// 如果是充值成功返回
+		var rechargeResult = "";
+
+
+
+
+
+
+		$("#rechargeBtn").unbind('click').click(function () {
+			top.window.location = '/pc/gotoRecharge';
+
+		});
+	});
+	/*]]>*/
+</script>
+</body>
+
+</html>

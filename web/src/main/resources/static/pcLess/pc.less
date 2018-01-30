@@ -1,0 +1,1385 @@
+/*公共变量*/
+@WrapperWidth: 1200px;
+@WrapperBackgroundColor: #FAF8FD;
+@ColorWhite: #FFFFFF;
+@ColorFF8800: #FF8800;
+@import "css_reset";
+@import "pcCommon";
+
+.ToCenter() {
+	width: @WrapperWidth;
+	margin: 0 auto;
+}
+
+/* 公用头部 */
+#wrapper {
+	width: 100%;
+	min-width: @WrapperWidth;
+	background: #F7F8FD;
+	margin: 0 auto;
+	background: url("../pcImages/banner1.png") center 130px no-repeat;
+	background-size: 1920px 460px;
+}
+
+//登录页banner
+#wrapper_login {
+	width: 100%;
+	min-width: @WrapperWidth;
+	background: #F7F8FD;
+	margin: 0 auto;
+	background: url("../pcImages/login_banner.png") center 130px no-repeat;
+	background-size: 1920px 460px;
+}
+
+//文章内容或者列表页
+#wrapper_news_list {
+	width: 100%;
+	min-width: @WrapperWidth;
+	background: #F7F8FD;
+	margin: 0 auto;
+	background: url("../pcImages/newsList/download_app.png") center 130px no-repeat;
+	background-size: 1920px 394px;
+}
+
+.header {
+	height: 130px;
+	min-width: @WrapperWidth;
+	position: relative;
+	font-size: 14px;
+	*z-index: 3;
+	.main {
+		width: 1200px;
+		margin: 0 auto;
+	}
+
+	.topBar {
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		border-bottom: 1px solid #F5F5F5;
+		background: #333333;
+		*z-index: 3;
+		position: relative;
+		color: white;
+
+		.main {
+			position: relative;
+			*z-index: 0
+		}
+
+		.tel {
+			float: left;
+			width: 40%;
+			font-size: 14px;
+			font-family: arial;
+			.icon {
+				display: inline-block;
+				width: 22px;
+				height: 40px;
+				float: left;
+
+				img {
+					width: 18px;
+					height: 20px;
+				}
+			}
+
+			img.refresh_current_price {
+				width: 12px;
+				height: 12px;
+				cursor: pointer;
+			}
+		}
+
+		.menu {
+			position: absolute;
+			top: 0;
+			right: 0px;
+			width: 600px;
+			color: white;
+			text-align: right;
+		}
+
+		a {
+			color: white;
+		}
+	}
+}
+
+.notice_wrap {
+	//background: #f4f4f4;
+	.notice {
+		height: 54px;
+		line-height: 54px;
+		display: flex;
+		font-family: "Microsoft YaHei";
+		font-size: 16px;
+		.ToCenter();
+
+		.notice_title {
+
+			flex: 1;
+		}
+
+		.notice_check_more {
+			flex: 1;
+			text-align: right;
+		}
+	}
+}
+
+.main_point {
+	display: table;
+	background: @ColorWhite;
+	padding-top: 60px;
+	.ToCenter;
+	ul {
+		display: table-row;
+		li {
+			display: table-cell;
+			text-align: center;
+			width: 400px;
+			padding-bottom: 10px;
+			img {
+				width: 182px;
+				height: 182px;
+			}
+
+			h3 {
+				font-family: "Microsoft YaHei";
+				font-size: 25px;
+				color: #FF5100;
+				height: 75px;
+				line-height: 75px;
+			}
+
+			h4 {
+				font-family: "Microsoft YaHei";
+				font-size: 22px;
+				color: #996C33;
+				height: 40px;
+				line-height: 40px;
+				margin-bottom: 40px;
+			}
+			a {
+				display: inline-block;
+				padding: 10px 20px;
+				border: 1px solid white;
+
+			}
+
+			a:hover {
+				border: 1px solid #FF5100;
+				color: red;
+			}
+		}
+	}
+}
+
+.footerWrap {
+	background: #333333;
+	color: white;
+	width: 100%;
+	margin-top: 20px;
+	.footer {
+		display: table;
+		padding: 20px 50px 0px 50px;
+		.ToCenter;
+		line-height: 2;
+		ul {
+			display: table-row;
+
+			li {
+				display: table-cell;
+				text-align: left;
+				width: 300px;
+
+				h3 {
+					font-family: "Microsoft YaHei";
+					font-size: 18px;
+					color: #FF5100;
+					line-height: 2;
+				}
+
+				h4 {
+					font-family: "Microsoft YaHei";
+					font-size: 18px;
+					color: #996C33;
+					height: 40px;
+					line-height: 40px;
+					margin-bottom: 40px;
+				}
+				p {
+					font-size: 14px;
+				}
+				a {
+					display: inline-block;
+					color: white;
+					height: 30px;
+					line-height: 30px;
+					text-decoration: none;
+				}
+
+				a:hover {
+					border-bottom: 1px solid white;
+				}
+			}
+		}
+	}
+}
+
+.more-info {
+	text-align: center;
+	height: 80px;
+	line-height: 80px;
+	font-size: 14px;
+}
+
+.header .topNav {
+	width: 100%;
+	height: 90px;
+	position: relative;
+	background: white;
+
+}
+
+.header .topNav .logo {
+	display: inline-block;
+	width: 85PX;
+	float: left;
+}
+
+.header .topNav .main {
+	height: 90px;
+	position: relative;
+}
+
+.header .topNav .navigate {
+	position: absolute;
+	right: 0;
+}
+
+.header .topNav .nav {
+	float: left;
+	height: 90px;
+}
+
+.header .topNav .nav li {
+	display: inline-block;
+	float: left;
+	margin-left: 65px;
+	height: 90px;
+	line-height: 90px;
+	text-align: right;
+}
+
+.header .topNav .nav li a {
+	font-size: 18px;
+}
+
+.header .topNav .nav li a:hover, li.current a {
+	color: #FF9600;
+	text-decoration: none;
+	border-bottom: 2px solid #FF8800;
+	height: 70px;
+	display: block;
+}
+
+.banner, .banner_4_login {
+	width: 1200px;
+	height: 460px;
+	margin: 0 auto;
+	position: relative;
+	.register_login_wrapper {
+		width: 360px;
+		height: 350px;
+		position: absolute;
+		border: 1px solid #cccccc;
+		background: white;
+		top: 56px;
+		right: 0px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 24px;
+
+		p {
+			flex: 1;
+			text-align: left;
+			height: 60px;
+			line-height: 60px;
+		}
+
+		button {
+			width: 90%;
+			background: #ff8800;
+			color: white;
+			width: 285px;
+			height: 50px;
+			line-height: 50px;
+			border: 1px solid #ff8800;
+			font-size: 20px;
+			border-radius: 0;
+		}
+	}
+
+	//登录注册页专用,因为设计时候高度宽度不一致,所以需要单独出来
+	.register_login_wrapper_4_login {
+		@login_form_height: 360px;
+		@login_form_width: 350px;
+		width: @login_form_width;
+		height: @login_form_height;
+		position: absolute;
+		border: 1px solid #cccccc;
+		background: white;
+		top: 56px;
+		right: 0px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+		font-size: 20px;
+
+		div {
+			flex: 1;
+			text-align: left;
+			.height_center(@login_form_height / 6)
+		}
+
+		.caption {
+			width: 80%;
+			span {
+				display: inline-block;
+				width: 80px;
+				&.no_account {
+					float: right;
+					width: 190px;
+				}
+
+				a {
+					text-decoration: underline;
+					color: #b28850;
+				}
+			}
+		}
+
+		p.security_guard {
+			background-color: #eeeeee;
+			width: 100%;
+			text-align: center;
+			font-size: 18px;
+			height: 40px;
+			line-height: 40px;
+			margin-top: 20px;
+		}
+
+		button {
+			width: 90%;
+			background: #ff8800;
+			color: white;
+			width: 285px;
+			height: 50px;
+			line-height: 50px;
+			border: 1px solid #ff8800;
+			font-size: 20px;
+			border-radius: 0;
+			cursor: pointer;
+		}
+	}
+}
+
+.banner_4_download {
+	height: 394px;
+	margin-bottom: 10px;
+}
+
+.product_wrap {
+	width: 1200px;
+	margin: 0 auto;
+	background: white;
+	@product_wrap_content_width: 924px;
+	//公共title & content,不同的section自己覆盖开始
+	.title, .content {
+		height: 316px;
+	}
+	.title {
+		width: 276px;
+	}
+
+	.content {
+
+		width: @product_wrap_content_width;
+	}
+	//公共title & content,不同的section自己覆盖结束
+
+	//新手金
+	.new_user_gold {
+		display: flex;
+		font-size: 30px;
+		.content {
+			display: table;
+			height: 316px;
+			vertical-align: middle;
+			.tr {
+				display: table-row;
+				height: 150px;
+				vertical-align: middle;
+
+				.td {
+					display: table-cell;
+					vertical-align: middle;
+					width: 308px;
+					text-align: right;
+				}
+			}
+
+			.download_app_to_buy {
+				width: 212px;
+				height: 60px;
+				line-height: 60px;
+				color: white;
+				background-color: rgba(255, 155, 26, 1);
+				border-radius: 5px 5px 5px 5px;
+				text-align: center;
+				font-size: 24px;
+				margin-right: 40px;
+			}
+		}
+	}
+
+	//活期金
+	.current_gold {
+		@current_gold_height: 384px;
+		display: flex;
+		.title {
+			height: @current_gold_height;
+			border: 1px solid red;
+		}
+		.content {
+			height: 384px;
+			display: table;
+			vertical-align: middle;
+			overflow: hidden;
+			.tr {
+				display: table-row;
+				vertical-align: middle;
+
+				.td {
+					display: table-cell;
+					vertical-align: middle;
+					//width: 308px;
+					text-align: right;
+				}
+			}
+
+			.gold_trend_section {
+				float: left;
+				width: 650px;
+				//height: 391px;
+				float: left;
+				margin-right: 20px;
+				overflow: hidden;
+			}
+
+			.current_price_section {
+				float: left;
+				width: 200px;
+				//display: flex;
+				////align-items: center;
+				//flex-direction: column;
+				//-webkit-box-orient:vertical;
+				//-webkit-box-direction:normal;
+				//-moz-box-orient:vertical;
+				//-moz-box-direction:normal;
+				//flex-direction:column;
+				//-webkit-flex-direction:column;
+				//justify-content: space-between;
+				font-size: 20px;
+				color: #996c33;
+				div {
+					flex: 1;
+					height: @current_gold_height /4;
+					line-height: @current_gold_height /4;
+				}
+				.td {
+					height: 100px;
+					//border:1px solid black;
+					input {
+						display: inline-block;
+						width: 100px;
+
+					}
+				}
+			}
+
+			.download_app_to_buy {
+				width: 150px;
+				height: 60px;
+				line-height: 60px;
+				color: white;
+				background-color: rgba(255, 155, 26, 1);
+				border-radius: 5px 5px 5px 5px;
+				text-align: center;
+				margin-right: 40px;
+				font-size: 20px;
+			}
+		}
+	}
+
+	.fixed_gold {
+		@fix_gold_height: 429px;
+		display: flex;
+		font-size: 24px;
+		.title {
+			width: 276px;
+			height: @fix_gold_height;
+		}
+		.content {
+			height: @fix_gold_height;
+
+			.product_table {
+				display: table;
+				vertical-align: middle;
+				.tr {
+					display: table-row;
+					height: @fix_gold_height / 2;
+					vertical-align: middle;
+					line-height: 2;
+
+					.td {
+						display: table-cell;
+						vertical-align: middle;
+						width: 230px;
+						text-align: center;
+						padding-left: 15px;
+
+						&.download {
+							width: 100px;
+						}
+						&.buy_estimate {
+							width: 380px;
+						}
+					}
+				}
+
+				.download_app_to_buy {
+					width: 150px;
+					height: 60px;
+					line-height: 60px;
+					color: white;
+					background-color: rgba(255, 155, 26, 1);
+					border-radius: 5px 5px 5px 5px;
+					text-align: center;
+					margin-right: 40px;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+
+	.gold_mall {
+		@gold_mall_height: 428px;
+		display: flex;
+		font-size: 24px;
+		border-bottom: 15px solid #f7f8fd;
+		.title {
+			height: @gold_mall_height;
+		}
+		.content {
+
+			.more {
+				text-align: right;
+				width: 100%;
+				padding-right: 40px;
+				height: 60px;
+				line-height: 60px;
+			}
+			.mall_table {
+				display: table;
+				vertical-align: middle;
+				.tr {
+					display: table-row;
+					vertical-align: middle;
+					line-height: 1.5;
+
+					.td {
+						display: table-cell;
+						vertical-align: middle;
+						width: @product_wrap_content_width / 3;
+						text-align: center;
+
+						&.download {
+							width: 100px;
+						}
+						&.buy_estimate {
+							width: 380px;
+						}
+					}
+				}
+
+			}
+		}
+	}
+
+}
+
+.news_wrapper {
+	background: #ffffff;
+	width: 100%;
+
+	.news_section {
+		@news_section_height: 340px;
+		@more_height: 60px;
+		@caption_height: 80px;
+		.to_page_center;
+
+		.more {
+			.height_center(@more_height);
+			text-align: right;
+			font-size: 18px;
+			position: absolute;
+			bottom: 0px;
+			right: 50px;
+			a {
+				color: #996c33;
+			}
+		}
+
+		.caption {
+			.height_center(@caption_height);
+			font-size: 24px;
+			color: black;
+			font-family: ﻿MicrosoftYaHei;
+		}
+
+		.left {
+			height: @news_section_height;
+			float: left;
+			width: 800px;
+			padding-right: 30px;
+			position: relative;
+
+			.display_tab {
+				text-align: left;
+				//color: #333333;
+				//border-bottom: 2px solid #E6E6E6;
+
+				//首页新闻的样式
+				li.tab_title_news {
+					font-family: "SimHei";
+					float: left;
+					width: 120px;
+					.height_center(@caption_height);
+					font-size: 24px;
+					color: black;
+					font-family: ﻿MicrosoftYaHei;
+
+					.height_center(@caption_height);
+					&.active {
+						color: #ff8800;
+					}
+				}
+
+				.tab_content {
+					clear: both;
+				}
+
+			}
+		}
+
+		.news_first_pic {
+			float: left;
+			margin-right: 30px;
+			img {
+				width: 375px;
+				height: 245px;
+			}
+		}
+
+		ul.news_title_list {
+			font-size: 20px;
+			li {
+				height: (@news_section_height - @more_height - @caption_height) / 5;
+				a, a:link, a:visited, a:hover, a:active {
+					color: #333333;
+					font-family: ﻿MicrosoftYaHei;
+				}
+
+				&.abstract {
+					height: ((@news_section_height - @more_height - @caption_height) / 5) * 2;
+					overflow: hidden;
+					line-height: 1.5;
+					text-indent: 2em;
+					a {
+						color: #929292;
+					}
+				}
+			}
+		}
+
+		.right {
+			position: relative;
+			width: 400px;
+			height: @news_section_height;
+			float: left;
+		}
+
+	}
+	.link_title {
+		width: 95px;
+		height: 90px;
+		font-family: ﻿MicrosoftYaHei;
+		font-size: 24px;
+		line-height: 90px;
+		color: #010101;
+		text-align: left;
+		.to_page_center;
+	}
+
+	.friend_link {
+		width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		.link {
+			flex: 1;
+
+			img {
+				width: 222px;
+				height: 100px;
+			}
+		}
+	}
+}
+
+.footer_wrapper, .footer_wrapper_grey {
+	background: black;
+	width: 100%;
+	@footer_height: 350px;
+	height: @footer_height;
+	.footer {
+		.to_page_center;
+		padding-top: 50px;
+		color: white;
+
+		a {
+			color: #76726d;
+		}
+
+		.left {
+			width: 500px;
+			float: left;
+			text-align: center;
+			color: #facd89;
+			line-height: 1.7;
+			margin-top: -30px;
+			font-size: 16px;
+		}
+
+		.middle {
+			float: left;
+			width: 400px;
+
+			div {
+				span {
+					width: 120px;
+					height: 50px;
+					text-align: center;
+					display: inline-block;
+
+				}
+			}
+		}
+
+		.right {
+			float: left;
+			display: block;
+
+			width: 200px;
+			.ios {
+				float: left;
+				margin-right: 50px;
+
+			}
+
+			p {
+				text-align: center;
+				padding-top: 10px;
+			}
+
+			.android {
+				float: left;
+			}
+
+		}
+	}
+
+	.bottom_info {
+		.to_page_center;
+		text-align: center;
+		color: #76726d;
+		font-size: 14px;
+	}
+
+}
+
+.footer_wrapper_grey {
+	background: #f7f8fd;
+	.footer {
+
+		.left {
+			color: #76726d;
+		}
+	}
+}
+
+.news_list_wrapper {
+	.to_page_center;
+	display: table;
+	color: #666666;
+	a {
+		color: #666666;
+	}
+	.tr {
+		display: table-row;
+
+		.td {
+			display: table-cell;
+			vertical-align: top;
+
+		}
+		.left {
+			width: 230px;
+			ul {
+				background: white;
+				width: 230px;
+				li {
+					font-size: 20px;
+					.height_center(60px);
+					color: #666666;
+					text-align: center;
+					border-bottom: 1px solid #eeeeee;
+					a, a:link, a:visited {
+						width: 230px;
+						display: block;
+
+					}
+					a:hover, .active {
+						width: 230px;
+						color: #ff8800;
+						display: block;
+						background: url("../pcImages/newsList/left_bar.png") left top no-repeat;
+					}
+
+				}
+			}
+			padding-bottom: 20px;
+		}
+
+		.middle {
+			width: 15px;
+		}
+
+		.right {
+			width: 955px;
+			padding-left: 35px;
+			background: white;
+			.caption {
+				font-size: 24px;
+			}
+			ul.list {
+
+				li {
+					font-size: 20px;
+					.height_center(60px);
+					color: #666666;
+					text-align: left;
+					border-bottom: 1px solid #eeeeee;
+					a, a:link, a:visited {
+						width: 700px;
+						display: inline-block;
+
+					}
+					a:hover {
+						width: 700px;
+						color: #ff8800;
+						display: inline-block;
+					}
+					.publish_time {
+						display: inline-block;
+						width: 200px;
+						text-align: right;
+					}
+
+				}
+			}
+
+			.page {
+				font-size: 20px;
+				.height_center(60px);
+				text-align: right;
+				width: 100%;
+				padding-right: 20px;
+				margin-bottom: 40px;
+
+				a {
+					display: inline-block;
+					.height_center(34px);
+					padding-left: 5px;
+					padding-right: 5px;
+					border: 1px solid #cccccc;
+
+					&.current, &:hover {
+						background: #ff8800;
+						color: white;
+					}
+				}
+
+			}
+
+			.news_content_wrapper {
+				padding-right: 20px;
+				.title {
+					font-size: 24px;
+					.height_center(70px);
+					text-align: center;
+				}
+
+				.more_info {
+					width: 400px;
+					margin: 0 auto;
+					font-size: 14px;
+					.height_center(40px);
+					.source {
+						width: 200px;
+						display: inline-block;
+						float: left;
+					}
+
+					.publish_date {
+						width: 200px;
+						text-align: right;
+						float: left;
+					}
+
+				}
+
+				.news_content {
+					line-height: 2;
+					margin-bottom:50px;
+				}
+
+				.previous_next {
+					text-align: left;
+					//margin-top: 60px;
+					//margin-bottom: 60px;
+					font-size: 18px;
+					a {
+						display: inline-block;
+						height: 50px;
+						line-height: 50px;
+						margin-right: 40px;
+						&:hover {
+							color: #ff8800;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.register_page {
+	background: url("../pcImages/loginAndRegister/bg.png") left center repeat-y;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	position: relative;
+	//登录注册页专用,因为设计时候高度宽度不一致,所以需要单独出来
+	.register_login_wrapper_4_login {
+		.to_page_center;
+		@login_form_height: 800px;
+		@login_form_width: 1200px;
+		@input_width: 700px;
+		width: @login_form_width;
+		font-size: 20px;
+		background: white;
+
+		.register_form {
+			width: @input_width;
+			margin: 0 auto;
+
+			div {
+				text-align: left;
+				.height_center(60px);
+			}
+
+			.input_telephone {
+				width: @input_width;
+			}
+			.sms_check_code {
+				position: relative;
+				.register_get_checkcode_btn {
+					position: absolute;
+					top: 4px;
+					right: 0;
+					.height_center(55px);
+					width: 200px;
+					img {
+						cursor: hand;
+						width: 102px;
+						height: 39px;
+					}
+
+				}
+			}
+
+			.pic_check_code {
+				position: relative;
+				.check_code {
+					position: absolute;
+					top: 4px;
+					right: 0;
+					.height_center(55px);
+					width: 200px;
+					border: 1px solid #cccccc;
+					width: 102px;
+					overflow: hidden;
+
+				}
+			}
+
+			.caption {
+				width: @input_width;
+				span {
+					display: inline-block;
+					width: 80px;
+					&.no_account {
+						float: right;
+						width: 190px;
+					}
+
+					a {
+						text-decoration: underline;
+						color: #b28850;
+					}
+				}
+			}
+
+			button {
+				background: #ff8800;
+				color: white;
+				width: 285px;
+				height: 50px;
+				line-height: 50px;
+				border: 1px solid #ff8800;
+				font-size: 20px;
+				border-radius: 0;
+				cursor: pointer;
+			}
+		}
+
+		p.security_guard {
+			background-color: #eeeeee;
+			width: 100%;
+			text-align: center;
+			font-size: 18px;
+			height: 40px;
+			line-height: 40px;
+			margin-top: 20px;
+		}
+	}
+}
+
+.security_guard_page {
+	.to_page_center;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+}
+
+.understand_us_page {
+	.to_page_center;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+}
+
+.charge_page {
+	padding-top: 40px;
+
+	.to_page_center;
+	@height: 300px;
+	//height: @height;
+	background: white;
+	margin-top: 10px;
+	.left {
+		width: 400px;
+		height: @height;
+		float: left;
+		padding-left: 30px;
+		background: url("../pcImages/user/account_bg.jpg") center top no-repeat;
+		position: relative;
+		.account_phone {
+			position: absolute;
+			font-size: 18px;
+			text-align: center;
+			top: 200px;
+			left: 140px;
+		}
+	}
+
+	.right {
+		width: 800px;
+		height: @height;
+		float: left;
+		@input_width: 400px;
+		@input_height: 55px;
+		div {
+			text-align: left;
+			.height_center(260px / 5);
+			font-size: 20px;
+		}
+
+		button {
+			margin-top: 15px;
+			background: #ff8800;
+			color: white;
+			width: @input_width;
+			height: 50px;
+			line-height: 50px;
+			border: 1px solid #ff8800;
+			font-size: 20px;
+			border-radius: 0;
+			cursor: pointer;
+		}
+
+		.input_telephone {
+			position: relative;
+			text-align: left;
+			width: @input_width;
+
+			.height_center(@input_height);
+			input {
+				line-height: normal; //这样就不会在浏览器光标跟高度一样高了
+				.height_center(@input_height);
+				border: 1px solid #cccccc; /*no*/
+				width: @input_width;
+				padding-left: 10px;
+				font-size: 18px;
+
+			}
+
+			.input_clear {
+				position: absolute;
+				font-size: 20px;
+				right: 15px;
+				cursor: pointer;
+				display: none;
+				color: #DADADA;
+				.height_center(@input_height);
+			}
+
+		}
+	}
+
+}
+
+.choose_bank_wrap {
+	.to_page_center;
+	background: white;
+	padding: 0px 50px 10px 70px;
+	.info {
+		font-size: 16px;
+		width: 400px;
+		height: 30px;
+		line-height: 30px;
+		padding-left: 15px;
+
+	}
+	.choose_bank {
+		.bank_list {
+			display: flex;
+			//align-items: center;
+			flex-wrap: wrap;
+			img {
+				margin: 5px;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.real_time_gold_price {
+	.to_page_center;
+	background: white;
+	margin-top: 10px;
+	font-family: MicrosoftYaHei;
+	.height_center(100px);
+
+	font-size: 24px;
+	padding: 0px 50px 10px 70px;
+	p {
+		float: left;
+		width: 300px;
+		.height_center(60px);
+		margin-top: 20px;
+
+	}
+
+}
+
+.account_summary {
+	.to_page_center;
+	@height: 200px;
+	margin-top: 10px;
+	//height: @height;
+	background: white;
+
+	.section {
+		display: flex;
+		margin-bottom: 30px;
+		//align-items: center;
+		//justify-content: space-around;
+		padding-top: 40px;
+		.left {
+			flex: 1;
+			float: left;
+			width: 400px;
+			//height: @height;
+			padding-left: 65px;
+			p {
+				.height_center(40px);
+				color: #333333;
+			}
+		}
+		.right {
+			flex: 1;
+			//height: @height;
+			float: left;
+			text-align: center;
+			button {
+				margin-top: 15px;
+				background: #ff8800;
+				color: white;
+				width: 150px;
+				height: 50px;
+				line-height: 50px;
+				border: 1px solid #ff8800;
+				font-size: 20px;
+				border-radius: 10px;
+				cursor: pointer;
+			}
+		}
+	}
+
+	#summaryChart {
+		margin: 0 auto;
+		width: 1000px;
+		border-top: 1px solid #dddddd;
+	}
+
+}
+
+.gold_price_dynamic {
+	p {
+		color: #ff8800;
+		text-align: left;
+		font-size: 16px;
+		line-height: 1.5;
+
+	}
+
+}
+
+#date_and_price {
+	height: 80px;
+	text-align: right;
+	line-height: 80px;
+	font-size: 18px;
+	color: #666666;
+	width: 100%;
+	padding-right: 140px;
+}
+
+#trend-chart {
+	height: 250px;
+	//width: 1050px;
+	//float: left;
+	width: 650px;
+}
+
+.trend-tab {
+	ul {
+		display: flex;
+		text-align: center;
+		justify-content: space-around;
+		padding-left: 25px;
+		padding-right: 25px;
+		font-size: 24px;
+		color: #666666;
+		height: 60px;
+		line-height: 60px;
+		border-bottom: 3px solid #F5F5F5;
+
+	}
+
+	li {
+		flex: 1;
+		&.active {
+			color: #FF8800;
+			border-bottom: 3px solid #ff8800; /*no*/
+		}
+
+	}
+	.trend_history {
+		flex: 1.4;
+	}
+}
+
+//团队介绍
+.detail_table {
+	display: table;
+	.detail_tr {
+		display: table-row;
+		.detail_td {
+			padding: 20px;
+
+			vertical-align: top;
+			display: table-cell;
+
+			.title {
+				font-family: MicrosoftYaHei;
+				font-size: 24px;
+				color: #464545;
+
+			}
+
+			.introduction {
+				padding-right:40px;
+				text-indent: 2em;
+				font-family: MicrosoftYaHei;
+				font-size: 16px;
+				color: #666666;
+				line-height: 2;
+			}
+
+			.introduction2 {
+				padding-right:40px;
+				margin-top:20px;
+				font-family: MicrosoftYaHei;
+				font-size: 16px;
+				color: #666666;
+				line-height: 2;
+			}
+		}
+	}
+}
+
+.app_download{
+	cursor: pointer;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 充值</title>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../js/plugin/toast/css/toast.css" th:href="@{/js/plugin/toast/css/toast.css}"/>
+    <link rel="stylesheet" href="../js/plugin/toast/css/animate.css" th:href="@{/js/plugin/toast/css/animate.css}"/>
+    <link rel="stylesheet" href="../css/css_reset.css" th:href="@{/css/css_reset.css}"/>
+    <link rel="stylesheet" href="../css/pc.css" th:href="@{/css/pc.css}"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+
+    <style type="text/css">
+
+    </style>
+</head>
+<body class="body">
+
+<div id="wrapper_login">
+    <div th:include="pc/include/template :: header(tab='myAccount')"></div>
+
+</div>
+<div class="charge_page">
+    <div class="left">
+        <div class="account_phone" th:text="${session.auth_member_session.mobilePhone}">1373****2128</div>
+    </div>
+    <div class="right">
+        <div style="color:#996c33">账户余额（元）</div>
+        <div class="color_ff8800" th:text="'￥'+${cashBalance}">￥1.08</div>
+        <div>充值金额（元）</div>
+        <div class="input_telephone">
+            <div class="input_clear"><span>x</span></div>
+            <input type="text" name="rechargeAmount" id="rechargeAmount" required="required" placeholder="请输入充值金额"
+                   class="need_input_clear">
+        </div>
+        <div>
+            <button id="recharge" class="pc_btn_1">充值</button>
+        </div>
+    </div>
+
+    <div class="cb"></div>
+</div>
+
+<div class="choose_bank_wrap">
+    <input type="hidden" id="bankChannelId" name="bankChannelId">
+
+    <div class="info">选择银行</div>
+    <div class="info">*实际支付限额以用户自行设置的银行限额为准</div>
+    <div class="choose_bank">
+        <div class="bank_list">
+            <img data-bank_id="ICBC" data-bank_channel="ICBC-NET-B2C" data-bank_name="中国工商银行"
+                 src="../pcImages/bankLogo/1.png"/>
+            <img data-bank_id="BOC" data-bank_channel="BOC-NET-B2C" data-bank_name="中国银行"
+                 src="../pcImages/bankLogo/2.png"/>
+            <img data-bank_id="CCB" data-bank_channel="CCB-NET-B2C" data-bank_name="中国建设银行"
+                 src="../pcImages/bankLogo/3.png"/>
+            <img data-bank_id="CITIC" data-bank_channel="ECITIC-NET-B2C" data-bank_name="中信实业银行"
+                 src="../pcImages/bankLogo/4.png"/>
+            <img data-bank_id="BOB" data-bank_channel="BCCB-NET-B2C" data-bank_name="北京银行"
+                 src="../pcImages/bankLogo/5.png"/>
+            <img data-bank_id="CEB" data-bank_channel="CEB-NET-B2C" data-bank_name="中国光大银行"
+                 src="../pcImages/bankLogo/6.png"/>
+            <img data-bank_id="PAB" data-bank_channel="SDB-NET-B2C" data-bank_name="平安银行"
+                 src="../pcImages/bankLogo/7.png"/>
+            <img data-bank_id="CMBC" data-bank_channel="CMBCHINA-NET-B2C" data-bank_name="招商银行"
+                 src="../pcImages/bankLogo/8.png"/>
+            <img data-bank_id="HXB" data-bank_channel="HXB-NET-B2C" data-bank_name="华夏银行"
+                 src="../pcImages/bankLogo/9.png"/>
+            <img data-bank_id="SPDB" data-bank_channel="SPDB-NET-B2C" data-bank_name="上海浦东发展银行"
+                 src="../pcImages/bankLogo/10.png"/>
+            <img data-bank_id="ABC" data-bank_channel="ABC-NET-B2C" data-bank_name="中国农业银行"
+                 src="../pcImages/bankLogo/11.png"/>
+            <img data-bank_id="CMSB" data-bank_channel="CMBC-NET-B2C" data-bank_name="中国民生银行"
+                 src="../pcImages/bankLogo/12.png"/>
+            <!-- <img data-bank_id="BOS" data-bank_channel="ICBC-NET-B2B" data-bank_name="上海银行" src="../pcImages/bankLogo/13.png"/>
+             <img data-bank_id="PSBC" data-bank_channel="ICBC-NET-B2B" data-bank_name="中国邮政储蓄银行" src="../pcImages/bankLogo/14.png"/>-->
+            <img data-bank_id="CIB" data-bank_channel="CIB-NET-B2C" data-bank_name="兴业银行"
+                 src="../pcImages/bankLogo/15.png"/>
+        </div>
+    </div>
+</div>
+<div class="cb"></div>
+<div th:include="pc/include/template :: homeFooter"></div>
+
+
+<script type="text/javascript" src="../js/pc/recharge.js" th:src="@{/js/pc/recharge.js}"></script>
+<!--<script type="text/javascript" src="../js/pc/user.js" th:src="@{/js/pc/user.js}"></script>-->
+</body>
+
+</html>
+</html>

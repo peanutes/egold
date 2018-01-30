@@ -1,0 +1,2943 @@
+@import "css_reset";
+@import "reveal";
+@import "main_nav";
+@import "header";
+
+.notice {
+	height: 70px;
+	line-height: 70px;
+	position: relative;
+	background: #F2F2F2;
+
+	.notice_titles {
+		height: 70px;
+		width: 70%;
+		padding-left: 104px;
+		top: 0;
+		background: url("../images/notice_icon.png") 55px center no-repeat;
+		background-size: 25px 25px;
+		color: #212020;
+		display: inline-block;
+
+		ul {
+			height: 70px;
+			overflow: hidden;
+
+			li {
+				height: 70px;
+				line-height: 70px;
+				.fontSize(28px);
+				color: #212028;
+			}
+		}
+
+	}
+
+	.close_notice {
+		display: inline-block;
+		height: 70px;
+		padding-right: 80px;
+		width: 20%;
+		cursor: pointer;
+		text-align: center;
+		background: url("../images/close.png") right center no-repeat;
+		background-size: 25px 25px;
+
+	}
+}
+
+.price_reference {
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	padding-left: 24px;
+
+	.price_note {
+		height: 100px;
+		line-height: 100px;
+		.fontSize(32px);
+		color: #666666;
+		text-align: left;
+	}
+
+	.refresh_price {
+		padding-left: 35px;
+		.refresh_price_img {
+			width: 30px;
+			height: 30px;
+
+		}
+
+	}
+}
+
+.current_gold {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 25px;
+	padding-right: 25px;
+	height: 140px;
+	text-align: center;
+	border-bottom: 12px solid #F5F5F5;
+
+	li {
+		flex: 1;
+	}
+
+	.price_compare {
+		display: block;
+		float: left;
+	}
+	.current_price {
+		.fontSize(48px);
+		color: #FF8800;
+		font-family: "PingFang SC";
+		height: 50px;
+	}
+	.market_price {
+		.fontSize(24px);
+		font-family: "SimHei";
+		color: #999999;
+
+	}
+
+	.buy_gold {
+		.buy_gold_btn {
+			width: 196px;
+			height: 63px;
+			align-self: center;
+		}
+	}
+
+	.trend {
+		display: table-cell;
+		text-align: right;
+		img {
+			vertical-align: text-bottom;
+			width: 46px;
+			height: 40px;
+		}
+		span {
+			.fontSize(34px);
+			color: #666666;
+			font-family: SimHei;
+			padding-left: 12px;
+			vertical-align: center;
+		}
+	}
+}
+
+.current_gold_title_4_trend {
+	background: url("../images/sound.png") 30px center no-repeat;
+	padding-left: 25px;
+	background-size: 41px 41px;
+	.onePixelBorder(bottom, #ff8800);
+
+	p {
+
+		font-family: SimHei;
+		color: #FF5D37;
+		.fontSize(40px);
+		height: 80px;
+		line-height: 80px;
+		padding-left: 60px;
+	}
+}
+
+.current_gold_4_trend {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left: 25px;
+	padding-right: 25px;
+	height: 180px;
+	text-align: center;
+	border-bottom: 12px solid #F5F5F5;
+
+	li {
+		flex: 1;
+	}
+
+	.price_compare {
+		display: block;
+		float: left;
+	}
+	.line1 {
+		.fontSize(40px);
+		color: #FF8800;
+		font-family: "PingFang SC";
+		height: 50px;
+	}
+	.market_price {
+		.fontSize(30px);
+		font-family: "SimHei";
+		color: #929292;
+
+	}
+
+	.buy_gold {
+		flex: 0.4;
+		text-align: center;
+		.buy_gold_btn {
+			width: 89px;
+			height: 75px;
+			align-self: center;
+		}
+	}
+
+	.trend {
+		flex: 1.2;
+		display: table-cell;
+		text-align: center;
+		.current_price {
+			color: #666666;
+		}
+		span {
+			.fontSize(30px);
+			color: #929292;
+			font-family: SimHei;
+			padding-left: 12px;
+			vertical-align: center;
+		}
+	}
+}
+
+.hot_product {
+	display: flex;
+	padding-left: 25px;
+	padding-right: 25px;
+	height: 99px;
+	line-height: 99px;
+	border-bottom: 2px solid #FFDBB4;
+	.hot_product_title {
+		.fontSize(36px);
+		color: #333333;
+		width: 620px;
+	}
+	.hot_product_more {
+		width: 130px;
+		.fontSize(28px);
+		color: #666666;
+		text-align: right;
+	}
+}
+
+.gold_type {
+	height: 72px;
+	line-height: 72px;
+	.fontSize(34px);
+	color: #333333;
+	padding-left: 75px;
+	padding-right: 30px;
+	.onePixelBorder(bottom, @splitLineColor);
+	display: flex;
+	.gold_type_title {
+		flex: 1;
+	}
+	.product_short_desc {
+		flex: 2;
+		text-align: right;
+	}
+
+}
+
+.new_commer {
+	background: url("../images/cheap_icon.png") 25px center no-repeat;
+	background-size: 33px 69px;
+}
+
+.spot_gold {
+	background: url("../images/stable_icon.png") 25px center no-repeat;
+	background-size: 33px 69px;
+}
+
+.buy_gold_now {
+	height: 139px;
+	text-align: center;
+	margin-top: 30px;
+	border-bottom: 2px solid #FFDBB4;
+
+	img {
+		width: 318px;
+		height: 78px;
+	}
+}
+
+.current_gold_buy_now {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+
+	ul {
+		display: flex;
+		text-align: center;
+		justify-content: space-around;
+
+		li {
+			flex: 1.3;
+		}
+
+		.price {
+			flex: 1.6;
+		}
+		.day {
+			flex: 1;
+		}
+	}
+
+	.number {
+		.fontSize(44px);
+		color: #ff8800;
+		height: 85px;
+		line-height: 85px;
+		text-align: center;
+
+	}
+	.desc {
+		.fontSize(30px);
+		color: #666666;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+
+	}
+}
+
+.security_guard {
+	margin-top: 40px;
+	border-top: 12px solid #F5F5F5;
+	height: 182px;
+	width: 100%;
+	img {
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+	}
+}
+
+.product_intro {
+	display: flex;
+	flex-direction: column;
+	padding-left: 62px;
+	margin-top: 50px;
+	background: url("../images/product_intro_bg.png") 420px top no-repeat;
+	background-size: 288px 179px;
+	border-bottom: 12px solid #F5F5F5;
+	.intro_title {
+		.fontSize(36px);
+		color: #333333;
+		height: 60px;
+		line-height: 70px;
+		line-height: 70px;
+	}
+
+	.intro_short {
+		.fontSize(28px);
+		color: #717171;
+		height: 70px;
+		line-height: 70px;
+
+	}
+
+	.view_product_intro {
+		.fontSize(26px);
+		color: #FF5100;
+		border: 1px solid #ffb414; /*no*/
+		border-radius: 10px;
+		width: 135px;
+		//padding-left:15px;
+		//papdding-right:15px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+}
+
+.cooperation-party {
+	height: 60px;
+	line-height: 60px;
+	color: #666666;
+	padding-left: 60px;
+	.onePixelBorder(bottom, #F5F5F5);
+	p {
+		.fontSize(30px);
+	}
+}
+
+.cooperation-party-list {
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		padding-left: 25px;
+		padding-right: 25px;
+		justify-content: space-around;
+		align-items: center;
+		margin-bottom:25px;
+
+		li {
+			a {
+				img {
+					width: 290px;
+					height:78px;
+					margin-top: 15px;
+				}
+			}
+
+		}
+	}
+}
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background: #f5f5f5;
+	.fontSize(24px);
+	//margin-top: 30px;
+	.security_company {
+		flex: 1;
+		color: #5d5d5d;
+		height: 72px;
+		line-height: 72px;
+	}
+
+	.check_bill_sample {
+		flex: 1;
+		background: #ffebcc;
+		border: 1px solid #ffebcc;
+		border-radius: 20px;
+		width: 220px;
+		height: 72px;
+		line-height: 72px;
+		a {
+			color: #ff9104;
+		}
+	}
+	.hot_line {
+		height: 72px;
+		line-height: 72px;
+		color: #717171;
+	}
+}
+
+.product_list {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	position: relative;
+	//padding-bottom: 20px;
+	ul {
+		display: flex;
+		text-align: center;
+		justify-content: space-around;
+
+		li {
+			flex: 1.4;
+		}
+
+		.price {
+			flex: 1.4;
+		}
+		.day {
+			flex: 1.4;
+		}
+
+	}
+
+	.gold_summary {
+		position: relative;
+		.product_hint {
+			position: absolute;
+			width: 382px;
+			top: 50px;
+			left: 340px;
+			.fontSize(30px);
+			color: #333333;
+			text-align: right;
+			//margin-right: 25px;
+		}
+
+		.unit{
+			.fontSize(26px);
+		}
+	}
+	.number {
+		.fontSize(44px);
+		color: #ff8800;
+		height: 75px;
+		line-height: 75px;
+		text-align: center;
+
+
+	}
+	.desc {
+		.fontSize(30px);
+		color: #929292;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		//padding-left: 25px;
+		margin-bottom:20px;
+
+	}
+
+	.product_hint_2 {
+		.fontSize(30px);
+		color: #929292;
+		text-align: right;
+		padding-right:20px;
+	}
+
+	.product_hint_3 {
+		.fontSize(30px);
+		color: #333333;
+		text-align: right;
+		padding-right:20px;
+	}
+}
+
+.current_price_top {
+	.fontSize(40px);
+	color: #B28850;
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	background: url("../images/maoboli_bg.png") center center repeat-x;
+	background-size: cover;
+	position: relative;
+	.price_number {
+	}
+	.unit {
+		.fontSize(32px);
+	}
+
+	.trend_pic {
+		position: absolute;
+		right: 0;
+		top: 0;
+		margin-right: 40px;
+		img {
+
+			width: 37px;
+			height: 33px;
+		}
+	}
+}
+
+.current_gold_type {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	text-align: left;
+	span {
+		flex: 1;
+		text-align: left;
+
+	}
+	.gold_type_title {
+		flex: 1.2;
+		.fontSize(34px);
+		color: #FFFFFF;
+		height: 56px;
+		line-height: 56px;
+		padding-left: 25px;
+	}
+
+	.gold_type_summary {
+		flex: 1;
+		.fontSize(30px);
+		color: #666666;
+		text-align: right;
+		padding-right: 25px;
+
+	}
+
+	.current_gold_bg {
+		background: url("../images/current_gold_bg.png") left center no-repeat;
+		background-size: 250px 56px;
+	}
+	.new_commer_bg {
+		background: url("../images/new_commer_bg.png") left center no-repeat;
+		background-size: 250px 56px;
+	}
+	.luxiaofeng_bg {
+		background: url("../images/luxiaofeng_bg.png") left center no-repeat;
+		background-size: 250px 56px;
+	}
+
+	.kanzhangdie_bg {
+		background: url("../images/kanzhangdie_bg.png") left center no-repeat;
+		background-size: 250px 56px;
+	}
+}
+
+.product_abstract {
+	ul {
+		display: flex;
+		justify-content: center;
+		height: 124px;
+		align-items: flex-start;
+		li {
+			flex: 1;
+			height: 50px;
+			line-height: 50px;
+			p {
+				text-align: center;
+				.fontSize(30px);
+			}
+
+		}
+		.number {
+			color: #FF8800;
+		}
+
+		.number_type {
+			color: #929292;
+		}
+	}
+}
+
+.latest_gold_price {
+	padding-left: 24px;
+	color: #333333;
+	height: 120px;
+	line-height: 120px;
+	border-bottom: 15px solid #F5F5F5;
+	p {
+		.fontSize(30px);
+		//这个是为了fix同一行文字大小不一致,部分数据需要动态ajax获取而导致的文字跳动适应居中的问题
+		//一开始就设置这个最大的字体大小,里面没有内容
+		.to_fix_line_height {
+			.fontSize(46px);
+			height: 120px;
+			line-height: 120px;
+		}
+		.number {
+			.fontSize(46px);
+			color: #FF8800;
+			margin-left: 10px;
+			display: inline-block;
+
+		}
+		.unit {
+			.fontSize(30px);
+			color: #666666;
+			margin-left: 10px;
+
+		}
+	}
+
+}
+
+.hot_news {
+	padding-left: 65px;
+	margin-top: 20px;
+	height: 80px;
+	line-height: 80px;
+	background: url("../images/hot_news_icon.png") 25px center no-repeat;
+	background-size: 27px 35px;
+	.hot_new_caption {
+		.fontSize(34px);
+		color: #FF8800;
+	}
+}
+
+.news_item {
+	display: table;
+	width: 100%;
+	.onePixelBorder(top, #F5F5F5);
+	padding-right: 25px;
+	padding-left: 25px;
+
+	.new_section {
+		display: table-cell;
+		padding: 32px 0;
+		vertical-align: top;
+	}
+	.news_title p {
+		height: 100px;
+		display: table-cell;
+		overflow: hidden;
+	}
+	.news_title a {
+		.fontSize(30px);
+		color: #242424;
+		margin-bottom: 30px;
+		width: 424px;
+		line-height: 40px;
+		overflow: hidden;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		-webkit-box-orient: vertical;
+		box-orient: vertical;
+		display: -webkit-box;
+	}
+	img {
+		width: 242px;
+		height: 165px;
+		vertical-align: top
+	}
+	.publish_time, .news_source {
+		.fontSize(24px);
+		color: #666666;
+		display: inline-block;
+		vertical-align: middle;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 50px;
+	}
+	.news_source {
+		margin-left: 10px;
+	}
+
+	.news_source {
+		border: 1px solid #CCCCCC;
+		padding: 5px;
+		border-radius: 10px;
+	}
+
+}
+
+.load_more {
+	height: 80px;
+	line-height: 80px;
+	.fontSize(24px);
+	color: #bfbdbd;
+	text-align: center;
+	background: #F5F5F5;
+	.onePixelBorder(bottom, #D2D2D2);
+}
+
+.gold_menu_mine {
+	padding-top: 30px;
+	border-bottom: 15px solid #F5F5F5;
+	ul {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 162px;
+
+		li {
+			flex: 1;
+			text-align: center;
+			display: table-cell;
+			img {
+				width: 60px;
+				height: 54px;;
+			}
+			p {
+				text-align: center;
+				.fontSize(30px);
+				color: #333333;
+				height: 90px;
+				line-height: 90px;
+			}
+		}
+	}
+}
+
+.mine_function {
+
+	ul {
+		display: flex;
+		height: 100px;
+		line-height: 100px;
+
+		li {
+			flex: 1;
+			background: url("../images/squre_icon.png") 48px center no-repeat;
+			background-size: 32px 32px;
+			text-align: center;
+			.fontSize(34px);
+
+			color: #333333;
+
+			&:nth-child(1) a {
+				display: inline-block;
+				height: 80px;
+				line-height: 80px;
+				width: 100%;
+				.onePixelBorder(right, #E6E6E6);
+			}
+		}
+	}
+}
+
+.my_balance {
+	background: url("../images/balance_bg.png") center center no-repeat;
+	//background-size: 750px 525px;
+	background-size: cover; //这样子可以撑开整个页面
+	height: 525px;
+	.balance_all {
+		height: 276px;
+		.top_icon {
+			height: 88px;
+			line-height: 88px;
+			position: relative;
+			padding-left: 40px;
+			.account_icon {
+				width: 37px;
+				height: 36px;
+			}
+			.message_icon {
+				width: 37px;
+				height: 36px;
+				position: absolute;
+				top: 24px;
+				right: 100px;
+			}
+			.setting_icon {
+				width: 37px;
+				height: 36px;
+				position: absolute;
+				top: 24px;
+				right: 40px;
+			}
+		}
+
+		.total_balance {
+			padding-left: 50px;
+			.title {
+				.fontSize(34px);
+				height: 80px;
+				line-height: 80px;
+				color: #F5F5F5;
+				font-family: SimHei;
+
+			}
+			.number, .start {
+				color: #F5F5F5;
+				.fontSize(60px);
+				height: 80px;
+				line-height: 80px;
+				font-family: "ArialMT";
+			}
+
+			.display_or_hide_number {
+				width: 40px;
+				height: 25px;
+				margin-left: 15px;
+				vertical-align: middle;
+			}
+		}
+
+	}
+
+	.assets {
+		height: 226px;
+		padding-left: 40px;
+		padding-right: 40px;
+		color: #666666;
+		ul {
+			display: flex;
+			li {
+
+				p {
+					.fontSize(26px);
+					height: 70px;
+					line-height: 70px;
+					padding-right: 5px;
+				}
+
+				.number, .start {
+					color: #FF8800;
+				}
+			}
+		}
+		.yesterday {
+			flex: 1.2
+		}
+		.increment {
+			flex: 1;
+		}
+		.all_assets {
+			flex: 1.5;
+			text-align: right;
+		}
+
+		.total_balance_number, .start {
+			.fontSize(26px);
+			height: 70px;
+			line-height: 70px;
+			color: #FF8800;
+		}
+
+	}
+}
+
+.red_package_coupon {
+	height: 160px;
+
+	ul {
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		li {
+			flex: 1;
+			height: 120px;
+			line-height: 160px;
+			.fontSize(30px);
+			padding-top: 50px;
+
+			&:nth-child(1) {
+				.onePixelBorder(right, #E6E6E6);
+			}
+		}
+	}
+	.red_package {
+		background: url("../images/red_package.png") center center no-repeat;
+		background-size: 48px 56px;
+	}
+	.coupon {
+		background: url("../images/coupon.png") center center no-repeat;
+		background-size: 72px 49px;
+
+	}
+
+}
+
+.available_balance {
+	padding-left: 46px;
+	padding-right: 46px;
+	ul {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 140px;
+		li {
+			flex: 1;
+			.fontSize(30px);
+			color: #333333;
+
+		}
+		.available_balance_title {
+			.fontSize(30px);
+			height: 50px;
+			line-height: 50px;
+		}
+		.number, .start {
+			.fontSize(34px);
+			padding-top: 20px;
+			color: #ff8800;
+		}
+		.function {
+			padding-top: 20px;
+			text-align: center;
+			display: table;
+			margin-left: 20px;
+
+			.cash {
+				width: 162px;
+				height: 87px;
+				line-height: 120px;
+				display: table-cell;
+				vertical-align: center;
+				text-align: center;
+				background: url("../images/cash_bg.png") 30px center no-repeat;
+				background-size: 132px 67px;
+				color: #ff8800;
+				padding-left: 40px;
+
+			}
+
+			.charge {
+				width: 172px;
+				display: table-cell;
+				text-align: center;
+				height: 67px;
+				background: url("../images/charge_bg.png") 40px center no-repeat;
+				background-size: 132px 67px;
+				color: #FFFFFF;
+				padding-left: 40px;
+			}
+		}
+	}
+}
+
+.gold_price_reference_note {
+	.fontSize(26px);
+	color: #666666;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+
+.gold_price_dynamic {
+	p {
+		color: #ff8800;
+		text-align: left;
+		.fontSize(24px);
+		line-height: 1.5;
+
+	}
+
+}
+
+#date_and_price {
+	height: 80px;
+	text-align: right;
+	line-height: 80px;
+	.fontSize(24px);
+	color: #666666;
+	width: 100%;
+	padding-right: 40px;
+}
+
+#trend-chart {
+	height: 500px;
+	width: 720px;
+	margin-left: 20px;
+}
+
+.trend-tab {
+	ul {
+		display: flex;
+		text-align: center;
+		justify-content: space-around;
+		padding-left: 25px;
+		padding-right: 25px;
+		.fontSize(32px);
+		color: #666666;
+		height: 60px;
+		line-height: 60px;
+		.onePixelBorder(bottom, #F5F5F5);
+
+	}
+
+	li {
+		flex: 1;
+		&.active {
+			color: #FF8800;
+			border-bottom: 3px solid #ff8800; /*no*/
+		}
+
+	}
+	.trend_history {
+		flex: 1.4;
+	}
+}
+
+//文章资讯详情页
+.hotinfo_detail {
+	padding: 40px;
+	.title {
+		.fontSize(36px);
+		color: rgb(51, 51, 51);
+		line-height: 60px;
+	}
+	.infos {
+		.fontSize(26px);
+		height: 60px;
+		line-height: 60px;
+		color: rgb(102, 102, 102);
+	}
+
+	.content {
+		//line-height: 1;/*no*/
+		.fontSize(28px);
+
+	}
+}
+
+//文章资讯详情页,专门为app调用而设置的样式,不会使用高清方案
+.hotinfo_detail_4_app {
+	padding: 15px; /*no*/
+	.title {
+		font-size: 24px; /*no*/
+		color: rgb(51, 51, 51);
+		line-height: 40px; /*no*/
+	}
+	.infos {
+		font-size: 14px; /*no*/
+		height: 40px; /*no*/
+		line-height: 40px; /*no*/
+		color: rgb(102, 102, 102);
+	}
+	.content {
+		line-height: 2; /*no*/
+		font-size: 16px; /*no*/
+	}
+}
+
+.scrollView {
+	overflow-x: hidden;
+	overflow-y: auto;
+	//height: -webkit-calc(100% + 2000px);/*no*/
+	//height: -moz-calc(100% + 2000px);/*no*/
+	//height: calc(100% + 2000px);/*no*/
+}
+
+//买金详情页
+.gold_detail {
+
+	//新手专享金
+	.new_user_order_detail {
+		padding-left: 45px;
+		padding-right: 45px;
+		p {
+			height: 100px;
+			line-height: 100px;
+			.fontSize(36px);
+			color: #666666;
+		}
+
+		.more_info {
+			position: absolute;
+			.fontSize(28px);
+			color: #bdbdbd;
+			height: 100px;
+			line-height: 100px;
+			text-align: right;
+			right: 45px;
+			width: 100%;
+
+			display: inline-block;
+		}
+	}
+
+	.price {
+		height: 120px;
+		line-height: 120px;
+		color: #FF8800;
+		text-align: center;
+		.fontSize(48px);
+		font-family: "PingFang SC Medium";
+	}
+
+	.expect_annual_rate {
+		.fontSize(28px);
+		font-family: SimHei;
+		color: #929292;
+		height: 80px;
+		line-height: 80px;
+		text-align: center;
+	}
+
+	.plus_rate {
+		.fontSize(30px);
+		color: #FF8800;
+		font-family: "PingFang SC Regular";
+		text-align: center;
+		background: url("../images/plus.png") center center no-repeat;
+		background-size: 256px 66px;
+		height: 66px;
+		line-height: 70px;
+	}
+
+	.more_info {
+		text-align: center;
+		.fontSize(28px);
+		height: 80px;
+		line-height: 80px;
+
+	}
+
+	ul.key_info {
+		height: 150px;
+		line-height: 150px;
+		background: url("../images/key_info_bg.png");
+		background-size: cover;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		text-align: center;
+		li {
+			flex: 1;
+			&:nth-child(2) {
+				flex: 1.3;
+			}
+
+			p {
+				font-family: "SimHei";
+				line-height: 1.5;
+				color: #ffffff;
+
+				&:nth-child(1) {
+					.fontSize(36px);
+				}
+
+				&:nth-child(2) {
+					.fontSize(28px);
+				}
+			}
+
+		}
+	}
+
+	.rise_n_fall_price_section {
+		@height: 156px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: auto;
+		margin-bottom: 20px;
+		height: 156px;
+		.price {
+			flex: 1;
+			text-align: center;
+
+			font-family: SimHei;
+
+			p {
+				height: @height/3;
+				line-height: @height/3;
+				.fontSize(28px);
+			}
+		}
+	}
+	.rise_and_fall_pic_detail {
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	//详情页tab
+	ul.detail_tab {
+		display: flex;
+		text-align: center;
+		justify-content: space-between;
+		align-items: center;
+		.fontSize(32px);
+		color: #666666;
+		height: 100px;
+		//line-height: 100px;
+		border-bottom: 2px solid #E6E6E6;
+		padding-left: 26px;
+		padding-right: 26px;
+		margin-bottom: 10px;
+
+		li {
+			flex: 1;
+			font-family: "SimHei";
+			.fontSize(34px);
+
+			&.active {
+				//background: url("../images/detail_tab_bg.png") center center no-repeat;
+				//background-size: 203px 57px;
+				background: #ffb314;
+				height: 60px;
+				line-height: 60px;
+				border-radius: 10px;
+				color: #FFFFFF;
+			}
+		}
+
+	}
+
+	//详情列表详细
+	.product_detail_list {
+		display: table;
+		.fontSize(28px);
+		color: #333333;
+		font-family: "PingFang SC Regular";
+		line-height: 2;
+
+		.detail_row {
+			display: table-row;
+			.detail_caption {
+				display: table-cell;
+				width: 250px;
+				//word-break: keep-all; //让它自适应宽度
+				padding-right: 20px; //这样设置才不会拥挤在一起,因为下一个td没有text-align：right
+				border-bottom: 2px solid #E6E6E6;
+				padding-left: 25px;
+			}
+
+			.detail_desc {
+				padding-right: 25px;
+				color: #666666;
+				display: table-cell;
+				border-bottom: 2px solid #E6E6E6;
+				width: 500px; //让它自适应宽度
+
+			}
+		}
+	}
+
+	//购买记录详细
+	.buying_record_list {
+		display: table;
+		.fontSize(28px);
+		color: #333333;
+		font-family: "PingFang SC Regular";
+		line-height: 2;
+
+		.detail_row {
+			display: table-row;
+
+			.telephone {
+				display: table-cell;
+				border-bottom: 2px solid #E6E6E6;
+				padding-left: 25px;
+				padding-top: 5px;
+				width: 300px;
+				img {
+					width: 44px;
+					height: 44px;
+				}
+			}
+
+			.buying_weight {
+				padding-right: 25px;
+				color: #666666;
+				display: table-cell;
+				border-bottom: 2px solid #E6E6E6;
+				width: 200px;
+			}
+
+			.buying_time {
+				padding-right: 25px;
+				color: #666666;
+				display: table-cell;
+				border-bottom: 2px solid #E6E6E6;
+				width: 250px;
+			}
+		}
+	}
+
+	//faq详细
+	.faq_list {
+		display: table;
+		.fontSize(28px);
+		color: #333333;
+		font-family: "PingFang SC Regular";
+		line-height: 2;
+		padding-left: 25px;
+		padding-right: 25px;
+		.question {
+			.fontSize(28px);
+		}
+		.answer {
+			color: blue;
+			.fontSize(28px);
+			text-indent: 2em;
+		}
+	}
+}
+
+//faq详细
+.faq_list_4_app {
+
+	div {
+		display: table;
+		.fontSize(28px);
+		color: #333333;
+		font-family: "PingFang SC Regular";
+		line-height: 2;
+		padding-left: 25px;
+		padding-right: 25px;
+		.question {
+			.fontSize(28px);
+			color: blue;
+		}
+		.answer {
+			color: blue;
+			.fontSize(28px);
+			padding-left: 2em;
+		}
+	}
+
+}
+
+.buy_sell_button {
+	background: #FF8800;
+	.fontSize(40px);
+	font-family: "PingFang SC Regular";
+	color: #ffffff;
+	text-align: center;
+	height: 120px;
+	line-height: 120px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+
+.confirm_button {
+	background: #FF8800;
+	.fontSize(40px);
+	font-family: "PingFang SC Regular";
+	color: #ffffff;
+	text-align: center;
+	height: 120px;
+	line-height: 120px;
+	display: inline-block;
+	width: 280px;
+	margin-right: -25px;
+}
+
+.warning_info {
+	.fontSize(22px);
+	color: #717171;
+	font-family: "SimHei";
+	height: 90px;
+	line-height: 90px;
+	text-align: center;
+	background: #F5F5F5;
+}
+
+//买金订单详情页
+.gold_order_detail, .market_order_detail {
+	background: white;
+	.realtime_price {
+		height: 120px;
+		line-height: 120px;
+		color: #ffffff;
+		text-align: center;
+		.fontSize(48px);
+		background: url("../images/bg_rectangle.png") center center no-repeat;
+		background-size: cover;
+		font-family: "PingFang SC Medium";
+	}
+	//.current_price{
+	//	width:150px;
+	//	text-align: center;
+	//}
+
+	//详情列表详细
+	.order_detail_list {
+		display: table;
+		.fontSize(32px);
+		color: #333333;
+		font-family: "PingFang SC Regular";
+		line-height: 2;
+
+		.detail_row {
+			display: table-row;
+
+			.detail_caption {
+				display: table-cell;
+				padding-left: 25px;
+				width: 350px;
+				word-break: keep-all;
+
+			}
+
+			.detail {
+				padding-right: 25px;
+				display: table-cell;
+				text-align: right;
+				width: 400px; //这里取尽量大的意思，左边只需要显示完整， 右边自适应,这里暂失效了
+				//input {
+				//	.fontSize(28px);
+				//	padding: 5px;
+				//}
+			}
+		}
+
+	}
+
+	//订单成功页
+	.success_buying_summary {
+		background: url("../images/success_order_bg.png") center center no-repeat;
+		background-size: cover;
+		width: 750px;
+		width: 100%;
+		height: 376px;
+		text-align: center;
+		.fontSize(40px);
+		line-height: 2;
+
+		.ok {
+			text-align: left;
+			margin-left: 44px;
+			margin-right: 44px;
+			height: 90px;
+			line-height: 90px;
+			position: relative;
+			.finish_info {
+				position: absolute;
+				right: 0;
+				top: 0;
+
+			}
+			img {
+				width: 38px;
+				height: 37px;
+			}
+		}
+	}
+
+	.remind_info {
+		height: 128px;
+		text-align: center;
+		.fontSize(26px);
+		color: #929292;
+		line-height: 2;
+		background: #F5F5F5;
+		padding-left: 15px;
+		padding-right: 15px;
+		display: flex;
+		justify-items: center;
+		align-items: center;
+		text-align: center;
+		width: 100%;
+
+		span {
+			text-align: center;
+			flex: 1;
+		}
+	}
+	.small_remind_info {
+		.fontSize(20px);
+		color: #929292;
+		height: 60px;
+		line-height: 60px;
+		padding-left: 25px;
+
+	}
+
+	.popUpMask {
+		width: 100%;
+		height: 100%;
+		background: #929292;
+		filter: alpha(Opacity=70);
+		-moz-opacity: 0.4;
+		opacity: 0.4;
+		z-index: 999999;
+		position: fixed;
+		bottom: 0;
+		display: none;
+
+	}
+
+	#requestPayPasswordWrapper, #checksmscodewrapper {
+		display: none;
+		filter: alpha(Opacity=100);
+		-moz-opacity: 1.0;
+		opacity: 1.0;
+		z-index: 9999999;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 500px;
+		background: #f5f5f5;
+		padding-left: 20px;
+		padding-right: 20px;
+		.fontSize(30px);
+		.detail_caption {
+			display: block;
+			heigh: 90px;
+			line-height: 90px;
+			.fontSize(30px);
+			text-align: center;
+			position: relative;
+			width: 100%;
+
+		}
+
+		.close_pay, .close_sms {
+			position: absolute;
+			left: 20px;
+			width: 100px;
+			z-index: 99999999;
+			height: 90px;
+			line-height: 90px;
+			.fontSize(30px);
+			color: #929292;
+		}
+
+		.payPwd {
+			height: 80px;
+			line-height: normal;
+			.fontSize(30px);
+			text-align: left;
+		}
+
+		.use_bank_card {
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			color: #929292;
+			.fontSize(24px);
+		}
+		.confirm_pay_button {
+			border: 1px solid #ff8800;
+			background: #ff8800;
+			color: white;
+			text-align: center;
+			width: 100%;
+			border-radius: 10px;
+			.fontSize(40px);
+			height: 100px;
+			line-height: 100px;
+		}
+	}
+
+	#checksmscodewrapper {
+		z-index: 999999999999999;
+
+	}
+
+}
+
+//注册登录页
+.register {
+	.register_detail_list {
+		.control_section {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+
+			p {
+				flex: 1;
+				//height: 120px;
+				line-height: 3;
+				margin-bottom: 10px;
+				text-align: center;
+				.fontSize(30px);
+				font-family: "Microsoft YaHei";
+				color: #666666;
+
+				&.color_929292 {
+					color: #929292;
+				}
+
+				&.info {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+				}
+
+			}
+
+			.submit_button {
+				border: 1px solid #FF8800;
+				border-radius: 15px;
+				background: #FF8800;
+				color: #FFFFFF;
+				width: 90%;
+				text-align: center;
+				display: inline-block;
+				height: 80px;
+				//line-height: 80px;
+				.fontSize(36px);
+				font-family: SimHei;
+			}
+
+			.register_egold {
+				margin-top: 40px;
+				img {
+					width: 147px;
+					height: 147px;
+				}
+			}
+
+			.register_phone {
+				margin-top: 40px;
+				img {
+					width: 95px;
+					height: 177px;
+				}
+			}
+
+			.register_phone_2 {
+				margin-top: 40px;
+				img {
+					width: 167px;
+					height: 188px;
+				}
+			}
+
+			.register_wechat {
+				margin-top: 40px;
+				img {
+					width: 97px;
+					height: 98px;
+				}
+			}
+
+			.register_aliyun {
+				margin-top: 40px;
+				img {
+					width: 174px;
+					height: 55px;
+				}
+			}
+
+			.register_success {
+				margin: 40px;
+				height: 200px;
+				img {
+					width: 201px;
+					height: 201px;
+				}
+			}
+
+			.success_info {
+				height: 100px;
+
+			}
+
+			.input_more_info {
+				position: relative;
+				width: 90%;
+				margin-left: 25px;
+				margin-right: 25px;
+				border: 1px solid red;
+				font-family: SimHei;
+				height: 70px;
+				line-height: 70px;
+				.fontSize(30px);
+
+			}
+
+			.input_telephone {
+				position: relative;
+				width: 90%;
+				margin-left: 25px;
+				margin-right: 25px;
+				text-align: left;
+
+				input {
+					height: 70px;
+					line-height: 70px;
+					line-height: normal; //这样就不会在浏览器光标跟高度一样高了
+
+					.fontSize(30px);
+					border: 1px solid #cccccc; /*no*/
+
+					&.only_bottom_border {
+						border-top: 0;
+						border-left: 0;
+						border-right: 0;
+					}
+				}
+
+			}
+
+			.count_down {
+				color: #dadada;
+			}
+
+			.check_code_btn {
+				color: #dadada;
+				//display: inline;
+				//width:200px;
+				text-align: center;
+				align-self: center;;
+				.fontSize(30px);
+				margin-left: 10px;
+
+			}
+
+			#errorPlaceHolder, .errorPlaceHolder {
+				color: red;
+				text-align: center;
+				.fontSize(26px);
+			}
+
+			.agree_to_protocol {
+				input {
+					width: 30px;
+					height: 30px;
+				}
+				span {
+					color: #FF8800;
+					height: 70px;
+					line-height: 70px;
+					.fontSize(28px);
+					font-family: SimHei;
+					margin-left: 10px;
+				}
+			}
+
+			.real-name {
+				background: #f5f5f5;
+				display: table;
+				padding-top: 35px;
+
+				.lock {
+					display: table-cell;
+					img {
+						width: 33px;
+						height: 42px;
+					}
+					width: 105px;
+					padding-left: 55px;
+					vertical-align: top;
+					line-height: 2;
+				}
+				.info {
+					vertical-align: top;
+					display: table-cell;
+					line-height: 2;
+					color: #929292;
+					.fontSize(30px);
+					text-align: left;
+					padding: 0px 45px 25px 15px;
+				}
+			}
+
+			.bank-card-binding {
+				height: 100px;
+				line-height: 100px;
+				width: 100%;
+				color: #FF5100;
+				font-family: SimHei;
+				padding-left: 45px;
+				.fontSize(30px);
+				text-align: left;
+				background: #fff5da;
+			}
+
+			.bank-card-holder {
+				font-family: SimHei;
+				.fontSize(36px);
+				color: #666666;
+				text-align: left;
+				margin-left: 65px;
+				height: 120px;
+				line-height: 120px;
+				width: 100%;
+			}
+
+		}
+
+		.bank-card-info {
+			text-align: left;
+			width: 100%;
+			padding-left: 45px;
+			height: 150px;
+			line-height: 150px;
+
+			img {
+				width: 43px;
+				height: 43px;
+			}
+		}
+
+		.for_bank_card_number {
+
+			.warn_reminder {
+				padding-left: 45px;
+				padding-right: 45px;
+
+				.title {
+					color: #cfa972;
+					font-family: SimHei;
+					.fontSize(34px);
+					text-align: left;
+					color: #cfa972;
+					height: 120px;
+					line-height: 120px;
+
+				}
+
+				p {
+					color: #cfa972;
+					font-family: SimHei;
+					.fontSize(26px);
+					text-align: left;
+					line-height: 2;
+				}
+			}
+
+		}
+	}
+}
+
+.paying {
+	height: 560px;
+	background: #F5F5F5;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 9999999999999999;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+
+	p {
+		flex: 1;
+		//height: 120px;
+		line-height: 3;
+		margin-bottom: 10px;
+		text-align: center;
+		.fontSize(30px);
+		font-family: "Microsoft YaHei";
+
+		&.use_card {
+
+		}
+	}
+
+	.top_paying_info {
+		position: relative;
+		width: 100%;
+
+		.title {
+			height: 90px;
+			line-height: 90px;
+		}
+
+		.close {
+			position: absolute;
+			left: 0px;
+			width: 140px;
+			height: 90px;
+			line-height: 90px;
+			text-align: center;
+			cursor: pointer;
+			.fontSize(36px);
+			color: #666666;
+		}
+	}
+
+	.pay_password {
+		position: relative;
+		background: #ffffff;
+		height: 80px;
+		line-height: 80px;
+		width: 80%;
+		.fontSize(30px);
+		color: #333333;
+
+		input {
+			display: inline;
+			margin-left: 250px;
+			width: 50%;
+			border: 0px;
+			height: 70px;
+			line-height: 70px;
+			.fontSize(30px);
+			color: #333333;
+		}
+
+		span {
+			position: absolute;
+			width: 250px;
+			text-align: right;
+			padding-right: 25px;
+			.fontSize(30px);
+			color: #333333;
+
+		}
+		.count_down {
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			text-align: right;
+			.fontSize(30px);
+			color: #333333;
+			background: #d2d2d2;
+			right: 0;
+			bottom: 0;
+		}
+	}
+
+	.submit_button {
+		border: 1px solid #FF8800;
+		border-radius: 15px;
+		background: #FF8800;
+		color: #FFFFFF;
+		width: 90%;
+		text-align: center;
+		display: inline-block;
+		height: 80px;
+		//line-height: 80px;
+		.fontSize(36px);
+		font-family: SimHei;
+		margin-bottom: 60px;
+	}
+
+}
+
+.my_invitation_detail {
+	background: #f5f5f5;
+	height: 100%;
+
+	.top_title {
+		background: #ffffff;
+	}
+	.increment_tips {
+		height: 249px;
+		background: #ffffff;
+		margin-left: 30px;
+		margin-right: 30px;
+		margin-bottom: 20px;
+
+		.increment_tips_title {
+			background: url("../images/increment_tips_bg.png") 22px center no-repeat;
+			background-size: 241px 56px;
+			padding-left: 42px;
+			.fontSize(30px);
+			color: #FEFEFE;
+			height: 56px;
+			line-height: 56px;
+			width: 286px;
+			margin-top: 25px;
+		}
+		.increment_tips_ammout {
+			text-align: center;
+			.fontSize(50px);
+			height: 120px;
+			line-height: 120px;
+		}
+	}
+
+	.invitation_detail_list {
+		background: #ffffff;
+		margin-left: 30px;
+		margin-right: 30px;
+		.row {
+			padding-left: 25px;
+			padding-right: 25px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-bottom: 2px solid #f5f5f5;
+			text-align: center;
+
+			&:nth-child(1) {
+				border-bottom: 2px solid #ffb414;
+				.fontSize(36px);
+			}
+
+			p {
+				flex: 1;
+				.fontSize(30px);
+				color: #666666;
+				height: 80px;
+				line-height: 80px;
+			}
+
+		}
+
+	}
+
+	.invitation_button_wrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.submit_button {
+			flex: 1;
+			border: 1px solid #FF8800;
+			border-radius: 15px;
+			background: #FF8800;
+			color: #FFFFFF;
+			width: 90%;
+			text-align: center;
+			display: inline-block;
+			height: 80px;
+			line-height: 80px; //这里需要comment吗?如果comment了,邀请好友就不对齐了
+			.fontSize(36px);
+			font-family: SimHei;
+			margin-left: 50px;
+			margin-right: 50px;
+			margin-top: 50px;
+		}
+	}
+}
+
+//我的银行卡页
+.my_bankcard_detail {
+	background: #f5f5f5;
+	height: 100%;
+
+	.top_title {
+		background: #ffffff;
+	}
+
+	.info_tips {
+		background: #ffffff;
+		margin-left: 30px;
+		margin-right: 30px;
+		margin-bottom: 20px;
+
+		.info_tips_title {
+			background: url("../images/increment_tips_bg.png") 22px center no-repeat;
+			background-size: 201px 56px;
+			padding-left: 42px;
+			.fontSize(30px);
+			color: #FEFEFE;
+			height: 56px;
+			line-height: 56px;
+			width: 286px;
+			margin-top: 25px;
+		}
+		.info_tips_content {
+			text-align: left;
+			.fontSize(28px);
+			color: #666666;
+			line-height: 2;
+			text-indent: 2em;
+			padding-left: 42px;
+			padding-right: 42px;
+
+		}
+
+	}
+
+	.my_bankcard {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-left: 40px;
+		padding-right: 40px;
+		background: #ffffff;
+
+		div {
+			flex: 1;
+			.fontSize(30px);
+			color: #929292;
+
+			p {
+				.fontSize(36px);
+				color: #333333;
+				line-height: 2;
+			}
+
+			&.my_bankcard_name {
+				flex: 3.8;
+				text-align: left;
+				p:nth-child(2) {
+					color: #929292;
+					font-size: 30px;
+				}
+			}
+
+			&.my_bankcard_icon {
+				flex: 1;
+				img {
+					width: 101px;
+					height: 101px;
+				}
+			}
+
+			&.unbind_my_bankcard {
+				flex: 0.1;
+				color: #FCA000;
+				text-align: center;
+				//.onePixelBorder(left, #FCA000);
+				height: 60px;
+				line-height: 60px;
+			}
+		}
+
+	}
+	.warn_reminder {
+		.title {
+			.fontSize(30px);
+			color: #666666;
+			font-family: SimHei;
+			text-indent: 0em;
+			height: 100px;
+			line-height: 100px;
+
+		}
+
+		p {
+			.fontSize(28px);
+			color: #929292;
+			line-height: 2;
+			padding-left: 42px;
+			padding-right: 42px;
+			text-indent: 2em;
+		}
+	}
+
+}
+
+#errorPlaceHolder, .errorPlaceHolder {
+	color: red;
+	text-align: center;
+	.fontSize(26px);
+	padding-top: 10px;
+}
+
+//推广页
+.security_guard_page {
+	img {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.invitation_page {
+	position: relative;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.friend_first_invest, .all_year_refund {
+		position: relative;
+		.check_detail {
+			left: 43px;
+			top: 180px;
+			position: absolute;
+			border: 1px solid #ffb414;
+			background: #ffb414;
+			border-radius: 10px;
+			width: 240px;
+			height: 70px;
+			text-align: center;
+			line-height: 70px;
+			color: #ffffff;
+			letter-spacing: 2px;
+			font-family: SourceHanSansCN-Regular;
+
+		}
+	}
+	.my_invitation {
+		position: relative;
+		.check_detail {
+			top: 50px;
+			right: 0px;
+			display: block;
+			position: absolute;
+			width: 131px;
+			height: 70px;
+		}
+	}
+
+}
+
+.product_desc_page {
+	position: relative;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+}
+
+.understand_us_page {
+	position: relative;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+	.why_gold {
+		position: relative;
+		.button {
+			position: absolute;
+			top: 10px;
+			left: 0px;
+			a {
+				display: block;
+				width: 375px;
+				height: 150px;
+				float: left;
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+}
+
+.new_user_interest_page {
+	position: relative;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.new_user_interest_button {
+		position: relative;
+		.button {
+			position: absolute;
+			top: 20px;
+
+			a {
+				display: inline-block;
+				width: 255px;
+				height: 340px;
+				float: left;
+				color: #ffc600;
+				font-family: SourceHanSansCN-Heavy;
+				.fontSize(50px);
+				text-align: center;
+				padding-top: 130px;
+
+				&.btn1 {
+					margin-left: 50px;
+				}
+
+				&.btn2 {
+					margin-left: 110px;
+				}
+				.unit {
+					.fontSize(20px);
+
+					font-family: SourceHanSansCN-Heavy;
+
+				}
+			}
+
+		}
+
+	}
+
+}
+
+.new_user_special_price_page {
+	position: relative;
+	background: #fffae2;
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.new_user_special_price {
+		position: relative;
+		.price1 {
+			position: absolute;
+			top: 80px;
+			left: 110px;
+			color: black;
+			width: 256px;
+			height: 150px;
+			line-height: 150px;
+			text-align: right;
+			padding-right: 10px;
+			.fontSize(70px);
+			font-family: SimHei;
+			color: white;
+
+		}
+
+		.price2 {
+			position: absolute;
+			top: 250px;
+			left: 120px;
+			color: black;
+			width: 300px;
+			height: 120px;
+			line-height: 150px;
+			text-align: right;
+			padding-right: 5px;
+			.fontSize(80px);
+			font-family: SimHei;
+			color: #ff730e;
+
+		}
+
+	}
+
+	.buying_record {
+		padding-bottom: 20px;
+		width: 670px;
+		height: 300px;
+		margin: 0 auto;
+		overflow-y: auto;
+
+		background: url("../images/newUserOnly/xszx_bg.png") center top repeat-y;
+		border-radius: 10px;
+		border: 1px solid #fdf0d3;
+		p {
+			width: 600px;
+			margin: 0 auto;
+			.fontSize(24px);
+			color: #9f7453;
+			text-align: center;
+			height: 60px;
+			line-height: 60px;
+			border-bottom: 1px dashed #9f7453;
+			span {
+				display: inline-block;
+			}
+		}
+	}
+
+}
+
+//黄金大放送
+.huang_jin_da_fang_song_page {
+	position: relative;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.new_user_interest_button {
+		position: relative;
+		.button {
+			position: absolute;
+			top: 10px;
+			a {
+				display: inline-block;
+				width: 375px;
+				height: 340px;
+				float: left;
+			}
+
+		}
+
+	}
+	background: url("../images/huangJinDaFangSong/bwhj_07.jpg") center center repeat-y;
+	background-size: 750px 100%;
+	.new_user_red_package {
+
+		width: 470px;
+		margin: 0 0 0 150px;
+		th {
+			width: 300px;
+		}
+	}
+
+}
+
+.invitation_gift_page {
+	position: relative;
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	.get_gift {
+		width: 750px;
+		height: 213px;
+		position: relative;
+		background: url("../images/invitation_gift/hydk_03.jpg") no-repeat;
+		background-size: contain;
+		vertical-align: middle;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.check_detail {
+			text-align: center;
+			border: 1px solid #ffb414;
+			background: #ffb414;
+			border-radius: 10px;
+			width: 280px;
+			height: 70px;
+			text-align: center;
+			line-height: 70px;
+			color: #85520a;
+			letter-spacing: 2px;
+			font-family: SourceHanSansCN-Regular;
+
+		}
+	}
+	.message {
+		width: 750px;
+		height: 245px;
+		position: relative;
+		background: url("../images/invitation_gift/hydk_02.jpg") no-repeat;
+		background-size: contain;
+		.fontSize(28px);
+		color: #515151;
+		padding: 40px 100px 10px 230px;
+		line-height: 1.5;
+	}
+
+	.my_invitation {
+		position: relative;
+		.check_detail {
+			top: 50px;
+			right: 0px;
+			display: block;
+			position: absolute;
+			width: 131px;
+			height: 70px;
+		}
+	}
+
+}
+
+.pick_up_gold_page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	img {
+		flex: 1;
+		width: 600px;
+		height: 320px;
+		margin-top: 75px;
+	}
+
+}
+
+.to_realname_button {
+	border: 1px solid #FF8800;
+	border-radius: 15px;
+	background: #FF8800;
+	color: #FFFFFF;
+	width: 500px;
+	display: inline-block;
+	text-align: center;
+	display: inline-block;
+	height: 80px;
+	.fontSize(36px);
+	font-family: SimHei;
+	margin: 40px auto;
+
+}
+
+.gold_market {
+	font-family: SourceHanSansCN-Regular;
+	.fontSize(30px);
+	.order-by {
+		ul {
+			display: flex;
+			align-content: center;
+			justify-content: space-around;
+			.onePixelBorder(bottom, #E6E6E6);
+
+			li {
+				flex: 1;
+
+				text-align: center;
+				height: 90px;
+				line-height: 90px;
+
+				&.active {
+					color: #b98256;
+				}
+			}
+
+		}
+	}
+
+	.gold_list {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+		padding: 35px;
+		.gold_detail_section {
+			flex: 50%;
+			width: 750px/2;
+			text-align: left;
+			.gold_pic_wrapper {
+				width: 330px;
+				height: 330px;
+				position: relative;
+				img {
+					border: 1px solid #E6E6E6;
+					width: 330px;
+					height: 330px;
+				}
+				.keyPoint {
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					.fontSize(24px);
+					font-weight: bold;
+					font-family: SourceHanSansCN-Bold;
+					background-color: #ff4800;
+					text-align: center;
+					color: #ffffff;
+					padding: 8px 14px;
+				}
+			}
+			.gold_name {
+				line-height: 1.5;
+				font-family: SourceHanSansCN-Normal;
+				.fontSize(30px);
+				padding: 20px 20px 0px 20px;
+
+			}
+			.gold_price {
+				font-family: SourceHanSansCN-Normal;
+				.fontSize(30px);
+				color: #b98256;
+				height: 100px;
+				line-height: 100px;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+
+		.load_more {
+			text-align: center;
+			height: 100px;
+			line-height: 100px;
+			.onePixelBorder(bottom, #d1d1d1)
+		}
+
+	}
+
+	.gold_market_bottom {
+		text-align: center;
+		p {
+			text-align: center;
+			width: 100%;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			.fontSize(30px;)
+
+		}
+	}
+
+	.gold_detail_desc {
+		width: 600px;
+		//height: 500px;
+
+		margin: 0 auto;
+		margin-top: 40px;
+		text-align: center;
+
+		.pic_list {
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			border: solid 1px #e5e5e5;
+			width: 600px;
+			height: 500px;
+			img {
+				with: 440px;
+				height: 440px;
+				width: 100%;
+				height: 100%;
+				border-radius: 0;
+
+			}
+		}
+
+	}
+
+	.product_name {
+		font-family: SourceHanSansCN-Normal;
+		.fontSize(30px);
+		line-height: 1.5;
+		margin: 40px;
+		text-align: center;
+
+	}
+
+	img.product_desc_pic {
+		width: 100%;
+		height: 100%;
+	}
+
+	.product_desc_pic_list img {
+		width: 100%;
+		height: 100%;
+		//margin-bottom:20px;
+	}
+}
+
+.title_4_market_order {
+	padding-left: 30px;
+	width: 100%;
+	height: 100px;
+	line-height: 100px;
+	.fontSize(30px);
+
+	img {
+		width: 28px;
+		height: 34px;
+		margin-right: 15px;
+	}
+}
+
+.address {
+	padding-left: 60px;
+	padding-right: 80px;
+	line-height: 1.5;
+	//border:1px solid red;
+	min-height: 70px;
+	margin-bottom: 15px;
+	position: relative;
+	.fontSize(30px);
+	.gt {
+		position: absolute;
+		right: 30px;
+		.fontSize(40px);
+		list-height: 1.5;
+		top: 0px;
+		img{
+			width:28px;
+			height:28px;
+		}
+	}
+}
+
+.products_item {
+	display: table;
+	width: 100%;
+	.onePixelBorder(top, #F5F5F5);
+	padding-right: 25px;
+	padding-left: 25px;
+
+	.product_section {
+		display: table-cell;
+		padding: 32px 0;
+		vertical-align: top;
+	}
+	.products_title p {
+		height: 100px;
+		display: table-cell;
+		overflow: hidden;
+	}
+	.products_title a {
+		.fontSize(32px);
+		color: #242424;
+		//margin-bottom: 30px;
+		margin-left: 20px;
+		width: 554px;
+		line-height: 40px;
+		overflow: hidden;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+		-webkit-box-orient: vertical;
+		box-orient: vertical;
+		display: -webkit-box;
+		.stock {
+			.fontSize(24px);
+			color: #8f8f94;
+		}
+	}
+	.product_pic {
+		border: 1px solid #cccccc; /*no*/
+		img {
+			width: 125px;
+			height: 135px;
+			vertical-align: top;
+		}
+	}
+	.numbers, .weight {
+		.fontSize(26px);
+		color: #666666;
+		display: inline-block;
+		vertical-align: middle;
+		line-height: normal;
+
+	}
+	.numbers {
+	}
+	.weight {
+		margin-left: 10px;
+		padding: 5px;
+		width: 150px;
+		vertical-align: middle;
+	}
+	.number-count, .numbox-minus, .numbox-plus {
+		width: 55px;
+		.fontSize(28px);
+		height: 45px;
+		border-radius: 0px;
+		border: 1px solid #cccccc; /*no*/
+		line-height: normal;
+		margin: 0;
+	}
+	.number-count {
+		width: 60px;
+		padding: 1px;
+		text-align: center;
+		color: #ff8800;
+		border: none;
+	}
+
+}
+
+.input_2[type=text] {
+	border: none;
+	width: 550px;
+	.fontSize(28px);
+	padding: 5px;
+
+}
+
+.product-detail-list-table {
+	width: 691px;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 40px;
+
+}
+
+//优惠劵
+.coupon-icon {
+	width: 126px;
+	height: 188px;
+	position: relative;
+	vertical-align: middle;
+	background: white;
+
+	.label {
+		position: absolute;
+		font-family: SimHei;
+		padding: 0px;
+		margin: 0;
+		.fontSize(36px);
+		width: 36px;
+		color: black;
+		line-height: 1;
+		left: 45px;
+		top: 40px;
+		color: white;
+	}
+}
+
+.discount-not-use {
+	background: url("../images/coupon/notUse.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.cash-not-use {
+	background: url("../images/coupon/cash_notUse.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.discount-already-use {
+	background: url("../images/coupon/alreadyUse.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.cash-already-use {
+	background: url("../images/coupon/cash_alreadyUse.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.discount-expired-use {
+	background: url("../images/coupon/expired.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.cash-expired-use {
+	background: url("../images/coupon/cash_expired.png") no-repeat;
+	background-size: 100% 100%;
+}
+
+.coupon_section {
+	width: 750px !important;
+	position: relative;
+	//background: white;
+	.coupon_content_4_already_used {
+		background: url("../images/coupon/alreadyUserMask.png") no-repeat 0px bottom !important;
+		//background-color: white;
+		background-size: 150px 118px !important;
+	}
+
+	.left {
+		width: 150px !important;
+		.fontSize(32px);
+
+	}
+	.middle {
+		width: 455px !important;
+		.fontSize(34px);
+
+	}
+
+	.right {
+		width: 125px !important;
+		.fontSize(34px);
+
+	}
+}
+
+.main_bar {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	.fontSize(34px);
+	height: 94px;
+	.onePixelBorder(bottom, @splitLineColor);
+	color: #333333;
+
+	a {
+		flex: 1;
+		.invite_4_gold2 {
+			.fontSize(34px);
+			.onePixelBorder(right, @splitLineColor);
+			flex: 1;
+			height: 64px;
+			line-height: 64px;
+			background: url("../images/invite_icon.png") 58px center no-repeat;
+			background-size: 38px 42px;
+			padding-left: 140px;
+
+		}
+		.gold_market2 {
+			.fontSize(34px);
+			flex: 1;
+			height: 64px;
+			line-height: 64px;
+			background: url("../images/market_icon.png") 58px center no-repeat;
+			background-size: 38px 42px;
+			padding-left: 140px;
+
+		}
+	}
+}
+
+#companyFullName, #companyTaxNo {
+	height: 100px;
+	line-height: normal;
+	//border:1px #f5f5f5 solid;/*no*/
+}
+
+.address-title {
+	width: 200px;
+	height: 80px;
+	line-height: 80px;
+	display: inline-block;
+	float: left;
+	.fontSize(28px);
+}
+
+.input_wrapper {
+	position: relative;
+	padding-left: 25px;
+	padding-right: 25px;
+	text-align: left;
+	border-bottom: 1px solid #cccccc; /*no*/
+
+	input {
+		height: 80px;
+		line-height: normal; //这样就不会在浏览器光标跟高度一样高了
+		.fontSize(30px);
+		border: none;
+		width: 500px;
+	}
+
+}
+
+.dropdown_wrapper {
+	position: relative;
+	padding-left: 25px;
+	padding-right: 25px;
+	text-align: left;
+	border-bottom: 1px solid #cccccc; /*no*/
+	width: 750px;
+	height: 80px;
+	line-height: 80px;
+	.left {
+		width: 650px;
+
+		display: inline-block;
+		float: left;
+		.fontSize(28px);
+	}
+
+	.right {
+		display: inline-block;
+		float: left;
+		.fontSize(28px);
+		text-align: center;
+		img {
+			width: 31px;
+			height: 17px;
+		}
+	}
+
+}
+
+#preAddress, #detailAddress {
+	padding-left: 25px;
+	padding-right: 25px;
+	text-align: left;
+	border: 0;
+	border-bottom: 1px solid #cccccc; /*no*/
+	height: 80px;
+	line-height: normal; //这样就不会在浏览器光标跟高度一样高了
+	.fontSize(30px);
+	width: 750px;
+}
+

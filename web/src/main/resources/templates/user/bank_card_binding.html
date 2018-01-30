@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 绑定银行卡</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+</head>
+<body>
+
+<div class="register">
+    <div class="top_title">
+        <div class="return"><img src="../images/return.png"/></div>
+        <p class="title">添加银行卡</p>
+    </div>
+    <th:block th:if="${hasRealName == false}">
+        <div style="width:100%; margin-top:25px;text-align: center" class="fz_32"><a href="/user/toRealName">您还没有实名,请点击实名认证</a>
+
+            <button type="submit" id="toRealNameBtn" class="to_realname_button">实名认证</button>
+        </div>
+
+
+    </th:block>
+    <th:block th:if="${hasRealName == true}">
+        <div class="register_detail_list">
+            <div class="control_section for_bank_card_number">
+                <div class="bank-card-binding">
+                    请添加您本人的银行卡
+                </div>
+                <div class="bank-card-holder">持卡人:<span th:text="${realName}"></span></div>
+                <p class="errorPlaceHolder"></p>
+                <div class="input_telephone">
+                    <div class="input_clear"><span>x</span></div>
+                    <input type="text" name="bankCardNumber" id="bankCardNumber" required="required"
+                           placeholder="请输入本人银行卡号"
+                           class="need_input_clear" >
+                </div>
+                <button type="submit" id="toBankCardTelephoneBtn" class="submit_button" disabled="disabled">下一步</button>
+                <div class="warn_reminder">
+                    <p class="title">温馨提示</p>
+                    <p>
+                        1、支持的银行卡：中国银行、招商银行、中国农业银行、中国工商银行、中国建设银行、交通银行、北京银行、广发银行、平安银行、中国光大银行、中倍银行、浦发银行、兴业银行、中国民生银行、华夏银行、中国邮政储蓄
+                        银行、中国锯行、招商银行、中国农业银行、中国工商银行、中国建设银行、交通银行、北京银行、广发银行、平安银行、中国光大银行、中信银行、浦发银行、兴业银行、中国民生银行、华旻银行、中国邮政储蓄银行
+                    </p>
+                    <p>2、 银行卡开户信息须与您实名认证信息一致，不支持绑定信用卡。</p>
+                </div>
+            </div>
+
+            <div class="control_section for_bank_card_telephone" style="display: none">
+                <div class="bank-card-binding">
+                    请输入办理此银行卡时填写的手机号
+                </div>
+                <div class="bank-card-info">
+                    <!--<img src="../images/icon_zhaohang.png"/>招商银行:<span>尾号5546</span>--></div>
+                <p class="errorPlaceHolder"></p>
+                <div class="input_telephone">
+                    <div class="input_clear"><span>x</span></div>
+                    <input type="text" name="mobile" id="mobile" required="required" placeholder="请输入银行预留手机号"
+                           class="need_input_clear">
+                </div>
+                <button type="submit" id="toBankCardCheckCodeBtn" class="submit_button" disabled="disabled">下一步</button>
+            </div>
+
+            <div class="control_section for_bank_card_check_code" style="display: none">
+                <p class="register_phone"><img src="../images/phone.png"/></p>
+                <p class="info">请输入验证码
+                    <button id="getCheckCodeBtn" class="check_code_btn" value="获取验证码">获取验证码</button>
+                </p>
+                <p class="errorPlaceHolder"></p>
+                <div class="input_telephone">
+                    <div class="input_clear"><span>x</span></div>
+                    <input type="number" name="checkCode" id="checkCode" required="required" placeholder="请输入验证码"
+                           class="need_input_clear">
+                    <input type="hidden" name="bindCardRequestNo" id="bindCardRequestNo"/>
+                </div>
+                <button type="submit" id="toBankCardBindingBtn" class="submit_button" disabled="disabled">绑定</button>
+            </div>
+
+            <div class="control_section for_bank_card_binding_success" style="display: none">
+                <p class="register_success"><img src="../images/register_success.png"/></p>
+                <p class="success_info">恭喜您，绑定银行卡成功！</p>
+                <button type="submit" id="toBuyGoldBtn" class="submit_button">马上购金</button>
+            </div>
+        </div>
+    </th:block>
+</div>
+<div th:replace="include/template::footer"></div>
+<script type="text/javascript" src="../js/wap/bankCard.js"></script>
+<script type="text/javascript" src="../js/wap/getcode.js"></script>
+</body>
+</html>

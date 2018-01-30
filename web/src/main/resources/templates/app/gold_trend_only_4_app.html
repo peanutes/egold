@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 金价走势</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+
+
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css"></style>
+
+</head>
+<body>
+<div class="trend-tab">
+    <ul>
+        <li id="trend_one_day" class="trend_one_day active">24小时</li>
+        <li id="trend_seven_day" class="trend_seven_day">7日</li>
+        <li id="trend_one_month" class="trend_one_month">30日</li>
+        <li id="trend_one_year" class="trend_one_year">365日</li>
+    </ul>
+</div>
+<div id="date_and_price"></div>
+<div id="trend-chart">
+</div>
+<div class="gold_price_reference_note">金价参考上海黄金交易所，实时变动</div>
+<div th:replace="include/template::commonJavascript" ></div>
+
+<script type="text/javascript" src="/js/echarts.js"></script>
+<script type="text/javascript" src="/js/wap/discover4App.js"></script>
+</body>
+
+</html>

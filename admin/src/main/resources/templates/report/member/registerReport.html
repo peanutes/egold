@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<style type="text/css">
+    .report-chart {
+        margin-bottom: 0.533333rem;
+        margin-left: 0.133333rem;
+        margin-right: 0.133333rem;
+        width: 1000px;
+        height: 400px;
+        margin: 0 auto;
+        margin-bottom: 1.333333rem;
+    }
+</style>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="col-sm-12">
+        <div class="ibox">
+            <div class="ibox-body">
+                <!--<form id="searchForm">-->
+                    <div id="exampleToolbar" role="group">
+                        <div class="form-group col-sm-6">
+                            <input id="searchBeginDate" name="beginDate" type="text" class="form-control"
+                                   placeholder="开始时间">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <input id="searchEndDate" name="endDate" type="text" class="form-control"
+                                   placeholder="结束时间">
+                        </div>
+                        <button class="btn btn-success" id="search" >查询</button>
+                    </div>
+
+                <!--</form>-->
+                <table id="exampleTable" class="report-chart" data-mobile-responsive="true">
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/plugins/laydate/laydate.js"></script>
+<script type="text/javascript" src="/js/echarts-all.js"></script>
+<script type="text/javascript" src="/js/appjs/report/member/registerReport.js">
+
+</script>
+</body>
+
+</html>

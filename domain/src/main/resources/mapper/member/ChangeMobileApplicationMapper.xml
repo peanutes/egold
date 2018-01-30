@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.member.dao.ChangeMobileApplicationMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.member.entity.ChangeMobileApplication">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="idcard_hand_img" jdbcType="VARCHAR" property="idcardHandImg" />
+    <result column="idcard_front_img" jdbcType="VARCHAR" property="idcardFrontImg" />
+    <result column="idcard_back_img" jdbcType="VARCHAR" property="idcardBackImg" />
+    <result column="bank_card_img" jdbcType="VARCHAR" property="bankCardImg" />
+    <result column="new_mobile" jdbcType="VARCHAR" property="newMobile" />
+    <result column="old_mobile" jdbcType="VARCHAR" property="oldMobile" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="auditor" jdbcType="VARCHAR" property="auditor" />
+    <result column="audit_date" jdbcType="TIMESTAMP" property="auditDate" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+</mapper>

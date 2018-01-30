@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 我的帐户</title>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../css/css_reset.css"/>
+    <link rel="stylesheet" href="../css/pc.css"/>
+    <style type="text/css">
+
+    </style>
+</head>
+<body class="body">
+
+<div id="wrapper_login">
+    <div class="header">
+        <div class="topBar">
+            <div class="main">
+                <div class="tel"><span class="icon"><img
+                        src="../pcImages/tel.png"/> </span><span>客服热线：4000 328 128</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>当前金价:</span><span
+                        class="current_price color_ff8800">227.45元/克<img class="refresh_current_price"
+                                                                         src="../pcImages/refresh.png"/></span>
+                </div>
+
+                <div class="menu">
+                    <!-- 未登录 -->
+                    <a href="#">您好,请登录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <!-- 其它 -->
+                    <a href="#" class="app_download"><img src="../pcImages/app.png" style="width:10px; height: 15px;"/>&nbsp;APP客户端下载&nbsp;&nbsp;&nbsp;
+                    </a>
+                    <a href="#" class="new_user_guild">| &nbsp;&nbsp;&nbsp;新手指引&nbsp;&nbsp;&nbsp;</a>
+                    <a href="#" class="contact_us">| &nbsp;&nbsp;&nbsp;联系我们</a>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+        <div class="topNav">
+            <div class="main">
+                <div class="logo"><a href="#"><img src="../pcImages/logo.png" width="201" height="85"/> </a></div>
+                <div class="navigate">
+                    <ul class="nav">
+                        <li class="current"><a href="#">首页</a></li>
+                        <li><a href="#">商城</a></li>
+                        <li><a href="#">安全保障</a></li>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">我的帐户</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="real_time_gold_price">
+    <p class="color_ff8800">实时金价</p>
+    <p style="border-right:1px solid #dddddd;"><span class="current_price color_ff8800">222.22</span>元/克</p>
+    <p style="text-align: right"><a href="#">金价趋势</a></p>
+</div>
+<div class="account_summary">
+    <div class="section">
+        <div class="left">
+            <p>18818809940</p>
+            <p style="color:#929292">注册时间:2017-09-09</p>
+        </div>
+        <div class="right">
+            <button class="pc_btn_1">充值</button>
+        </div>
+    </div>
+    <div id="summaryChart" style="width: 1100px;height:300px;">
+    </div>
+</div>
+<div class="cb"></div>
+<div class="footer_wrapper_grey">
+    <div class="footer">
+        <div class="left">
+            <img src="../pcImages/user.png" width="58" height="58">
+            <div>9:00-21:00</div>
+            <div style="font-size:24px;">4000 328 128</div>
+            <div>邮箱：11352587@163.com</div>
+        </div>
+        <div class="middle">
+            <div><span><a href="#">新手指南</a></span><span><a href="#">最新公告</a></span></div>
+            <div><span><a href="#">联系我们</a></span><span><a href="#">行业新闻</a></span></div>
+            <div><span><a href="#">平台介绍</a></span><span><a href="#">关于我们</a></span></div>
+        </div>
+        <div class="right">
+            <div class="ios"><a href="#"><img src="../pcImages/erweima.png" width="95" height="95">
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="cb"></div>
+    <p class="bottom_info">隐私安全 | 版权所有 | 联系我们 | 诚聘英才 | 技术支持 Copyright zfhy.com. All Rights Reserved.
+        粤ICP备11041056号</p>
+</div>
+
+<div id="hello"></div>
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../js/echarts.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/pc/pcCommon.js"></script>
+<script type="text/javascript" src="../js/pc/user.js"></script>
+
+<script type="text/javascript">
+	var myChart = echarts.init(document.getElementById('summaryChart'));
+	// 指定图表的配置项和数据
+	var
+	option = {
+		tooltip : { //提示框组件
+			trigger: 'item', //触发类型(饼状图片就是用这个)
+			formatter: "{b} : {c} ({d}%)" //提示框浮层内容格式器
+		},
+		color:['#48cda6','#fd87ab','#11abff','#ffdf33','#968ade'],  //手动设置每个图例的颜色
+		legend: {  //图例组件
+			//right:100,  //图例组件离右边的距离
+			orient : 'horizontal',  //布局  纵向布局 图例标记居文字的左边 vertical则反之
+			width:40,      //图行例组件的宽度,默认自适应
+			x : 'right',   //图例显示在右边
+			y: 'center',   //图例在垂直方向上面显示居中
+			itemWidth:10,  //图例标记的图形宽度
+			itemHeight:10, //图例标记的图形高度
+			data:['现金余额 100.09元','黄金资产 10.00元','理财账户 999.99元'],
+			textStyle:{    //图例文字的样式
+				color:'#333',  //文字颜色
+				fontSize:16    //文字大小
+			}
+		},
+		series : [ //系列列表
+			{
+				name:'',  //系列名称
+				type:'pie',   //类型 pie表示饼图
+				center:['30%','50%'], //设置饼的原心坐标 不设置就会默认在中心的位置
+				radius : ['50%', '70%'],  //饼图的半径,第一项是内半径,第二项是外半径,内半径为0就是真的饼,不是环形
+				itemStyle : {  //图形样式
+					normal : { //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+						label : {  //饼图图形上的文本标签
+							show : false  //平常不显示
+						},
+						labelLine : {     //标签的视觉引导线样式
+							show : false  //平常不显示
+						}
+					},
+					emphasis : {   //normal 是图形在默认状态下的样式；emphasis 是图形在高亮状态下的样式，比如在鼠标悬浮或者图例联动高亮时。
+						label : {  //饼图图形上的文本标签
+							show : true,
+							position : 'center',
+							textStyle : {
+								fontSize : '14',
+								fontWeight : 'bold'
+							}
+						}
+					}
+				},
+				data:[
+					{value:30, name:'现金余额 100.09元'},
+					{value:20, name:'黄金资产 10.00元'},
+					{value:50, name:'理财账户 999.99元'}
+
+				]
+			}
+		]
+	}
+	myChart.setOption(option);
+
+</script>
+</body>
+
+</html>

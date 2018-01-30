@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.invest.dao.FinancialProductMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.invest.entity.FinancialProduct">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="annual_rate" jdbcType="DECIMAL" property="annualRate" />
+    <result column="annual_rate_max" jdbcType="DECIMAL" property="annualRateMax" />
+    <result column="min_amount" jdbcType="DECIMAL" property="minAmount" />
+    <result column="max_amount" jdbcType="DECIMAL" property="maxAmount" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="market_price" jdbcType="DECIMAL" property="marketPrice" />
+    <result column="term" jdbcType="INTEGER" property="term" />
+    <result column="product_type" jdbcType="VARCHAR" property="productType" />
+    <result column="new_user" jdbcType="VARCHAR" property="newUser" />
+    <result column="gold_type" jdbcType="VARCHAR" property="goldType" />
+    <result column="buy_fee" jdbcType="DECIMAL" property="buyFee" />
+    <result column="sale_fee" jdbcType="DECIMAL" property="saleFee" />
+    <result column="income_struct" jdbcType="VARCHAR" property="incomeStruct" />
+    <result column="interest_desc" jdbcType="VARCHAR" property="interestDesc" />
+    <result column="interest_cal" jdbcType="VARCHAR" property="interestCal" />
+    <result column="risk_grade" jdbcType="VARCHAR" property="riskGrade" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="key_point" jdbcType="VARCHAR" property="keyPoint" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+
+  <update id="batchDelete" parameterType="List">
+    UPDATE invest_financial_product SET del_flag='1' where id IN
+    <foreach collection="list" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+
+  </update>
+
+</mapper>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 订单详情</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+
+        .mui-switch-orange.mui-active {
+            border: 2px solid #ff8800;
+            background-color: #ff8800;
+        }
+    </style>
+</head>
+<body>
+<div class="top_title">
+    <div class="return"><img src="../images/return.png"/></div>
+    <p class="title">订单确认</p>
+    <div class="right"><img src="../images/market/share.png"></div>
+</div>
+
+
+<div class="market_order_detail">
+    <div class="bg_F5F5F5 height20 w_100p"></div>
+    <div class="address_name">
+        <p class="title_4_market_order"><img src="../images/market/name_icon.png"/>张三丰 &nbsp;&nbsp;&nbsp;&nbsp;185****2930
+        </p>
+        <p class="address">广东广州市海珠区客村宝岗大道机场路百信广场TIT创业园联合文创0201 <span class="gt">&gt;</span></p>
+    </div>
+    <div class="bg_F5F5F5 height20 w_100p"></div>
+    <div class="gold_product_name">
+        <p class="title_4_market_order"><img src="../images/market/product_icon.png"/>商品</p>
+
+        <ul>
+            <li class="products_item" href="3">
+                <a class="product_section"
+                   alt="">
+                    <div class="product_pic">
+                        <img src="../images/market/product_sample.png"/>
+                    </div>
+                </a>
+                <div class="product_section">
+                    <div class="products_title">
+                        <p><a href="#" title="">黄金珠宝时尚光面结婚足金对戒黄金戒指男女款计价G01G40002A-C</a></p>
+                    </div>
+                    <div>
+                        <span class="weight color_ff8800">3.22克</span>
+                        <span class="numbers">数量:
+                            <button class="numbox-minus" type="button">-</button>
+                            <input class="number-count" type="number" value="111" maxlength="3"/>
+                            <button class="numbox-plus" type="button">+</button>
+                        </span>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <div class="bg_F5F5F5 height20 w_100p"></div>
+    <div class="order_detail_list">
+        <div class="detail_row">
+            <span class="detail_caption">订单总额</span><span class=" detail">￥699.38</span>
+        </div>
+        <div class="detail_row">
+            <span class="detail_caption">商品价格</span><span class=" detail">￥599.38</span>
+        </div>
+        <div class="detail_row">
+            <span class="detail_caption">其它费用合计</span><span class=" detail">￥29.38</span>
+        </div>
+    </div>
+    <div class="bg_F5F5F5 h_2 w_100p"></div>
+    <div class="order_detail_list">
+        <div class="detail_row">
+            <span class="detail_caption">物流费用</span><span class=" detail">￥29.38</span>
+        </div>
+
+        <div class="detail_row">
+            <span class="detail_caption">保险</span><span class=" detail">￥29.38</span>
+        </div>
+    </div>
+    <div class="bg_F5F5F5 h_2 w_100p"></div>
+    <div class="order_detail_list">
+        <div class="detail_row">
+                <span class="detail_caption">余额支付:&nbsp;&nbsp;<span class="orange balancePayAmount"
+                                                                    id="balancePayAmount"></span></span>
+            <span class="orange detail">
+                <span id="useEnableBalance" class="mui-switch mui-switch-orange mui-switch-mini"
+                      style="display:inline-block; float:right;">
+  <span class="mui-switch-handle"></span>
+</span>
+            </span>
+        </div>
+
+    </div>
+
+    <div class="bg_F5F5F5 h_2 w_100p"></div>
+    <div class="order_detail_list">
+        <div class="detail_row">
+            <span class="detail_caption">发票信息</span><span class=" detail">个人&nbsp;&gt;</span>
+        </div>
+
+    </div>
+    <div class="bg_F5F5F5 height20 w_100p"></div>
+    <div class="order_detail_list payAtBottom">
+        <div class="detail_row">
+            <span class="detail_caption">在线支付:&nbsp;&nbsp;<span class="orange"
+            >11111.11元</span></span><span
+                class="detail"><span class="confirm_button" id="submitOrder">确认支付</span></span>
+        </div>
+    </div>
+    <div class="fix-height2"></div>
+</div>
+</div>
+
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/wap/wapCommon.js"></script>
+<script type="text/javascript" src="../widget/mui/js/mui.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.member.dao.LoginLogMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.member.entity.LoginLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="terminal_type" jdbcType="VARCHAR" property="terminalType" />
+    <result column="terminal_id" jdbcType="VARCHAR" property="terminalId" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+
+
+  <resultMap id="statisticLoginResult" type="com.zfhy.egold.domain.member.dto.LoginStaticDto">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="terminal_type" jdbcType="VARCHAR" property="terminalType" />
+    <result column="login_time" jdbcType="TIMESTAMP" property="loginTime" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="time" jdbcType="INTEGER" property="time" />
+  </resultMap>
+
+
+
+  <select id="statisticLogin" parameterType="Map" resultMap="statisticLoginResult">
+    SELECT
+    ml.*,
+    m.mobile_phone mobile,
+    ms.count time
+    FROM
+    member_login_log ml,
+    (
+    SELECT
+    max(id) id,
+    count(1) count
+    FROM
+    member_login_log l
+    WHERE 1=1
+    <if test="beginDate!='' and beginDate != null"> <![CDATA[ and l.create_date >= #{beginDate} ]]></if>
+    <if test="endDate!='' and endDate != null"> <![CDATA[ and l.create_date <= #{endDate} ]]> </if>
+
+    GROUP BY
+    member_id
+    ) ms,
+    member_member m
+
+    WHERE
+    ml.id = ms.id
+    and m.id = ml.member_id
+
+    <if test="mobile!='' and mobile != null"> and m.mobile_phone = #{mobile}</if>
+
+    order by ml.create_date desc
+  </select>
+</mapper>

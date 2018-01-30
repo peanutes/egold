@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 首页</title>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+
+    <script type="text/javascript">
+		(function () {
+			var sUserAgent = navigator.userAgent.toLowerCase();
+			var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+			var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+			var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+			var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+			var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+			var bIsAndroid = sUserAgent.match(/android/i) == "android";
+			var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+			var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+			var bIsIE = sUserAgent.match(/iemobile/i) == "iemobile";
+			if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM || bIsIE) {
+				window.location.href = '/wap';
+			}
+		})();
+    </script>
+    <link rel="stylesheet" href="../css/css_reset.css" th:href="@{/css/css_reset.css}"/>
+    <link rel="stylesheet" href="../css/pc.css" th:href="@{/css/pc.css}"/>
+    <style type="text/css">
+        .pcHomeTitle {
+            text-decoration: none;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+
+        }
+
+    </style>
+</head>
+<body class="body">
+<div id="wrapper">
+    <div th:include="pc/include/template :: header(tab='home')"></div>
+
+    <div class="banner">
+        <div class="register_login_wrapper">
+            <p>让你的黄金流动起来</p>
+
+            <p style="">实时金价</p>
+
+            <p><span class="color_ff8800 current_price" style="font-size:48px">227.45</span> 元/克</p>
+
+            <p>
+                <th:block th:if="${session.auth_member_session==null}">
+                    <a th:href="@{/pc/gotoRegister}" target="_blank">
+                        <button class="pc_btn_1" style="cursor:pointer" id="gotoRegister">注册送黄金</button>
+                    </a>
+                </th:block>
+            </p>
+            <th:block th:if="${session.auth_member_session==null}">
+                <p>已有帐号?<a href="#" th:href="@{/pc/gotoLogin}">立即登录</a></p>
+            </th:block>
+
+        </div>
+    </div>
+
+    <div class="main_point">
+        <ul>
+            <li>
+                <!--<a href="#">-->
+                <img src="../pcImages/invest_quick.png"/>
+
+                <h3>投资便捷</h3>
+                <h4>支付便捷</h4>
+                <!--</a>-->
+            </li>
+            </a>
+            <li>
+                <!--<a href="#">-->
+                <img src="../pcImages/profit_quick.png"/>
+
+                <h3>收益便捷</h3>
+                <h4>灵活操作 稳中求进</h4>
+                <!--</a>-->
+            </li>
+            <li>
+                <!--<a href="#">-->
+                <img src="../pcImages/security_guard.png"/>
+
+                <h3>安全保障</h3>
+                <h4>中华财险 全额保障</h4>
+                <!--</a>-->
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="product_wrap">
+    <div class="background_color_f7f8fd height_21"></div>
+    <div class="new_user_gold">
+        <div class="title"><img src="../pcImages/new_user_gold.jpg"></div>
+        <div class="content">
+            <div class="tr">
+                <div class="td">特权金价</div>
+                <div class="td"></div>
+                <div class="td ">
+                    <button class="download_app_to_buy app_download">下载App抢购</button>
+                </div>
+            </div>
+            <div class="tr">
+                <div class="td color_ff5100" th:text="${pcHomeDto.pcHomeNewProductDto.price+'元/克'}">259元/克</div>
+                <div class="td color_ff5100" th:text="${'期限'+pcHomeDto.pcHomeNewProductDto.term+'天'}">期限180天</div>
+                <div class="td color_ff5100" style="font-size:18px; text-align: center">只允许购买一次</div>
+            </div>
+        </div>
+    </div>
+    <div class="background_color_f7f8fd height_21"></div>
+    <div class="current_gold">
+        <div class="title"><img src="../pcImages/current_gold.jpg" height="384" width="276"></div>
+        <div class="content">
+            <div class="gold_trend_section">
+                <div class="trend-tab">
+                    <ul>
+                        <li id="trend_one_day" class="trend_one_day active">24小时</li>
+                        <li id="trend_seven_day" class="trend_seven_day">7日</li>
+                        <li id="trend_one_month" class="trend_one_month">30日</li>
+                        <li id="trend_one_year" class="trend_one_year">365日</li>
+                    </ul>
+                </div>
+                <div id="date_and_price"></div>
+                <div id="trend-chart">
+                </div>
+
+            </div>
+            <div class="current_price_section">
+                <div class="td">当前金价<span class="color_ff5100" th:text="${currentPrice}">277.31</span> 元/克</div>
+                <div class="td">金额&nbsp;<input type="text"/>&nbsp;元</div>
+                <div class="td">克重&nbsp;<input type="text"/>&nbsp;克</div>
+                <div>
+                    <button class="download_app_to_buy app_download">下载App买金</button>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+    <div class="background_color_f7f8fd height_21"></div>
+
+    <div class="fixed_gold">
+        <div class="title"><img src="../pcImages/fixed_gold.jpg"></div>
+        <div class="content">
+            <div class="product_table" th:each="termGold,stat:${pcHomeDto.pcTermProductDtos}">
+                <div class="tr">
+                    <div class="td ">
+                        <p th:text="${termGold.term+'天定期'}">222天定期</p>
+                        <p th:text="${termGold.annualRate+'%'}">3.5%</p>
+                        <p style="font-size:18px;color:#666666">年化收益率</p>
+                    </div>
+                    <div class="td ">
+                        <p>&nbsp;</p>
+                        <p th:text="${termGold.sumInvest+'克'}">344.00000克</p>
+                        <p style="font-size:18px;color:#666666">用户累计投资金重</p>
+                    </div>
+                    <div class="td buy_estimate">
+                        <p>&nbsp;</p>
+                        <p class="color_996c33">买入克重 <input type="text"/> 克 </p>
+                        <p class="color_996c33">预计金额 <input type="text"/> 元 </p>
+                    </div>
+                    <div class="td download">
+                        <p>&nbsp;</p>
+                        <button class="download_app_to_buy app_download">下载App买金</button>
+                    </div>
+                </div>
+            </div>
+            <!--<div style="border-bottom:	1px solid rgba(191, 191, 191, 1); width:90%;text-align: center; margin:0 auto;"></div>
+            <div class="product_table">
+                <div class="tr">
+                    <div class="td ">
+                        <p>定期金360天</p>
+                        <p>3.5%</p>
+                        <p style="font-size:18px;color:#666666">年化收益率</p>
+                    </div>
+                    <div class="td ">
+                        <p>&nbsp;</p>
+                        <p>344.00000克</p>
+                        <p style="font-size:18px;color:#666666">用户累计投资金重</p>
+                    </div>
+                    <div class="td buy_estimate">
+                        <p>&nbsp;</p>
+                        <p class="color_996c33">买入克重 <input type="text"/> 克 </p>
+                        <p class="color_996c33">预计金额 <input type="text"/> 元 </p>
+                    </div>
+                    <div class="td download">
+                        <p>&nbsp;</p>
+                        <button class="download_app_to_buy app_download">下载App买金</button>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+    <div class="background_color_f7f8fd height_21"></div>
+    <div class="gold_mall">
+        <div class="title"><img src="../pcImages/gold_mall.jpg"></div>
+        <div class="content">
+            <!--<div class="more"><a href="#">查看更多&gt;&gt;</a></div>-->
+            <div class="mall_table">
+                <ul class="tr">
+                    <li class="td app_download" th:each="sku:${pcHomeDto.pcHomeSkuDtos}">
+                        <a href="#"><img th:src="${sku.listImgUrl}" src="../pcImages/mall_sample1.png" width="280"
+                                         height="280"/>
+                            <p th:text="${sku.productName}">印钞机</p>
+                            <p class="color_ff8800" th:text="${'¥'+sku.price+'元'}">¥888.00元</p></a>
+                    </li>
+                    <!--<li class="td"><a href="#"><img src="../pcImages/mall_sample1.png" width="280" height="280"/>
+                        <p>印钞机</p>
+                        <p class="color_ff8800">¥888.00元</p></a></li>
+                    <li class="td"><a href="#"><img src="../pcImages/mall_sample1.png" width="280" height="280"/>
+                        <p>印钞机</p>
+                        <p class="color_ff8800">¥888.00元</p></a></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="news_wrapper">
+    <div class="news_section">
+        <div class="left">
+            <ul class="display_tab">
+                <!-- <li id="tab_1" class="tab_title_news active">公司动态</li>-->
+                <li id="tab_1" class="tab_title_news active">热门资讯</li>
+            </ul>
+            <div class="cb"></div>
+
+            <div id="tab_1_content" class="tab_content list_control">
+                <div class="news_first_pic"><a href="#"><img src="../pcImages/news_first.jpg"/></a></div>
+                <ul class="news_title_list" th:each="hotinfo:${pcHomeDto.pcHomeHotInfoDtos}">
+                    <li class="pcHomeTitle"><a class="" href="#" target="_blank"
+                                               th:href="@{'/pc/articleContent?id='+${hotinfo.id}}"
+                                               th:text="${hotinfo.title}">在这里,读懂财报懂财报懂财报.,读..</a></li>
+                    <!--<li class="abstract"><a href="#">在这里,读懂财这里,读懂财这财这里,读懂财这里,读懂财这里,读懂财报...</a></li>-->
+                    <!--<li><a href="#">在这里,读懂财报...</a></li>
+                    <li><a href="#">在这里,读懂财报...</a></li>-->
+                </ul>
+                <!--<p class="more"><a href="#">更多&gt;&gt;</a></p>-->
+            </div>
+        </div>
+        <div class="right">
+            <p class="caption">帮助中心</p>
+            <ul class="news_title_list" th:each="helpDesk:${pcHomeDto.pcHomeHelpDesk}">
+                <li class="pcHomeTitle"><a href="#" target="_blank" th:href="@{'/pc/articleContent?id='+${helpDesk.id}}"
+                                           th:text="${helpDesk.title}">在这里,读懂财报懂财报懂财报.在这里,读..</a></li>
+                <!--<li><a href="#">在这里,读懂财报...</a></li>
+                <li><a href="#">在这里,读懂财报...</a></li>
+                <li><a href="#">在这里,读懂财报...</a></li>
+                <li><a href="#">在这里,读懂财报...</a></li>-->
+            </ul>
+            <!--<p class="more"><a href="#">更多&gt;&gt;</a></p>-->
+        </div>
+    </div>
+    <div class="cb"></div>
+    <div class=" link_title">合作机构</div>
+    <div class="friend_link">
+        <!--<div class="link"><a href="#" target="_blank" th:href="@{https://www.aliyun.com/}"><img src="../pcImages/friendSite/gz_bank.png"/></a></div>-->
+        <div class="link"><a href="#" target="_blank" th:href="@{http://www.cngold.org.cn/}"><img
+                src="../pcImages/friendSite/hjxh.png"/></a></div>
+        <div class="link"><a href="#" target="_blank" th:href="@{http://www.sge.com.cn/}"><img
+                src="../pcImages/friendSite/shhj.png"/></a></div>
+        <!--<div class="link"><a href="#" target="_blank" th:href="@{https://www.yeepay.com/}"><img src="../pcImages/friendSite/yb.png"/></a></div>-->
+        <div class="link"><a href="#" target="_blank" th:href="@{http://www.reapal.com/}"><img
+                src="../pcImages/friendSite/rongbao.png"/></a></div>
+        <div class="link"><a href="#" target="_blank" th:href="@{http://www.shfe.com.cn/}"><img
+                src="../pcImages/friendSite/sqih.png"/></a></div>
+        <div class="link"><a href="#" target="_blank" th:href="@{https://www.aliyun.com/}"><img
+                src="../pcImages/friendSite/ali.png"/></a></div>
+        <!-- <div class="link"><a href="#"><img src="../pcImages/friendSite/acifi.png"/></a></div>-->
+        <!--<div class="link"><a href="#"><img src="../pcImages/friendSite/gz_bank.png"/></a></div>-->
+    </div>
+</div>
+
+<div th:include="pc/include/template :: homeFooter"></div>
+<script type="text/javascript" src="../js/pc/index.js" th:src="@{/js/pc/index.js}"></script>
+<script type="text/javascript" src="../js/echarts.js"></script>
+<script type="text/javascript" src="../js/pc/goldTrend.js"></script>
+</body>
+
+</html>

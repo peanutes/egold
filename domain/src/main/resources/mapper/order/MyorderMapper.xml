@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.order.dao.MyorderMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.order.entity.Myorder">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="relate_order_id" jdbcType="INTEGER" property="relateOrderId" />
+    <result column="myorder_type" jdbcType="INTEGER" property="myorderType" />
+    <result column="myorder_status" jdbcType="INTEGER" property="myorderStatus" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="annual_rate" jdbcType="DECIMAL" property="annualRate" />
+    <result column="order_total_amount" jdbcType="DECIMAL" property="orderTotalAmount" />
+    <result column="current_price" jdbcType="DECIMAL" property="currentPrice" />
+    <result column="gold_weight" jdbcType="DECIMAL" property="goldWeight" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+</mapper>

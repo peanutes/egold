@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.invest.dao.InvestRecordMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.invest.entity.InvestRecord">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="invest_amount" jdbcType="DECIMAL" property="investAmount" />
+    <result column="invest_gold_weight" jdbcType="DECIMAL" property="investGoldWeight" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="effect_date" jdbcType="TIMESTAMP" property="effectDate" />
+    <result column="deadline_date" jdbcType="TIMESTAMP" property="deadlineDate" />
+    <result column="annual_rate" jdbcType="DECIMAL" property="annualRate" />
+    <result column="additional_rate" jdbcType="DECIMAL" property="additionalRate" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+</mapper>

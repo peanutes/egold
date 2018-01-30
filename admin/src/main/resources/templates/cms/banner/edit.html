@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+	<div class="wrapper wrapper-content">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="ibox float-e-margins">
+					<div class="ibox-content">
+						<form class="form-horizontal m-t" id="signupForm">
+							<input id="id" name="id" type="hidden" th:value="${banner.id}">
+							<div class="form-group">
+								<label class="col-sm-3 control-label"> 编码：</label>
+								<div class="col-sm-8">
+									<select class="form-control m-b" data-rule-required="true" name="code">
+										<option th:each="item:${allBannerCode}" th:value="${item.toString()}" th:text="${item.bannerTypeName}"   th:selected="(${item.toString() eq banner.code})" >选项 1</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">名称：</label>
+								<div class="col-sm-8">
+									<input id="name" name="name" data-rule-required="true" class="form-control" type="text" th:value="${banner.name}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">类型：</label>
+								<div class="col-sm-8">
+									<select class="form-control m-b" data-rule-required="true" name="type">
+										<option value="" >请选择</option>
+										<option th:value="1" th:selected="(${banner.type == '1'})">跳转到静态页面</option>
+										<option th:value="2" th:selected="(${banner.type == '2'})">跳转到理财产品</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">理财产品：</label>
+								<div class="col-sm-8">
+									<select class="form-control m-b" name="financeProductId">
+										<option th:each="item:${productMap}" th:value="${item.key}" th:text="${item.value}"   th:selected="(${item.key eq banner.financeProductId})" >选项 1</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">跳转连接：</label>
+								<div class="col-sm-8">
+									<input id="url" name="url" class="form-control" type="text" th:value="${banner.url}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">文字说明：</label>
+								<div class="col-sm-8">
+									<input id="remarks" name="remarks" data-rule-required="true"  class="form-control" type="text" th:value="${banner.remarks}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">排序：</label>
+								<div class="col-sm-8">
+									<input id="sort" name="sort" data-rule-required="true" data-rule-number="true" class="form-control" type="text" th:value="${banner.sort}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">图片：</label>
+								<div class="col-sm-8">
+									<!--<input id="img" name="img" class="form-control" type="text" th:value="${banner.img}">-->
+									<input id="img" name="img"  type="hidden" th:value="${banner.img}">
+									<div class="originImgFlag" style="float:left">
+										<img th:src="${banner.img +'?x-oss-process=image/resize,m_fixed,h_100,w_100'}">
+									</div>
+
+									<!--用来存放item-->
+									<div id="fileList" ></div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-8 col-sm-offset-3">
+									<button class="btn btn-primary btn-success"  type="button" id = "filePicker">
+										<i class="fa fa-upload"></i>
+										&nbsp;&nbsp;
+										<span class="bold">更改图片</span>
+									</button>
+									<button type="submit" class="btn btn-primary">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:include="include::footer"></div>
+	<script src="/js/appjs/cms/banner/edit.js"></script>
+	<script type="text/javascript" src="/js/plugins/webuploader/webuploader.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/js/plugins/webuploader/webuploader.css">
+</body>
+
+</html>

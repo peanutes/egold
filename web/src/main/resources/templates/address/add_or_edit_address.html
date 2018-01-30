@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 管理收货地址</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.picker.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+</head>
+<body>
+<div class="top_title">
+    <div class="return"><img src="../images/return.png"/></div>
+    <p class="title">管理收货地址</p>
+</div>
+<div class="bg_F5F5F5 height20 w_100p"></div>
+
+<th:block th:if="${session.auth_member_session==null}">
+    <script type="text/javascript">
+		alert("您还没有登录,请先登录!");
+		window.location = "/wap/mine";
+    </script>
+</th:block>
+
+<div class="input_wrapper">
+    <div class="input_clear"><span>x</span></div>
+    <div class="address-title">收货人姓名:</div>
+    <input type="text" id="receiver" required="required"
+           placeholder="请输入收货人" th:value="${address.receiver}"
+           class="need_input_clear no_border">
+</div>
+<div class="input_wrapper">
+    <div class="input_clear"><span>x</span></div>
+    <div class="address-title">联系人电话:</div>
+    <input type="text" id="receiverTel" required="required"
+           placeholder="请输入联系人电话" th:value="${address.receiverTel}"
+           class="need_input_clear no_border">
+</div>
+<div class="input_wrapper">
+    <div class="input_clear"><span>x</span></div>
+    <div class="address-title">邮<span style="width: 3em;display: inline-block;"></span>编:</div>
+    <input type="number" id="zipCode"
+           placeholder="请输入邮编" th:value="${address.zipCode}"
+           class="need_input_clear no_border">
+</div>
+<div class="bg_F5F5F5 height20 w_100p"></div>
+
+<div class="dropdown_wrapper chooseAddress">
+    <div class="left">选择省/市/区</div>
+    <div class="right"><img src="../images/address/down.png"/></div>
+</div>
+<div class="detail-address">
+    <input type="hidden" id="addressId" th:value="${address.id}"/>
+    <input type="hidden" id="provinceId" th:value="${address.provinceId}"/>
+    <input type="hidden" id="cityId" th:value="${address.cityId}"/>
+    <input type="hidden" id="countyId" th:value="${address.countyId}"/>
+    <input type="hidden" id="province" th:value="${address.province}"/>
+    <input type="hidden" id="city" th:value="${address.city}"/>
+    <input type="hidden" id="county" th:value="${address.county}"/>
+    <th:block th:if="${address != null && address.province != null && address.city != null && address.county != null}">
+        <input type="text" id="preAddress" readonly="readonly" placeholder="请输入省市区县" class="chooseAddress"
+               th:value="${address.province + address.city+address.county}"/>
+    </th:block>
+    <th:block th:if="${address == null || address.province == null}">
+        <input type="text" id="preAddress" readonly="readonly" placeholder="请输入省市区县" class="chooseAddress"
+        />
+    </th:block>
+
+    <input type="text" id="detailAddress" placeholder="请输入镇街门牌号等详细信息" th:value="${address.address}"/>
+</div>
+
+
+<button class="buy_sell_button" id="saveAddress">保存</button>
+<div th:replace="include/template::commonJavascript"></div>
+<script type="text/javascript" src="../widget/mui/js/mui.min.js"></script>
+<script type="text/javascript" src="../widget/mui/js/mui.picker.js"></script>
+<script type="text/javascript" src="../js/data.city.js"></script>
+<script type="text/javascript" src="../js/wap/addOrEditAddress.js"></script>
+<script type="text/javascript" src="../widget/layer_mobile/layer.js"></script>
+
+
+</body>
+
+</html>

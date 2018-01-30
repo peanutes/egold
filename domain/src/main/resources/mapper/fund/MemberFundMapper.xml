@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.fund.dao.MemberFundMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.fund.entity.MemberFund">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="cash_balance" jdbcType="DECIMAL" property="cashBalance" />
+    <result column="term_gold_balance" jdbcType="DECIMAL" property="termGoldBalance" />
+    <result column="current_gold_balance" jdbcType="DECIMAL" property="currentGoldBalance" />
+    <result column="invest_balance" jdbcType="DECIMAL" property="investBalance" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+
+
+  <resultMap id="ListResultMap" type="com.zfhy.egold.domain.fund.entity.MemberFund">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="cash_balance" jdbcType="DECIMAL" property="cashBalance" />
+    <result column="term_gold_balance" jdbcType="DECIMAL" property="termGoldBalance" />
+    <result column="current_gold_balance" jdbcType="DECIMAL" property="currentGoldBalance" />
+    <result column="invest_balance" jdbcType="DECIMAL" property="investBalance" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+
+  </resultMap>
+
+  <select id="list" parameterType="Map" resultMap="ListResultMap">
+    SELECT f.*, m.mobile_phone mobile, m.real_name FROM fund_member_fund f, member_member m where f.member_id = m.id and m.real_name_valid=1
+    <if test="memberId!='' and memberId!=null"> and f.member_id = #{memberId}</if>
+    <if test="mobile!='' and mobile != null"> and m.mobile_phone = #{mobile}</if>
+  </select>
+</mapper>

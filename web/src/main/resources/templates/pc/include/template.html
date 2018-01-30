@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- 顶部 -->
+<header th:fragment="header (tab)" class="header">
+    <link rel="stylesheet" href="../js/plugin/layer/theme/default/layer.css" th:href="@{/js/plugin/layer/theme/default/layer.css}"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+
+    <style type="text/css">
+        .contractDiv {
+            width: 380px;
+            /*float: left;*/
+            text-align: center;
+            /*background-color: #2A2A2A;*/
+            color: #85520a;
+            /*color: #facd89;*/
+            line-height: 1.7;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+    </style>
+        <div class="header">
+            <div class="topBar">
+                <div class="main">
+                    <div class="tel"><span class="icon">
+                        <img src="../pcImages/tel.png"/> </span>
+                        <span>客服热线：4000 328 128</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>当前金价:</span>
+                        <span class="color_ff8800">
+                            <p style="display:inline-block;width:45px; text-align: right;">
+                                <span class="current_price"></span>
+                            </p>元/克&nbsp;
+                            <img class="refresh_current_price refresh_price_img"  src="../pcImages/refresh.png"/>
+                        </span>
+
+                    </div>
+
+                    <div class="menu">
+                        <!-- 未登录 -->
+                        <a href="#" th:href="@{/pc/gotoLogin}" th:if="${session.auth_member_session==null}">您好,请登录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                        <span th:if="${session.auth_member_session!=null}">欢迎您回来&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <!-- 其它 -->
+                        <a href="#" class="app_download"><img src="../pcImages/app.png"
+                                                              style="width:10px; height: 15px;"/>&nbsp;APP客户端下载&nbsp;&nbsp;&nbsp;
+                        </a>
+                        <!--<a href="#" class="new_user_guild">| &nbsp;&nbsp;&nbsp;新手指引&nbsp;&nbsp;&nbsp;</a>-->
+                        <a href="/pc/contactUs" class="contact_us">| &nbsp;&nbsp;&nbsp;联系我们&nbsp;&nbsp;&nbsp;</a>
+                        <a href="javascript:logout();" th:if="${session.auth_member_session!=null}" class="contact_us">| &nbsp;&nbsp;&nbsp;安全退出</a>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both"></div>
+            <div class="topNav">
+                <div class="main">
+                    <div class="logo"><a href="#" th:href="@{/}"><img src="../pcImages/logo.png" width="201" height="85"/> </a></div>
+                    <div class="navigate">
+                        <ul class="nav">
+                            <li th:class="${tab eq 'home'}?current"><a href="#" th:href="@{/}">首页</a></li>
+
+                            <!--<li th:class="${tab eq 'mall'}?current"><a href="#">商城</a></li>
+                            <li th:class="${tab eq 'teamIntroduction'}?current"><a href="#" target="_self" th:href="@{/pc/teamIntroduction}">团队介绍</a></li>
+                            <li th:class="${tab eq 'specialist'}?current"><a href="#" target="_self" th:href="@{/pc/specialist}">专家顾问</a></li>
+                            <li th:class="${tab eq 'contactUs'}?current"><a href="#" target="_self" th:href="@{/pc/contactUs}">联系我们</a></li>-->
+                            <li th:class="${tab eq 'security'}?current"><a href="#" target="_self" th:href="@{/pc/securityGuard}">安全保障</a></li>
+                            <li th:class="${tab eq 'understandProduct'}?current"><a href="#" target="_self" th:href="@{/pc/understandProduct}">了解产品</a></li>
+                            <li th:class="${tab eq 'aboutUs'}?current"><a href="#" target="_self" th:href="@{/pc/aboutUs}">关于我们</a></li>
+                            <li th:if="${session.auth_member_session!=null}"  th:class="${tab eq 'myAccount'}?current" href="#"><a  target="_self" th:href="@{/pc/myAccount}">我的帐户</a></li>
+                            <li th:if="${session.auth_member_session==null}"  th:class="${tab eq 'myAccount'}?current" href="#"><a  target="_self" th:href="@{/pc/gotoLogin}">我的帐户</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</header>
+
+<footer th:fragment="footer" class="footer">
+    <div style="border:8px solid #f5f5f5"></div>
+
+    <div class="footer_wrapper_grey">
+        <div class="footer">
+            <div class="left">
+                <img src="../pcImages/user.png" width="58" height="58">
+                <div>9:00-21:00</div>
+                <div style="font-size:24px;">4000 328 128</div>
+                <div>邮箱：mail.egoldvip.com</div>
+            </div>
+            <div class="middle">
+                <div><span><a href="#">&nbsp;</a></span><span><a href="#">&nbsp;</a></span></div>
+                <div><span><a href="#">&nbsp;</a></span><span><a href="#">&nbsp;</a></span></div>
+                <div>
+                    <!--<span><a target="_blank"   href="javascript:void(0);" onclick="contractUs(); return false;">联系我们</a>-->
+                    <span><a   target="_self" th:href="@{/pc/contactUs}">联系我们</a>
+                    </span><span><a href="#" target="_self" th:href="@{/pc/aboutUs}">关于我们</a></span>
+                </div>
+            </div>
+            <div class="right">
+                <div class="ios"><a href="#"><img class="app_download" src="../pcImages/erweima.png" width="95" height="95">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="cb"></div>
+        <!--<p class="bottom_info">隐私安全 | 版权所有 |  技术支持 Copyright zfhy.com. All Rights Reserved.
+            粤ICP备12092334号-4</p>-->
+
+        <p class="bottom_info">隐私安全 | 版权所有 |  技术支持 Copyright zfhy.com. All Rights Reserved.
+            粤ICP备17149404号</p>
+    </div>
+
+    <div id="hello"></div>
+    <script type="text/javascript" src="../js/jquery-1.11.1.min.js" th:src="@{/js/jquery-1.11.1.min.js}"></script>
+    <script type="text/javascript" src="../js/common.js" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript" src="../js/pc/pcCommon.js" th:src="@{/js/pc/pcCommon.js}"></script>
+    <script type="text/javascript" src="../js/pc/user.js" th:src="@{/js/pc/user.js}"></script>
+    <script type="text/javascript" src="../js/plugin/toast/js/toast.js" th:src="@{/js/plugin/toast/js/toast.js}"></script>
+    <script type="text/javascript" src="../js/plugin/layer/layer.js" th:src="@{/js/plugin/layer/layer.js}"></script>
+
+</footer>
+
+
+<homeFooter th:fragment="homeFooter" class="homeFooter">
+    <div style="border:8px solid #f5f5f5"></div>
+
+    <div class="footer_wrapper">
+        <div class="footer">
+            <div id="contract" class="left">
+                <img src="../pcImages/user.png" width="58" height="58">
+
+                <div>9:00-21:00</div>
+                <div style="font-size:24px;">4000 328 128</div>
+                <div>邮箱：mail.egoldvip.com</div>
+            </div>
+            <div class="middle">
+                <div><span><a href="#">&nbsp;</a></span><span><a href="#">&nbsp;</a></span></div>
+                <div><span><a href="#">&nbsp;</a></span><span><a href="#">&nbsp;</a></span></div>
+                <div>
+                    <span><a target="_self"  href="/pc/contactUs">联系我们</a>
+
+                    </span><span><a href="#" target="_blank" th:href="@{/pc/aboutUs}">关于我们</a></span>
+                </div>
+            </div>
+            <div class="right">
+                <div class="ios"><a href="#"><img class="app_download" src="../pcImages/erweima.png" width="95" height="95">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="cb"></div>
+
+        <!--<p class="bottom_info">隐私安全 | 版权所有 | 技术支持 Copyright zfhy.com. All Rights Reserved.
+            粤ICP备12092334号-4</p>-->
+        <p class="bottom_info">隐私安全 | 版权所有 | 技术支持 Copyright zfhy.com. All Rights Reserved.
+            粤ICP备17149404号</p>
+    </div>
+
+
+    <!--<script type="text/javascript" src="../js/jquery-1.11.1.min.js" th:src="@{/js/jquery-1.11.1.min.js}"></script>
+    <script type="text/javascript" src="../js/common.js" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript" src="../js/pc/pcCommon.js" th:src="@{/js/pc/pcCommon.js}"></script>
+    <script type="text/javascript" src="../js/pc/index.js" th:src="@{/js/pc/index.js}"></script>
+    <script type="text/javascript" src="../js/plugin/layer/layer.js" th:src="@{/js/plugin/layer/layer.js}"></script>-->
+
+    <script type="text/javascript" src="../js/jquery-1.11.1.min.js" th:src="@{/js/jquery-1.11.1.min.js}"></script>
+    <script type="text/javascript" src="../js/common.js" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript" src="../js/pc/pcCommon.js" th:src="@{/js/pc/pcCommon.js}"></script>
+    <script type="text/javascript" src="../js/pc/user.js" th:src="@{/js/pc/user.js}"></script>
+    <script type="text/javascript" src="../js/plugin/toast/js/toast.js" th:src="@{/js/plugin/toast/js/toast.js}"></script>
+    <script type="text/javascript" src="../js/plugin/layer/layer.js" th:src="@{/js/plugin/layer/layer.js}"></script>
+
+
+
+
+
+</homeFooter>
+
+
+</html>

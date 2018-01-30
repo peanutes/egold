@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 内容</title>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../css/css_reset.css"/>
+    <link rel="stylesheet" href="../css/pc.css"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+
+    <style type="text/css">
+
+    </style>
+</head>
+<body class="body">
+
+<div id="wrapper_news_list">
+    <div class="header">
+        <div th:include="pc/include/template :: header(tab='home')"></div>
+        <div style="border:8px solid #f5f5f5"></div>
+
+    </div>
+</div>
+</div>
+
+<div class="news_list_wrapper">
+    <div class="tr">
+        <div class="td left">
+            <ul>
+                <li>
+                    <a href="/pc/aboutUs">关于我们</a>
+                </li>
+                <li  >
+                    <a href="/pc/teamIntroduction">团队介绍</a>
+                </li>
+                <li>
+                    <a href="/pc/specialist">专家顾问</a>
+                </li>
+                <li>
+                    <a href="/pc/contactUs">联系我们</a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="td middle"></div>
+        <div class="td right">
+            <div class="news_content_wrapper">
+                <div class="title" th:text="${hotinfo.title}">公司动态公司动态公司动态公司动态公司动态</div>
+                <div class="more_info">
+                    <div class="source" th:text="${hotinfo.source}">来源:E金</div>
+                    <div class="publish_date"
+                         th:text="${'发布日期:'+#calendars.format(hotinfo.updateDate,'yyyy-MM-dd HH:mm')}">发布日期:2017-11-11
+                        12:00
+                    </div>
+                </div>
+                <div class="cb"></div>
+                <div class="news_content" th:utext="${hotinfo.content}">
+                    公司动态公司动态公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态公司动态
+                </div>
+<!--
+                <div class="previous_next">上一篇 : <a href="#">美联储和通俄门消息重挫美元 黄金多头欢欣雀跃</a></div>
+                <div class="previous_next" style="margin-bottom:30px;">下一篇 : <a href="#">黄金将面临一系列风险事件，包括为期两日的美联储政策会</a></div>
+                -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:include="pc/include/template :: homeFooter"></div>
+<script type="text/javascript">
+
+
+</script>
+</body>
+
+</html>

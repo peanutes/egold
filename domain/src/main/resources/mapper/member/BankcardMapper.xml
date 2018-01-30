@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.member.dao.BankcardMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.member.entity.Bankcard">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="bank_account" jdbcType="VARCHAR" property="bankAccount" />
+    <result column="bank_card" jdbcType="VARCHAR" property="bankCard" />
+    <result column="bank_name" jdbcType="VARCHAR" property="bankName" />
+    <result column="brand_bank_name" jdbcType="VARCHAR" property="brandBankName" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="admin_id" jdbcType="INTEGER" property="adminId" />
+    <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+    <result column="auditor" jdbcType="VARCHAR" property="auditor" />
+    <result column="audit_command" jdbcType="VARCHAR" property="auditCommand" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="bank_code" jdbcType="VARCHAR" property="bankCode" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+
+
+  <resultMap id="bankcardListDto" type="com.zfhy.egold.domain.member.dto.BankcardListDto">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="bank_name" jdbcType="VARCHAR" property="bankName" />
+    <result column="bank_card" jdbcType="VARCHAR" property="bankCard" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
+    <result column="tel" jdbcType="VARCHAR" property="mobile" />
+
+  </resultMap>
+
+  <resultMap id="CountDtoMap" type="com.zfhy.egold.domain.report.dto.CountDto">
+    <result column="countDate" jdbcType="VARCHAR" property="countDate" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+
+
+  </resultMap>
+
+  <select id="statisticBindCard" parameterType="Map" resultMap="CountDtoMap">
+
+    SELECT
+    DATE_FORMAT(m.create_date, '%Y-%m-%d') countDate,
+    count(1) count
+    FROM
+    member_bankcard m
+    where 1=1
+    <if test="beginDate!='' and beginDate!=null"><![CDATA[and m.create_date >= #{beginDate} ]]></if>
+    <if test="endDate!='' and endDate!=null"><![CDATA[and m.create_date <= #{endDate} ]]></if>
+
+    GROUP BY
+    DATE_FORMAT(m.create_date, '%Y-%m-%d');
+
+  </select>
+
+  <select id="list" parameterType="Map" resultMap="bankcardListDto">
+    SELECT b.*, i.real_name, i.id_card, i.tel FROM member_bankcard b, member_idcard i where b.member_id = i.member_id
+    <if test="realName!='' and realName!=null"> and i.real_name = #{realName}</if>
+    <if test="mobile!='' and mobile != null"> and i.tel = #{mobile}</if>
+    <if test="bankCard!='' and mobile != null"> and b.bank_card = #{bankCard}</if>
+    order by b.create_date desc
+  </select>
+</mapper>

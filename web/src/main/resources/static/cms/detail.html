@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 会赚钱的黄金</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+
+
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css"></style>
+
+</head>
+<body>
+<header class="header">
+    <div class="top">
+        <div class="logo">
+            <a href="goto?page=wap__index">
+                <img
+                        src="/images/logo.png"/>
+            </a>
+        </div>
+
+        <div class="download-app">
+            <a href="goto?page=wap__index">
+                <img src="/images/download_app.png"/>
+            </a>
+        </div>
+
+        <div class="close_top">
+            <a href="goto?page=wap__index">
+                <img
+                        src="/images/close.png"/>
+            </a>
+        </div>
+
+    </div>
+</header>
+<div id="hotinfo_detail">
+    <p class="title" th:text="${detail.title}">标题</p>
+    <p class="infos"><span class="publish_time" th:text="${detail.publishTime}" >发布时间：</span><span class="source" th:text="${detail.source}" >来源:</span></p>
+    <div class="content" th:utext="${detail.content}">内容</div>
+
+</div>
+<div class="load_more">查看更多</div>
+<div class="footer">
+    <div class="security_company">中华联合财产保险承保用户账户安全</div>
+    <div class="check_bill_sample">查看保单样本</div>
+    <div class="hot_line">全国免费热线：4000 328 128</div>
+</div>
+<div class="fix-navbar" id="fix-navbar">
+    <ul class="fix-bar-ul" id="fix-bar-ul">
+        <li>
+            <a href="goto?page=wap__index">
+                <span class="nav-icon navbar_home"></span><span>首页</span>
+            </a>
+        </li>
+        <li>
+            <a href="goto?page=wap__buy_gold">
+                <span class="nav-icon navbar_buy_gold"></span><span>买金</span>
+            </a>
+        </li>
+        <li>
+            <a href="goto?page=wap__discover">
+                <span class="nav-icon navbar_discover"></span><span>发现</span>
+            </a>
+        </li>
+        <li>
+            <a href="goto?page=wap__mine">
+                <span class="nav-icon navbar_mine"></span><span>我的</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="/js/zepto.min.js"></script>
+<script type="text/javascript" src="/js/common.js"></script>
+<script type="text/javascript" src="/widget/mui/js/mui.min.js"></script>
+<script type="text/javascript">
+	$(".fix-bar-ul li").eq(2).addClass("on");
+</script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.job.dao.JobMapper">
+	<resultMap id="BaseResultMap" type="com.zfhy.egold.domain.job.entity.ScheduleJob">
+		<!--
+          WARNING - @mbg.generated
+        -->
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="uuid" jdbcType="VARCHAR" property="uuid" />
+		<result column="name`" jdbcType="VARCHAR" property="name" />
+		<result column="cron" jdbcType="VARCHAR" property="cron" />
+		<result column="status" jdbcType="VARCHAR" property="status" />
+	</resultMap>
+
+	<insert id="addJob" parameterType="com.zfhy.egold.domain.job.entity.ScheduleJob">
+		insert into t_schedulejob (uuid,name,cron,status,auto_start,create_date,creator,edit_date ,editor,is_del)values(#{uuid},#{name},#{cron},0,1,NOW(),'SYS',NOW(),'SYS',0)
+	</insert>
+
+	<update id="updateJobStatus" parameterType="com.zfhy.egold.domain.job.entity.ScheduleLog">
+		update t_schedulejob set status=#{status} where id=#{id}
+	</update>
+
+	<insert id="addJobLog" parameterType="com.zfhy.egold.domain.job.entity.ScheduleLog" useGeneratedKeys="true" keyProperty="id">
+		insert into t_schedulelog (uuid,begin_time,status,error_msg,create_date,creator,edit_date ,editor,is_del)values(#{uuid},NOW(),#{status},#{errorMsg},NOW(),'SYS',NOW(),'SYS',0)
+	</insert>
+
+	<update id="updateJobLog" parameterType="com.zfhy.egold.domain.job.entity.ScheduleLog">
+		update t_schedulelog set status=#{status},end_time=NOW(),run_duration=#{runDuration},error_msg=#{errorMsg} where id=#{id}
+	</update>
+
+	<select id="queryScheduleJob" parameterType="java.lang.String" resultType="com.zfhy.egold.domain.job.entity.ScheduleJob">
+		select id ,uuid ,name ,cron  ,status ,auto_start,create_date,creator,edit_date ,editor,is_del
+		from t_schedulejob  where uuid=#{0} and is_del = 0
+	</select>
+
+	<select id="queryLogCount" parameterType="java.util.Map" resultType="java.lang.Long">
+		select count(1) from t_schedulelog  where uuid=#{id} and is_del = 0
+	</select>
+
+	<select id="queryLogList" parameterType="java.util.Map" resultType="java.util.HashMap">
+		select a.id,b.name,a.status,a.begin_time beginTime,a.end_time endTime,a.run_duration runDuration,a.error_msg errorMsg
+		from t_schedulelog  a, t_schedulejob  b
+		where a.uuid=b.uuid and a.uuid=#{id}
+		order by a.id desc
+		limit #{start},#{end}
+	</select>
+
+</mapper>

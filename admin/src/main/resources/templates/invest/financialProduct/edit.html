@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="id" name="id" type="hidden" th:value="${financialProduct.id}">
+                        <input id="status" name="status" type="hidden" th:value="${financialProduct.status}">
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label" >产品名称：</label>
+                            <div class="col-sm-5">
+                                <input id="productName" name="productName" class="form-control" data-rule-required="true" 	type="text" th:value="${financialProduct.productName}" >
+                            </div>
+                            <label class="col-sm-1 control-label" >亮点：</label>
+                            <div class="col-sm-5">
+                                <input id="keyPoint" name="keyPoint" class="form-control" data-rule-required="true" 	type="text" th:value="${financialProduct.keyPoint}" >
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label" >产品类型：</label>
+                            <div class="col-sm-5">
+                                <select class="form-control m-b" data-rule-required="true" id="productType" name="productType" readonly="readonly" disabled="disabled">
+                                    <option th:each="item:${allFinancialProductType}" th:value="${item.toString()}" th:text="${item.label}"   th:selected="(${item.toString() eq financialProduct.productType})" >选项 1</option>
+                                </select>
+                            </div>
+                            <label class="col-sm-1 control-label" >黄金品种：</label>
+                            <div class="col-sm-5">
+                                <input id="goldType" name="goldType" class="form-control" data-rule-required="true" readonly="readonly" type="text" th:value="${financialProduct.goldType}" >
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="form-group nonRiseFall">
+                            <label class="col-sm-1 control-label" >产品价格：</label>
+                            <div class="col-sm-5">
+                                <input id="price" name="price" placeholder="只有新手特权金生效，其它产品类型按实时金价" class="form-control" data-rule-required="true" data-rule-number="true" type="text" th:value="${financialProduct.price}" >
+                            </div>
+                            <label class="col-sm-1 control-label" >市场价：</label>
+                            <div class="col-sm-5">
+                                <input id="marketPrice" name="marketPrice" class="form-control" data-rule-required="true" data-rule-number="true" type="text" th:value="${financialProduct.marketPrice}" >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label" >预期年化收益%：</label>
+                            <div class="col-sm-5">
+                                <input id="annualRate" name="annualRate" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${financialProduct.annualRate}" >
+                            </div>
+                            <label class="col-sm-1 control-label" >最大预期年化收益%：</label>
+                            <div class="col-sm-5">
+                                <input id="annualRateMax" name="annualRateMax" class="form-control" data-rule-required="true" data-rule-number="true" type="text" th:value="${financialProduct.annualRateMax}" >
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label" >起投金额：</label>
+                            <div class="col-sm-5">
+                                <input id="minAmount" name="minAmount" placeholder="设置为0则为无限制" class="form-control" data-rule-required="true" data-rule-number="true" type="text" th:value="${financialProduct.minAmount}" >
+                            </div>
+                            <label class="col-sm-1 control-label" >起投金额说明：</label>
+                            <div class="col-sm-5">
+                                <input id="minAmountDesc" name="minAmountDesc"  class="form-control" data-rule-required="true" type="text" th:value="${financialProduct.minAmountDesc}" >
+                            </div>
+
+                        </div>
+
+
+                    
+
+
+                        <div class="form-group">
+
+                            <label class="col-sm-1 control-label" >投资期限（天）：</label>
+                            <div class="col-sm-5">
+                                <input id="term" name="term" placeholder="设置为0则为无限制" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${financialProduct.term}" >
+                            </div>
+                            <label class="col-sm-1 control-label" >投资期限说明：</label>
+                            <div class="col-sm-5">
+                                <input id="termDesc" name="termDesc" class="form-control" data-rule-required="true" type="text" th:value="${financialProduct.termDesc}" >
+                            </div>
+
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+
+                            <label class="col-sm-1 control-label" >买入手续费：</label>
+                            <div class="col-sm-5">
+                                <input id="buyFee" name="buyFee" class="form-control" data-rule-required="true" data-rule-number="true" type="text" th:value="${financialProduct.buyFee}" >
+                            </div>
+                            <label class="col-sm-1 control-label" >卖出手续费%：</label>
+                            <div class="col-sm-5">
+                                <input id="saleFee" name="saleFee" class="form-control" data-rule-required="true" data-rule-number="true" type="text" th:value="${financialProduct.saleFee}" >
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+
+                            <label class="col-sm-1 control-label" id="incomeStructLabel" >收益构成：</label>
+                            <div class="col-sm-5">
+                                <input id="incomeStruct" name="incomeStruct" class="form-control" data-rule-required="true" type="text" th:value="${financialProduct.incomeStruct}" >
+                            </div>
+                            <label class="col-sm-1 control-label nonRiseFall" >买卖规则：</label>
+                            <div class="col-sm-5 nonRiseFall">
+                                <input id="buySaleDesc" name="buySaleDesc" class="form-control" data-rule-required="true" type="text" th:value="${financialProduct.buySaleDesc}" >
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-group nonRiseFall">
+
+                            <label class="col-sm-1 control-label" >利息计算：</label>
+                            <div class="col-sm-5">
+                                <input id="interestCal" name="interestCal" class="form-control" data-rule-required="true" 	type="text" th:value="${financialProduct.interestCal}" >
+                            </div>
+                            <label class="col-sm-1 control-label" >利息发放：</label>
+                            <div class="col-sm-5">
+                                <input id="interestDesc" name="interestDesc" class="form-control" data-rule-required="true" type="text" th:value="${financialProduct.interestDesc}" >
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label" >风险级别：</label>
+                            <div class="col-sm-5">
+                                <select class="form-control m-b" data-rule-required="true" name="riskGrade">
+                                    <option th:each="item:${allFinancialProductRisk}" th:value="${item.toString()}" th:text="${item.label}"   th:selected="(${item.toString() eq financialProduct.riskGrade})" >选项 1</option>
+                                </select>
+                            </div>
+                            <label class="col-sm-1 control-label" >投资上限金额：</label>
+                            <div class="col-sm-5">
+                                <input id="maxAmount" name="maxAmount" placeholder="设置为0则为无限制" class="form-control" data-rule-required="true" data-rule-number="true" type="text" th:value="${financialProduct.maxAmount}" >
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label" >排序：</label>
+                            <div class="col-sm-5">
+                                <input id="sort" name="sort" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${financialProduct.sort}" >
+                            </div>
+                            <label class="col-sm-1 control-label nonRiseFall" >是否新手标：</label>
+                            <div class="col-sm-5 nonRiseFall">
+                                <!--<input id="newUser" name="newUser" class="form-control" data-rule-required="true" 	type="text" th:value="${financialProduct.newUser}" >-->
+                                <div class="switch">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" th:checked="(${financialProduct.newUser=='1'})"  class="onoffswitch-checkbox" id="newUser" name="newUser">
+                                        <label class="onoffswitch-label" for="newUser">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group riseFall">
+                            <label class="col-sm-1 control-label" >看涨/看跌：</label>
+                            <div class="col-sm-5">
+                                <select class="form-control m-b" data-rule-required="true" id="riseOrFall" name="riseOrFall">
+                                    <option th:each="item:${riseOrFall}" th:value="${item.code}"  th:selected="(${item.code eq financialProduct.riseOrFall})" th:text="${item.label}">选项 1</option>
+                                </select>
+                            </div>
+                            <label class="col-sm-1 control-label" >发售总额：</label>
+                            <div class="col-sm-5">
+                                <input id="aimAmount" name="aimAmount" th:value="${financialProduct.aimAmount}" placeholder="用于看涨跌产品" class="form-control" data-rule-required="true"  data-rule-number="true"	type="text">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group riseFall">
+                            <label class="col-sm-1 control-label" >购买截止日期：</label>
+                            <div class="col-sm-5">
+                                <input id="deadLineDate" th:value="${#calendars.format(financialProduct.deadLineDate,'yyyy-MM-dd HH:mm:ss')}" name="deadLineDate" placeholder="用于看涨跌产品" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+
+                            <label class="col-sm-1 control-label" >计息起始日期：</label>
+                            <div class="col-sm-5">
+                                <input id="interestBeginDate" th:value="${#calendars.format(financialProduct.interestBeginDate,'yyyy-MM-dd')}" name="interestBeginDate" placeholder="用于看涨跌产品" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group riseFall">
+                            <label class="col-sm-1 control-label" >到期处理：</label>
+                            <div class="col-sm-5">
+                                <input id="expiredDealDesc" name="expiredDealDesc" th:value="${financialProduct.expiredDealDesc}"  class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+
+                            <label class="col-sm-1 control-label" >产品说明：</label>
+                            <div class="col-sm-5">
+                                <input id="remarks" name="remarks" th:value="${financialProduct.remarks}" placeholder="用于看涨跌产品" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="text-center form-group">
+                            <a class="btn btn-default waves-effect waves-light"
+                               onclick="returnList()">返回列表</a>
+                            <button class="btn btn-primary waves-effect waves-light" id="saveAndPublish" type="submit">保存并上架</button>
+                            <button class="btn btn-primary waves-effect waves-light" id="saveDraft" type="submit">保存为草稿</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script src="/js/appjs/invest/financialProduct/edit.js"></script>
+<script type="text/javascript" src="/js/plugins/laydate/laydate.js"></script>
+</body>
+
+</html>

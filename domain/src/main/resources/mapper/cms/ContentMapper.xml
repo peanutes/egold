@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.cms.dao.ContentMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.cms.entity.Content">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="cid" jdbcType="BIGINT" property="cid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="slug" jdbcType="VARCHAR" property="slug" />
+    <result column="created" jdbcType="BIGINT" property="created" />
+    <result column="modified" jdbcType="BIGINT" property="modified" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="tags" jdbcType="VARCHAR" property="tags" />
+    <result column="categories" jdbcType="VARCHAR" property="categories" />
+    <result column="hits" jdbcType="INTEGER" property="hits" />
+    <result column="comments_num" jdbcType="INTEGER" property="commentsNum" />
+    <result column="allow_comment" jdbcType="INTEGER" property="allowComment" />
+    <result column="allow_ping" jdbcType="INTEGER" property="allowPing" />
+    <result column="allow_feed" jdbcType="INTEGER" property="allowFeed" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="gtm_create" jdbcType="TIMESTAMP" property="gtmCreate" />
+    <result column="gtm_modified" jdbcType="TIMESTAMP" property="gtmModified" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+</mapper>

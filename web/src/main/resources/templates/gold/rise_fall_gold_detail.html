@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 产品详情</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div class="gold_detail">
+    <div class="top_title">
+        <div class="return"><img src="../images/return.png"/></div>
+        <p class="title" th:text="${detail.productName}"></p></div>
+
+    <input type="hidden" id="detailId" th:value="${detail.id}"></input>
+    <input type="hidden" id="productId" th:value="${detail.id}">
+    <input type="hidden" id="financeProductType" th:value="${detail.productType}">
+    <input type="hidden" id="productType" th:value="1">
+    <input type="hidden" id="productName" th:value="${detail.productName}">
+    <input type="hidden" id="beginDate" th:value="${#dates.format(detail.beginDate, 'yyyy-MM-dd')}">
+    <input type="hidden" id="endDate" th:value="${#dates.format(detail.endDate, 'yyyy-MM-dd')}">
+
+    <p class="price">
+        <th:block th:text="${detail.annualRate}+'%'"></th:block>
+        ~
+        <th:block th:text="${detail.annualRateMax}+'%'"></th:block>
+    </p>
+    <p class="expect_annual_rate">预期年化利率</p>
+    <p class="ta_center expect_annual_rate">已售出<span class="color_ff8800" th:text="${detail.hadInvestPercent}"></span>
+    </p>
+    <p class="ta_center m_10 expect_annual_rate">购买截止时间:
+        <th:block th:text="${#dates.format(detail.deadLineDate, 'yyyy-MM-dd')}"></th:block>
+    </p>
+    <ul class="key_info">
+        <li>
+            <p>
+                <th:block th:text="${detail.term}"></th:block>天
+            </p>
+            <p>投资期限</p>
+        </li>
+        <li>
+            <p>
+                <th:block th:text="${#numbers.formatDecimal(detail.aimAmount,0,0)}"></th:block>元
+            </p>
+            <p>发售总额</p>
+        </li>
+        <li>
+            <p>
+                <th:block th:text="${#numbers.formatDecimal(detail.minAmount,0,0)}"></th:block>元
+            </p>
+            <p>起购金额</p>
+        </li>
+    </ul>
+    <div class="bg_F5F5F5 h_12 w_100p"></div>
+    <div class="rise_n_fall_price_section">
+        <div class="price">
+            <p class="color_ff8800">
+                <th:block th:text="${detail.deadlinePriceStr}"></th:block>
+            </p>
+            <p class="">
+                <th:block th:text="${#dates.format(detail.deadLineDate, 'yyyy-MM-dd')}"></th:block>
+            </p>
+            <p class=""> 申购截止价</p>
+        </div>
+        <div class="price">
+            <p class="color_ff8800"> <th:block th:text="${detail.closePriceStr}"></th:block></p>
+            <p class="">
+                <th:block th:text="${#dates.format(detail.endDate, 'yyyy-MM-dd')}"></th:block>
+            </p>
+            <p class=""> 到期收盘价</p>
+        </div>
+    </div>
+    <div class="bg_F5F5F5 h_12 w_100p"></div>
+
+    <div class="rise_and_fall_pic_detail">
+        <img src="../images/riseNfall/rise_fall_detail_02.png"/>
+        <img src="../images/riseNfall/rise_fall_detail_03.png"/>
+        <img src="../images/riseNfall/rise_fall_detail_04.png"/>
+        <img src="../images/riseNfall/rise_fall_detail_05.png"/>
+        <img src="../images/riseNfall/rise_fall_detail_06.png"/>
+    </div>
+    <div class="bg_F5F5F5 h_12 w_100p"></div>
+
+    <ul class="detail_tab">
+        <li id="product_detail" class="product_detail active">产品详情</li>
+        <li id="buying_record" class="buying_record">购买记录</li>
+    </ul>
+
+
+    <div id="product_detail_list" class="product_detail_list list_control">
+        <div class="detail_row" th:each="property:${detail.propertyDtoList}"><span class="detail_caption"
+                                                                                   th:text="${property.propertyLabel}"></span><span
+                class="detail_desc" th:text="${property.propertyValue}"></span></div>
+
+    </div>
+    <div id="buying_record_list" class="buying_record_list list_control" style="display: none">
+    </div>
+</div>
+<div class="warning_info">市场有风险，投资需谨慎</div>
+<div class="fix-height2"></div>
+<button class="buy_sell_button" id="buy_now">立即存入</button>
+<div th:replace="include/template::footerWithoutMainMenu"></div>
+<script type="text/javascript" src="../js/wap/goldDetail.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>

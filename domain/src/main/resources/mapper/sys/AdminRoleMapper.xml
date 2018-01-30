@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.sys.dao.AdminRoleMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.sys.entity.AdminRole">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="admin_id" jdbcType="INTEGER" property="adminId" />
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
+  </resultMap>
+
+
+  <insert id="batchInsert" parameterType="List" >
+    insert into sys_admin_role (role_id, admin_id) VALUES
+    <foreach collection="list" item="item" index="index" separator=",">
+      (#{item.roleId}, #{item.adminId})
+    </foreach>
+  </insert>
+
+  <delete id="batchDeleteByAdminIds" parameterType="List">
+    DELETE FROM sys_admin_role where admin_id IN
+    <foreach collection="list" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </delete>
+
+
+</mapper>

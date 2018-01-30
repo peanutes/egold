@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.invest.dao.MemberCouponMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.invest.entity.MemberCoupon">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="invest_id" jdbcType="INTEGER" property="investId" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="begin_time" jdbcType="TIMESTAMP" property="beginTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="use_time" jdbcType="TIMESTAMP" property="useTime" />
+    <result column="invest_amount" jdbcType="DECIMAL" property="investAmount" />
+    <result column="invest_amount_min" jdbcType="DECIMAL" property="investAmountMin" />
+    <result column="invest_dealine_min" jdbcType="INTEGER" property="investDealineMin" />
+    <result column="product_type" jdbcType="VARCHAR" property="productType" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+  <resultMap id="couponListResultMap" type="com.zfhy.egold.domain.invest.dto.MemberCouponListDto">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="coupon_amount" jdbcType="DECIMAL" property="couponAmount" />
+    <result column="insert_time" jdbcType="TIMESTAMP" property="insertTime" />
+    <result column="begin_time" jdbcType="TIMESTAMP" property="beginTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="use_time" jdbcType="TIMESTAMP" property="useTime" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="mobile" jdbcType="VARCHAR" property="memberMobile" />
+  </resultMap>
+
+
+  <select id="list" parameterType="Map" resultMap="couponListResultMap">
+    SELECT c.*, m.mobile_phone mobile from  invest_member_coupon c LEFT JOIN member_member m on c.member_id = m.id where 1=1
+    <if test="type!='' and type!=null"> and c.type = #{type}</if>
+    <if test="status!='' and status != null"> and c.status = #{status}</if>
+    <if test="remarks!='' and remarks != null"> and c.remarks like CONCAT('%',#{remarks},'%')</if>
+    <if test="memberMobile!='' and memberMobile != null"> and m.mobile_phone = #{memberMobile}</if>
+    order by c.create_date desc
+  </select>
+</mapper>

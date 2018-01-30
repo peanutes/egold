@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+<link href="/css/layui.css" rel="stylesheet">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="id" name="id" type="hidden" th:value="${store.id}">
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >门店名称：</label>
+                            <div class="col-sm-8">
+                                <input id="storeName" name="storeName" class="form-control" data-rule-required="true" 	type="text" th:value="${store.storeName}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >门店地址：</label>
+                            <div class="col-sm-8">
+                                <input id="storeAddr" name="storeAddr" class="form-control" data-rule-required="true" 	type="text" th:value="${store.storeAddr}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >门店电话：</label>
+                            <div class="col-sm-8">
+                                <input id="tel" name="tel" class="form-control" data-rule-required="true" 	type="text" th:value="${store.tel}" >
+                            </div>
+                        </div>
+                    
+
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >是否可存金：</label>
+                            <div class="switch onoffswitch col-sm-1">
+                                <div class="onoffswitch">
+                                    <input id="canStore" name="canStore" checked="" th:checked="${store.canStore==1}" type="checkbox" value="1" class="onoffswitch-checkbox" >
+                                    <label class="onoffswitch-label" for="canStore">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <label class="col-sm-3 control-label" >是否可提金：</label>
+                            <div class="switch onoffswitch col-sm-1">
+                                <div class="onoffswitch">
+                                    <input id="canWithdraw" name="canWithdraw" checked="" th:checked="${store.canWithdraw==1}" type="checkbox" value="1" class="onoffswitch-checkbox" >
+                                    <label class="onoffswitch-label" for="canWithdraw">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >门店图片：</label>
+                            <input id="img" hidden="hidden" name="img" th:value="${store.img}" >
+                            <div class="col-sm-7">
+                                <img id="thumImg" src="" th:src="${store.img}+'?x-oss-process=image/resize,m_fixed,h_50,w_100'">
+                            </div>
+                            <div class="col-sm-1 file-manager">
+                                <div class="ibox float-e-margins">
+                                    <div class="">
+                                        <div class="file-manager">
+                                            <form id="uploadForm" class="form-horizontal m-t hidden">
+                                                <input type="file" id="file" class="form-control" th:style="'display:none!important;'" name="file"
+                                                       style="height: 100px;" />
+                                            </form>
+                                            <button class="btn btn-success btn-block hidden"
+                                                    onclick="doUpload()">上传图片</button>
+
+                                            <button type="button" class="layui-btn" id="test1">
+                                                <i class="fa fa-cloud"></i>上传图片
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="text-center form-group">
+                            <a class="btn btn-default waves-effect waves-light"
+                               onclick="returnList()">返回列表</a>
+                            <button class="btn btn-primary waves-effect waves-light"  type="submit">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script src="/js/appjs/sys/store/edit.js"></script>
+<script type="text/javascript" src="/js/layui.js"></script>
+</body>
+
+</html>

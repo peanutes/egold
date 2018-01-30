@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 订单详情</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+
+        .mui-switch-orange.mui-active {
+            border: 2px solid #ff8800;
+            background-color: #ff8800;
+            margin-top: 0.1rem;
+        }
+
+        /*.mui-switch-handle {*/
+        /*height: 0.5rem;*/
+        /*width:0.5rem;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<input type="hidden" id="token" th:value="${session.token}">
+<input type="hidden" id="addressId" th:value="${addressId}">
+<input type="hidden" id="skuId" th:value="${skuId}">
+
+<th:block th:if="${memberSession==null}">
+    <script type="text/javascript">
+		var skuId = document.getElementById("skuId").value;
+//		alert("您还没有登录,请先登录!");
+		window.location = "egold://user/login?skuId=" + skuId;
+    </script>
+</th:block>
+<th:block th:if="${memberSession!=null && hasAddress == false}">
+    <script type="text/javascript">
+		var token = document.getElementById("token").value,
+			skuId = document.getElementById("skuId").value;
+
+//		alert("您还没有收货地址,请先添加收货地址!");
+		window.location = "egold://user/addressManage?token=" + token + "&skuId=" + skuId;
+    </script>
+</th:block>
+<th:block th:if="${hasBindCard == false}">
+    <script type="text/javascript">
+		var token = document.getElementById("token").value,
+			addressId = document.getElementById("addressId").value,
+			skuId = document.getElementById("skuId").value;
+
+//		alert("您还没有绑定银行卡,请先绑定银行卡!");
+		window.location = "egold://user/bindBankcard?token=" + token + "&skuId" + skuId + "&addressId=" + addressId;
+    </script>
+</th:block>
+<th:block th:if="${memberSession!=null && hasAddress == true}">
+    <!--订单详细 -->
+    <div class="order_form">
+
+        <!--<input type="hidden" id="token" th:value="${#httpServletRequest.getParameter('token')}">-->
+        <!--<input type="hidden" id="skuId" th:value="${skuDetailDto.id}">-->
+        <!--<input type="hidden" id="addressId" th:value="${addressOutputDto.id}">-->
+        <input type="hidden" id="stock" th:value="${skuDetailDto.stock}">
+        <!--<input type="hidden" id="num" th:value="1">-->
+        <input type="hidden" id="balanceAmount" th:value="${balancePayAmount}">
+        <input type="hidden" id="totalAmount" th:value="${totalAmount}">
+        <input type="hidden" id="enabledBalance" th:value="${enabledBalance}">
+        <input type="hidden" id="invoiceTypeHidden" value="personal">
+        <input type="hidden" id="invoiceItem" value="实物黄金">
+        <input type="hidden" id="invoiceTitle" value="个人">
+        <input type="hidden" id="price" th:value="${price}">
+        <input type="hidden" id="otherTotalMoney" th:value="${otherTotalMoney}">
+
+        <div class="market_order_detail">
+            <!--<div class="bg_F5F5F5 height20 w_100p"></div>-->
+            <div class="address_name" id="chooseAddress">
+                <p class="title_4_market_order"><img src="../images/market/name_icon.png"/><span id="name"
+                                                                                                 th:text="${addressOutputDto.receiver}">张三丰</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="telephone"
+                                                  th:text="${addressOutputDto.receiverTel}"></span>
+                </p>
+                <p class="address"><span id="detailAddress2" th:text="${addressOutputDto.address}"></span>
+                    <span class="gt" id="goToChooseAddress">&gt;</span></p>
+            </div>
+            <div class="bg_F5F5F5 height20 w_100p"></div>
+            <div class="gold_product_name">
+                <p class="title_4_market_order"><img src="../images/market/product_icon.png"/>商品</p>
+
+                <ul>
+                    <li class="products_item" href="3">
+                        <a class="product_section"
+                           alt="">
+                            <div class="product_pic">
+                                <img src="../images/market/product_sample.png" th:src="${spu.imgUrl}"/>
+                            </div>
+                        </a>
+                        <div class="product_section">
+                            <div class="products_title">
+                                <p><a href="#" title="">
+                                    <th:block th:text="${skuDetailDto.goodsName}"></th:block>
+                                    <span class="stock">(库存:<th:block
+                                            th:text="${skuDetailDto.stock}"></th:block>件)</span></a></p>
+                                <div>
+                                    <span class="weight color_ff8800" th:text="${skuDetailDto.spec+'克'}">3.22克</span>
+                                <span class="numbers">数量:
+                            <button class="numbox-minus" type="button">-</button>
+                            <input class="number-count" type="number" value="1" maxlength="3" max="999"/>
+                            <button class="numbox-plus" type="button">+</button>
+                        </span>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="bg_F5F5F5 height20 w_100p"></div>
+            <div class="order_detail_list">
+                <div class="detail_row">
+                    <span class="detail_caption">订单总额</span><span class=" detail"
+                                                                  th:text="${ {#numbers.formatDecimal(totalAmount,0,2)}+ '元'}"
+                                                                  id="orderTotalMoney"></span>
+                </div>
+                <div class="detail_row">
+                    <span class="detail_caption">商品价格</span><span class=" detail" th:text="${price+ '元'}"
+                                                                  id="productPrice"></span>
+                </div>
+                <div class="detail_row">
+                    <span class="detail_caption">其它费用合计</span><span class=" detail" id="otherTotalMoney"
+                                                                    th:text="${{#numbers.formatDecimal(otherTotalMoney,0,2)}+ '元'}"></span>
+                </div>
+            </div>
+            <div class="bg_F5F5F5 h_2 w_100p"></div>
+            <div class="order_detail_list">
+                <div class="detail_row">
+                    <span class="detail_caption">物流费用</span><span class=" detail" id="expressFee"
+                                                                  th:text="${withdrawGoldFeeDto.expressFee+ '元'}"></span>
+                </div>
+
+                <div class="detail_row">
+                    <span class="detail_caption">保险</span><span class=" detail" id="insuranceFee"
+                                                                th:text="${withdrawGoldFeeDto.insuranceFee + '元'}"></span>
+                </div>
+            </div>
+            <div class="bg_F5F5F5 h_2 w_100p"></div>
+            <div class="order_detail_list">
+                <div class="detail_row ">
+                <span class="detail_caption">余额支付:&nbsp;&nbsp;<span class="orange balancePayAmount"
+                                                                    id="balancePayAmount"
+                                                                    th:text="${{#numbers.formatDecimal(balancePayAmount,0,2)}+ '元'}"></span></span>
+                    <span class="orange detail">
+                <span id="useEnableBalance" class="mui-active mui-switch mui-switch-orange"
+                      style="display:inline-block; float:right;">
+  <span class="mui-switch-handle"></span>
+</span>
+            </span>
+                </div>
+
+            </div>
+
+            <div class="bg_F5F5F5 h_2 w_100p"></div>
+            <div class="order_detail_list">
+                <div class="detail_row" id="edit_invoice">
+                    <span class="detail_caption">发票信息</span><span class=" detail "><span class="invoiceType">个人</span>&nbsp;&gt;</span>
+                </div>
+
+            </div>
+            <div class="bg_F5F5F5 height20 w_100p"></div>
+            <div class="order_detail_list payAtBottom">
+                <div class="detail_row">
+            <span class="detail_caption">在线支付:&nbsp;&nbsp;<span class="orange onlinePayAmount"
+                                                                th:text="${{#numbers.formatDecimal(onlinePayAmount,0,2)}+ '元'}"></span></span><span
+                        class="detail"><span class="confirm_button" id="submitOrder">确认支付</span></span>
+                </div>
+            </div>
+
+            <div id="requestPayPasswordWrapper"
+                 style="display: none;">
+                <div class="close_pay" id="closePay">x</div>
+                <p class="detail_caption"> 在线支付:&nbsp;&nbsp;<span class="orange onlinePayAmount shouldPayAmount"
+                                                                  th:text="${{#numbers.formatDecimal(onlinePayAmount,0,2)}+ '元'}"></span>
+                </p>
+                <div class="use_bank_card" id="aa" style="display: none;">
+
+                </div>
+                <div class="use_bank_card" id="remindInfo" style="display: none;">短信验证码已发送至您的手机
+                    <th:block th:text="${bankCardBindMobile}"></th:block>
+                </div>
+                <input type="password" id="payPwd" placeholder="请输入交易密码" class="payPwd">
+                <input type="text" style="display: none;" id="smsCode" placeholder="请输入短信验证码" class="payPwd">
+                <div class="use_bank_card">使用<span th:text="${bankCardName}"></span>尾号(<span
+                        th:text="${bankCardLastNumber}"></span>)储蓄卡付款
+                </div>
+
+                <button class="confirm_pay_button" id="payOrder">确认支付</button>
+                <button class="confirm_pay_button" style="display: none;" id="payOrderSmsCode">确认支付</button>
+
+            </div>
+
+            <div class="fix-height2"></div>
+        </div>
+    </div>
+    <!--发票信息 -->
+    <div class="invoice_info" style="display: none">
+        <div class="bg_F5F5F5 height20 w_100p"></div>
+        <div class="market_order_detail">
+            <div class="remind_info">开票金额仅限于您在E黄金购买时实际支付的费用，红包与您存入的黄金不予开票</div>
+            <div class="order_detail_list">
+                <div class="detail_row">
+                    <span class="detail_caption">开票金额</span><span class=" detail"
+                                                                  th:text="${skuDetailDto.price+ '元'}"></span>
+                </div>
+                <div class="detail_row">
+                    <span class="detail_caption">发票项目</span><span class=" detail">实物黄金</span>
+                </div>
+                <div class="detail_row">
+                    <span class="detail_caption">发票抬头</span><span class=" detail"><span
+                        id="invoiceType" class="invoiceType">个人</span>&nbsp;&gt</span>
+                </div>
+            </div>
+            <div class="ta_center background_color_f5f5f5 h_100 line_height_100 fz_32 color_666666">发票信息</div>
+            <div class="order_detail_list">
+                <div class="detail_row">
+                    <!-- <span class="detail_caption"><input type="checkbox" class="checkbox invoiceTypeCheckbox" id="personal"
+                                                         checked="checked"/> <label
+                             for="personal">个人</label></span><span
+                                 class=" detail"></span>
+                         </div>
+                         <div class="detail_row">
+                     <span class="detail_caption"><input type="checkbox"  class="checkbox invoiceTypeCheckbox" id="company"/> <label
+                             for="company">单位</label></span>-->
+
+                    <span class="detail_caption"><input type="radio" class="checkbox invoiceTypeCheckbox"
+                                                        id="personal" name="invoiceType"
+                                                        checked="checked"/> <label
+                            for="personal">个人</label></span><span
+                        class=" detail"></span>
+                </div>
+                <div class="detail_row">
+                     <span class="detail_caption"><input type="radio" class="checkbox invoiceTypeCheckbox"
+                                                         id="company" name="invoiceType"/> <label
+                             for="company">单位</label></span>
+                    <span
+                            class=" detail">
+            <input type="text" class="input_2" id="companyFullName" placeholder="请输入单位全称"/>
+        </span>
+                </div>
+                <div class="detail_row">
+                    <span class="detail_caption"><input type="checkbox" id="taxNo"
+                                                        class="checkbox placeholder"/> 税号</span><span
+                        class=" detail"><input type="text"
+                                               class="input_2" id="companyTaxNo" placeholder="请输入单位税号"/></span>
+                </div>
+            </div>
+
+        </div>
+        <button class="buy_sell_button" id="conformInvoice">确认</button>
+
+    </div>
+
+</th:block>
+
+<div th:replace="include/template::commonJavascript"></div>
+<script type="text/javascript" src="../js/wap/goldMarketOrder4App.js"></script>
+<script type="text/javascript" src="../widget/layer_mobile/layer.js"></script>
+
+
+</body>
+
+</html>

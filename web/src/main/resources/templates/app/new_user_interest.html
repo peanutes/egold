@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 新手福利</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<div class="new_user_interest_page">
+    <img src="../images/newUserInterest/xsfl_01.jpg"/>
+    <div class="new_user_interest_button">
+        <img src="../images/newUserInterest/xsfl_02.jpg"/>
+        <div class="button">
+            <!--购金劵-->
+            <a href="/app/newUserBuyGoldTicket?terminalType=app" class="btn1">
+                588<span class="unit">元</span>
+            </a>
+            <!--立即抢购新手特权金-->
+            <a href="/app/newUserSpecialPriceGold?terminalType=app" class="btn2">
+                <div class="check_detail"><span th:text="${newUserProduct.price}"></span><span class="unit">元/克</span></div>
+            </a>
+        </div>
+    </div>
+    <img src="../images/newUserInterest/xsfl_03.jpg"/>
+    <img src="../images/newUserInterest/xsfl_04.jpg"/>
+
+</div>
+<div th:replace="include/template::commonJavascript"></div>
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

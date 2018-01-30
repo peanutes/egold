@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 会赚钱的黄金</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+
+
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css"></style>
+
+</head>
+<body>
+<header class="header">
+    <div class="top">
+        <div class="logo">
+            <a href="goto?page=wap__index">
+                <img
+                        src="../images/logo.png"/>
+            </a>
+        </div>
+
+        <div class="download-app">
+            <a href="goto?page=wap__index">
+                <img src="../images/download_app.png"/>
+            </a>
+        </div>
+
+        <div class="close_top">
+            <a href="goto?page=wap__index">
+                <img
+                        src="../images/close.png"/>
+            </a>
+        </div>
+
+    </div>
+</header>
+<div class="latest_gold_price">
+    <p>最新金价:<span class="number">281.64</span><span class="unit">元/克</span></p>
+</div>
+
+<div class="trend-tab">
+    <ul>
+        <li id="trend_one_day" class="trend_one_day active">24小时</li>
+        <li id="trend_seven_day" class="trend_seven_day">7日</li>
+        <li id="trend_one_month" class="trend_one_month">30日</li>
+        <li id="trend_one_year" class="trend_one_year">365日</li>
+        <!--<li id="trend_history" class="trend_history">历史走势&nbsp;<img src="../images/arrow-right.png"/></li>-->
+    </ul>
+</div>
+<div id="date_and_price"></div>
+<div id="trend-chart">
+</div>
+<div class="gold_price_reference_note">金价参考上海黄金交易所，实时变动</div>
+<div class="hot_news">
+    <p class="hot_new_caption">热门资讯</p>
+</div>
+<ul id="hot_news_list">
+    <li class="news_item" href="3">
+        <div class="new_section">
+            <div class="news_title">
+                <p><a href="#" title="">央行缩表或标志债市拐点 黄金暂时止跌后劲不足</a></p>
+            </div>
+            <div>
+                <span class="publish_time">2017-09-20 16:00</span>
+                <span class="news_source">财经网报道</span>
+            </div>
+        </div>
+        <a class="new_section"
+           alt=""><img src="../images/news_sample.png"/></a>
+    </li>
+    <li class="news_item" href="3">
+        <div class="new_section">
+            <div class="news_title">
+                <p><a href="#" title="">央行缩表或标志债市拐点</a></p>
+            </div>
+            <div>
+                <span class="publish_time">2017-09-20 16:00</span>
+                <span class="news_source">财经网报道</span>
+            </div>
+        </div>
+        <a class="new_section"
+           alt=""><img src="../images/news_sample.png"/></a>
+    </li>
+    <li class="news_item" href="3">
+        <div class="new_section">
+            <div class="news_title">
+                <p>
+                    <a href="#" title="">央行缩表或标志债市拐点央行缩表或标志债市拐点央行缩表或标志债市拐点央行缩表或标志债市拐点央行缩表或标志债市拐点</a>
+                </p>
+            </div>
+            <div>
+                <span class="publish_time">2017-09-20 16:00</span>
+                <span class="news_source">财经网报道</span>
+            </div>
+        </div>
+        <a class="new_section"
+           alt=""><img src="../images/news_sample.png"/></a>
+    </li>
+</ul>
+
+<div class="load_more">查看更多</div>
+<div class="footer">
+    <div class="security_company">中华联合财产保险承保用户账户安全</div>
+    <div class="check_bill_sample">查看保单样本</div>
+    <div class="hot_line">全国免费热线：4000 328 128</div>
+</div>
+<div class="fix-navbar" id="fix-navbar">
+    <ul class="fix-bar-ul" id="fix-bar-ul">
+        <li>
+            <a href="goto?page=wap__index">
+                <span class="nav-icon navbar_home"></span><span>首页</span>
+            </a>
+        </li>
+        <li>
+            <a href="goto?page=wap__buy_gold">
+                <span class="nav-icon navbar_buy_gold"></span><span>买金</span>
+            </a>
+        </li>
+        <li>
+            <a href="goto?page=wap__discover">
+                <span class="nav-icon navbar_discover"></span><span>发现</span>
+            </a>
+        </li>
+        <li>
+            <a href="goto?page=wap__mine">
+                <span class="nav-icon navbar_mine"></span><span>我的</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../widget/mui/js/mui.min.js"></script>
+<script type="text/javascript" src="../js/echarts.js"></script>
+<script type="text/javascript" src="../js/wap/goldTrendChart.js"></script>
+<script id="art-main" type="text/html">
+
+    <h3>大家好，我的名字叫做{{name}}</h3>
+    alert("fdfdf");
+
+</script>
+<div>sdffD</div>
+</div>
+<script type="text/javascript">
+	$(".fix-bar-ul li").eq(2).addClass("on");
+
+	//最新资讯显示
+	$(function () {
+		$.post(systemConfig.url + "/cms/cms/hotInfoList",
+			{
+				page: 1,
+				size: 10
+			},
+			function (data) {
+				if (data.code == '200') {
+					var i, result = data.data.list, html = "";
+					console.log(data)
+					for (i = 0; i < result.length; i++) {
+						html += '<li class="news_item"> ';
+						html += '<div class="new_section">                                                 ';
+						html += '	<div class="news_title">                                               ';
+						html += '	<p><a href="'+systemConfig.url+ '/detail?id=' +result[i].id+'" title="">'+result[i].title+'</a></p>  ';
+						html += '</div>                                                                    ';
+						html += '<div>                                                                     ';
+						html += '<span class="publish_time">'+result[i].publishTime+'</span>                        ';
+						html += '<span class="news_source">'+result[i].source+'</span>                                 ';
+						html += '	</div>                                                                 ';
+						html += '	</div>                                                                 ';
+						html += '	<a class="new_section"                                                 ';
+						html += 'alt=""><img src="'+result[i].listImg+'"/></a>                         ';
+						html += '</li>';
+					}
+					$("#hot_news_list").html(html);
+
+				}
+			}
+		);
+	});
+</script>
+</body>
+
+</html>

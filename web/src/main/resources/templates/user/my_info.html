@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 个人信息</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<div>
+    <!--<th:block th:replace="include/template::downloadApp"></th:block>-->
+    <div class="top_title">
+        <div class="return"><img src="../images/return.png"/></div>
+        <p class="title">个人信息</p>
+        <div class="right"></div>
+    </div>
+    <div class="bg_F5F5F5 h_12 w_100p"></div>
+
+    <div class="detail_table_2">
+        <th:block th:if="${session.auth_member_session!= null}">
+
+            <div class="detail_row"><span class="detail_caption ">手机号</span><span
+                    class="detail_desc color_929292 " th:text="${mobile}"></span></div>
+            <a href="/user/toRealName">
+                <div class="detail_row"><span class="detail_caption color_666666 ">姓名</span>
+                    <th:block th:if="${hasRealName == true}">
+                    <span
+                            class="detail_desc color_929292 " th:text="${realName}"></span>
+                    </th:block>
+                    <th:block th:if="${hasRealName != true}">
+                    <span
+                            class="detail_desc color_929292">未实名&nbsp;&gt;</span>
+                    </th:block>
+                </div>
+            </a>
+            <div class="bg_F5F5F5 h_12 w_100p"></div>
+
+            <div class="detail_row"><span class="detail_caption "><img src="../images/wechat.png" class="wechat_icon"/>&nbsp;微信</span><span
+                    class="detail_desc color_929292 ">未绑定&nbsp;&gt;</span></div>
+
+        </th:block>
+        <th:block th:if="${session.auth_member_session== null}">
+            <div class="" style="text-align: center; margin-top:25px;width:100%;"><a href="/user/toRegisterLogin">您好,请先登录</a>
+            </div>
+        </th:block>
+    </div>
+
+</div>
+<div th:replace="include/template::footer"></div>
+<script type="text/javascript" src="/js/zepto.min.js" th:src="@{'/js/zepto.min.js'}"></script>
+<script type="text/javascript" src="/widget/reveal/jquery.reveal.js"></script>
+<script type="text/javascript" src="../js/wap/myAccount.js"></script>
+</body>
+</html>

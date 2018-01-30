@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 我的红包</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+        html, body {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+<div class="my_order_detail">
+    <div class="top_title">
+        <div class="return"><img src="../images/return.png"/></div>
+        <p class="title">红包</p>
+    </div>
+
+    <ul class="display_tab">
+        <li id="tab_1" class="tab_title_default active">未使用</li>
+        <li id="tab_2" class="tab_title_default">已失效</li>
+        <li id="tab_3" class="tab_title_default">已使用</li>
+    </ul>
+
+    <div id="tab_1_content" class="detail_table_3 list_control coupon_section">
+    </div>
+
+    <div id="tab_2_content" class="detail_table_3 list_control coupon_section" style="display: none">
+    </div>
+
+    <div id="tab_3_content" class="detail_table_3 list_control coupon_section" style="display: none">
+    </div>
+</div>
+<div th:replace="include/template::commonJavascript"></div>
+<script type="text/javascript" src="../js/wap/myCoupon.js"></script>
+<script type="text/javascript">
+	$(function () {
+		//默认加载未使用的现金红包
+		getCashCouponList('CASH_COUPON', 'NON_USE', 'tab_1_content');
+
+		//未使用
+		$("#tab_1").click(function () {
+			getCashCouponList('CASH_COUPON', 'NON_USE', 'tab_1_content');
+		});
+
+		//已失效
+		$("#tab_2").click(function () {
+			getCashCouponList('CASH_COUPON', 'EXPIRED', 'tab_2_content');
+		});
+
+		//已使用
+		$("#tab_3").click(function () {
+			getCashCouponList('CASH_COUPON', 'HAD_USED', 'tab_3_content');
+		});
+	})
+</script>
+</body>
+
+</html>

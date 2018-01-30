@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.order.dao.PaymentLogMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.order.entity.PaymentLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="pay_sn" jdbcType="VARCHAR" property="paySn" />
+    <result column="pay_request_no" jdbcType="VARCHAR" property="payRequestNo" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="recharge_or_pay" jdbcType="INTEGER" property="rechargeOrPay" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="errro_msg" jdbcType="VARCHAR" property="errroMsg" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+
+
+  <resultMap id="ListResult" type="com.zfhy.egold.domain.order.entity.PaymentLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="pay_sn" jdbcType="VARCHAR" property="paySn" />
+    <result column="pay_request_no" jdbcType="VARCHAR" property="payRequestNo" />
+    <result column="amount" jdbcType="DECIMAL" property="amount" />
+    <result column="recharge_or_pay" jdbcType="INTEGER" property="rechargeOrPay" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="errro_msg" jdbcType="VARCHAR" property="errroMsg" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+  </resultMap>
+
+
+  <select id="list" parameterType="Map" resultMap="ListResult">
+    SELECT r.*, m.mobile_phone mobile, m.real_name FROM order_payment_log r, member_member m where r.member_id = m.id
+    <if test="memberId!='' and memberId!=null"> and r.member_id = #{memberId}</if>
+    <if test="mobile!='' and mobile != null"> and m.mobile_phone = #{mobile}</if>
+    <if test="status!='' and status != null"> and r.status = #{status}</if>
+    <if test="rechargeOrPay!='' and rechargeOrPay != null"> and r.recharge_or_pay = #{rechargeOrPay}</if>
+    <if test="payRequestNo!='' and rechargeOrPay != null"> and r.pay_request_no = #{payRequestNo}</if>
+  </select>
+
+
+
+</mapper>

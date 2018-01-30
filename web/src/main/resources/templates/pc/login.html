@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 登录</title>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../js/plugin/toast/css/toast.css" th:href="@{/js/plugin/toast/css/toast.css}"/>
+    <link rel="stylesheet" href="../js/plugin/toast/css/animate.css" th:href="@{/js/plugin/toast/css/animate.css}"/>
+    <link rel="stylesheet" href="../css/css_reset.css" th:href="@{/css/css_reset.css}"/>
+    <link rel="stylesheet" href="../css/pc.css" th:href="@{/css/pc.css}"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <style type="text/css">
+
+    </style>
+</head>
+<body class="body">
+
+<div id="wrapper_login">
+    <div th:include="pc/include/template :: header(tab='home')" ></div>
+
+    <div class="banner">
+        <!--<form action="">-->
+            <div id="loginDiv" class="register_login_wrapper_4_login">
+                    <div class="caption"><span style="font-size:20px; color:#ff8800; text-align: left">密码登录</span><span
+                            style="font-size:14px;text-align: right;" class="no_account">没有帐号,<a href="#" target="_self" th:href="@{/pc/gotoRegister}">立即注册</a> </span></div>
+                    <div class="input_telephone">
+                        <div class="icon"><img src="../pcImages/loginAndRegister/icon_phone.png" width="20" height="29" /> </div>
+                        <div class="input_clear"><span>x</span></div>
+                        <input type="text" name="mobile" id="mobile" required="required" maxlength="11" data-tipso="dowebok" placeholder="请输入登录帐号"
+                               class="need_input_clear">
+                    </div>
+                    <div class="input_telephone">
+                        <div class="icon"><img src="../pcImages/loginAndRegister/icon_password.png" width="26" height="30" /> </div>
+                        <div class="input_clear"><span>x</span></div>
+                        <input type="password" name="password" id="password" required="required" maxlength="11" placeholder="请输入登录密码"
+                               class="need_input_clear">
+                    </div>
+                    <!--<div style="text-align: right; width: 80%; font-size:16px;"><a href="#">忘记密码?</a></div>-->
+                    <!--<div style="text-align: right; width: 80%; font-size:16px;">&nbsp;</div>-->
+
+                    <div>
+                        <button id="pcLogin" class="pc_btn_1">立即登陆</button>
+                    </div>
+                <p class="security_guard"><img src="../pcImages/loginAndRegister/icon_guard.png" width="24" height="25" />中华联合财产保险承保黄金实物存放安全</p>
+            </div>
+
+        <!--</form>-->
+    </div>
+</div>
+
+<div th:include="pc/include/template :: homeFooter" ></div>
+<script type="text/javascript" src="../js/pc/login.js" th:src="@{/js/pc/login.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+.to_page_center {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.height_center(@height) {
+	height: @height;
+	line-height: @height;
+}
+
+.cb {
+	clear: both;
+}
+
+.color_ff8800 {
+	color: #ff8800;
+}
+
+.color_ff5100 {
+	color: #ff5100;
+}
+
+.color_996c33 {
+	color: #996c33;
+
+}
+
+a:link, a:visited, a:hover, a:active {
+	text-decoration: none;
+}
+
+.height_21 {
+	height: 21px;
+
+}
+
+.background_color_f7f8fd {
+	background: #F7F8FD;
+}
+
+.input_telephone {
+	position: relative;
+	text-align: left;
+
+	@input_height: 55px;
+	@input_width: 80%;
+	width: @input_width;
+
+	.height_center(@input_height);
+
+	input {
+		line-height: normal; //这样就不会在浏览器光标跟高度一样高了
+		.height_center(@input_height);
+		border: 1px solid #cccccc; /*no*/
+		width: 100%;
+		padding-left: 60px;
+		font-size: 18px;
+
+	}
+
+	.input_clear {
+		position: absolute;
+		font-size: 20px;
+		right: 15px;
+		cursor: pointer;
+		display: none;
+		color: #DADADA;
+		.height_center(@input_height);
+	}
+	.icon{
+		position: absolute;
+		left:20px;
+		img{
+			//width:20px;
+			//height:29px;
+			vertical-align: middle;
+		}
+	}
+
+}
+

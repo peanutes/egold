@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.order.dao.MyorderAttrMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.order.entity.MyorderAttr">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="myorder_id" jdbcType="INTEGER" property="myorderId" />
+    <result column="attr_name" jdbcType="VARCHAR" property="attrName" />
+    <result column="attr_value" jdbcType="VARCHAR" property="attrValue" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+  </resultMap>
+
+  <insert id="batchInsert" >
+    INSERT INTO order_myorder_attr(myorder_id, attr_name, attr_value, sort) VALUES
+    <foreach collection="param2" item="item" separator=",">
+      (#{param1}, #{item.attrName}, #{item.attrValue}, #{item.sort})
+    </foreach>
+
+  </insert>
+
+</mapper>

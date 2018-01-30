@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >使用场景</label>
+                            <div class="col-sm-8">
+                                <!--<input id="useScene" name="useScene" class="form-control" data-rule-required="true" data-rule-number="true"	type="text">-->
+                                <select class="form-control m-b" id="useScene" data-rule-required="true" name="useScene">
+                                    <option value="">--请选择--</option>
+                                    <option th:each="item:${useScenes}" th:value="${item.code}" th:text="${item.label}" >选项 1</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >优惠卷类型：</label>
+                            <div class="col-sm-8">
+                                <!--<input id="type" name="type" class="form-control" data-rule-required="true" data-rule-number="true"	type="text">-->
+                                <select class="form-control m-b" id="type" data-rule-required="true" name="type">
+                                    <option value="">--请选择--</option>
+                                    <option th:each="item:${couponTypes}" th:value="${item.code}" th:text="${item.label}" >选项 1</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >优惠卷面值：</label>
+                            <div class="col-sm-8">
+                                <input id="couponAmount" name="couponAmount" class="form-control" data-rule-required="true"  data-rule-number="true"	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >有效时间(天)：</label>
+                            <div class="col-sm-8">
+                                <input id="effectDay" name="effectDay" class="form-control" data-rule-required="true" data-rule-number="true"	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >使用条件:起投金额(元),0 为无限制：</label>
+                            <div class="col-sm-8">
+                                <input id="investAmountMin" name="investAmountMin" class="form-control" data-rule-required="true" data-rule-number="true"	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >起投金额说明：</label>
+                            <div class="col-sm-8">
+                                <input id="investAmountMinDesc" name="investAmountMinDesc" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >使用条件:标的起始期限(天),0 为全部：</label>
+                            <div class="col-sm-8">
+                                <input id="investDealineMin" name="investDealineMin" class="form-control" data-rule-required="true" data-rule-number="true"	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >起投项目期限说明：</label>
+                            <div class="col-sm-8">
+                                <input id="investDeadlineMinDesc" name="investDeadlineMinDesc" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >产品类型：</label>
+                            <div class="col-sm-8">
+                                <input id="productType" name="productType" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >备注：</label>
+                            <div class="col-sm-8">
+                                <input id="remarks" name="remarks" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="text-center form-group">
+                            <a class="btn btn-default waves-effect waves-light"
+                               onclick="returnList()">返回列表</a>
+                            <button class="btn btn-primary waves-effect waves-light"  type="submit">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/sys/couponConfig/add.js"></script>
+</body>
+
+</html>

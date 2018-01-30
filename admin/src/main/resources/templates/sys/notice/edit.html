@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="id" name="id" type="hidden" th:value="${notice.id}">
+                        <input id="articleId" name="articleId" type="hidden" th:value="${notice.articleId}">
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >公告标题：</label>
+                            <div class="col-sm-8">
+                                <input id="noticeTitle" name="noticeTitle" class="form-control" data-rule-required="true" 	type="text" th:value="${notice.noticeTitle}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >公告内容：</label>
+                            <div class="col-sm-8">
+                                <input id="noticeContent" name="noticeContent" class="form-control" data-rule-required="true" 	type="text" th:value="${notice.noticeContent}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >发送时间：</label>
+                            <div class="col-sm-8">
+                                <input id="noticeTime" name="noticeTime" class="form-control"  readonly="readonly" 	type="text" th:value="${#dates.format(notice.noticeTime,'yyyy-MM-dd HH:mm:ss')}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >失效时间：</label>
+                            <div class="col-sm-8">
+                                <input id="invalidTime" name="invalidTime" class="form-control" data-rule-required="true" 	type="text" th:value="${#dates.format(notice.invalidTime,'yyyy-MM-dd HH:mm:ss')}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >公告状态：</label>
+                            <div class="col-sm-8">
+                                <select class="form-control m-b" data-rule-required="true" name="noticeStatus" readonly="readonly">
+                                    <option th:value="1" th:selected="(${notice.noticeStatus == 1})">未发送</option>
+                                    <option th:value="2" th:selected="(${notice.noticeStatus == 2})">已发送</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+
+                        <input id="adminId" name="adminId" class="form-control" type="hidden" th:value="${notice.adminId}" >
+
+                        <!--<div class="form-group">
+                            <label class="col-sm-3 control-label" >管理员id：</label>
+                            <div class="col-sm-8">
+                            </div>
+                        </div>-->
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >备注：</label>
+                            <div class="col-sm-8">
+                                <input id="remarks" name="remarks" class="form-control" data-rule-required="true" 	type="text" th:value="${notice.remarks}" >
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="col-sm-3 control-label" >内容：</label>
+                            <input id="articleContent" name="articleContent" 	type="hidden" th:value="${notice.articleContent}" >
+                            <div class="col-sm-8">
+                                <div class="ibox-content no-padding">
+                                    <div id="content_sn" class="summernote"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                            </div>
+                        </div>
+                    
+
+
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-3">
+                                <button type="submit" class="btn btn-primary">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script src="/js/appjs/sys/notice/edit.js"></script>
+<script type="text/javascript" src="/js/plugins/laydate/laydate.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.member.dao.BindBankcardLogMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.member.entity.BindBankcardLog">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="request_no" jdbcType="VARCHAR" property="requestNo" />
+    <result column="card_no" jdbcType="VARCHAR" property="cardNo" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="idcard_no" jdbcType="VARCHAR" property="idcardNo" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="error_msg" jdbcType="VARCHAR" property="errorMsg" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+</mapper>

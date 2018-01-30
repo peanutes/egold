@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.gold.dao.RealtimePriceMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.gold.entity.RealtimePrice">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="latest_price" jdbcType="DECIMAL" property="latestPrice" />
+    <result column="yes_price" jdbcType="DECIMAL" property="yesPrice" />
+    <result column="open_price" jdbcType="DECIMAL" property="openPrice" />
+    <result column="max_price" jdbcType="DECIMAL" property="maxPrice" />
+    <result column="min_price" jdbcType="DECIMAL" property="minPrice" />
+    <result column="change_percent" jdbcType="DECIMAL" property="changePercent" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+  </resultMap>
+</mapper>

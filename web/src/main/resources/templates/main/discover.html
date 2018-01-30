@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 发现</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="/css/reveal.css"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <link rel="stylesheet" href="../widget/dropload/dropload.css">
+
+</head>
+<body>
+<div th:replace="include/template::header"></div>
+
+<!-- 最新金价开始 -->
+<div class="latest_gold_price">
+    <p><span class="to_fix_line_height"></span> 最新金价:<span class="number current_price display_inline_block width_160">加载中</span><span class="unit">元/克</span></p>
+</div>
+<!-- 最新金价结束 -->
+
+<!--金价走势开始 -->
+<div class="trend-tab">
+    <ul>
+        <li id="trend_one_day" class="trend_one_day active">24小时</li>
+        <li id="trend_seven_day" class="trend_seven_day">7日</li>
+        <li id="trend_one_month" class="trend_one_month">30日</li>
+        <li id="trend_one_year" class="trend_one_year">365日</li>
+    </ul>
+</div>
+<div id="date_and_price"></div>
+<div id="trend-chart"></div>
+<div class="gold_price_reference_note">金价参考上海黄金交易所，实时变动</div>
+<!--金价走势结束 -->
+
+<!--热门资讯开始 -->
+<div class="hot_news">
+    <p class="hot_new_caption">热门资讯</p>
+</div>
+<div class="hot_news_list_wrap">
+    <ul id="hot_news_list"></ul>
+</div>
+<!--<div class="load_more">查看更多</div>-->
+<!-- 热门资讯结束 -->
+
+<script type="text/javascript" src="/js/echarts.js"></script>
+<div th:replace="include/template::footer"></div>
+<script type="text/javascript" src="../widget/dropload/dropload.js"></script>
+<script type="text/javascript" src="/js/wap/discover.js"></script>
+<script type="text/javascript" src="/widget/reveal/jquery.reveal.js"></script>
+
+</body>
+
+</html>

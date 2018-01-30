@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+<link href="/css/layui.css" rel="stylesheet">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <ul class="nav nav-tabs">
+                        <span class="pull-right small text-muted"></span>
+                        <li id="baseTab" onclick="switchTab('baseTabBlock')" class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"><i class="fa fa-info-circle"></i> 基本信息</a></li>
+                        <li id="skuTab" onclick="switchTab('skuTabBlock')" class="commonBlock"><a data-toggle="tab" href="#tab-4" aria-expanded="false"><i class="fa fa-reorder"></i> 商品规格</a></li>
+                    </ul>
+
+                    <input id="spuId" name="spuId" type="hidden" th:value="${spu.id}" >
+                    <form class="form-horizontal m-t" id="signupForm">
+
+                        <block>
+                            <block id="baseTabBlock">
+
+
+                                <input  name="id" type="hidden" th:value="${spu.id}" >
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label" >商品类型：</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control m-b" data-rule-required="true" id="goodsTypeId" name="goodsTypeId" readonly="readonly" disabled="disabled">
+                                            <option th:each="item:${spuTypes}" th:value="${item.code}" th:text="${item.label}"   th:selected="(${item.code eq spu.goodsTypeId})" >选项 1</option>
+                                        </select>
+                                    </div>
+                                    <label class="col-sm-1 control-label" >商品名称：</label>
+                                    <div class="col-sm-5">
+                                        <input id="goodsName" name="goodsName" th:value="${spu.goodsName}" class="form-control" data-rule-required="true" 	type="text">
+                                    </div>
+                                </div>
+
+                                <block class="withdrawGoldBlock">
+
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label" >纯度说明：</label>
+                                        <div class="col-sm-5">
+                                            <input id="purityDes" name="purityDes" th:value="${spu.purityDes}" class="form-control" data-rule-required="true" 	type="text">
+                                        </div>
+                                        <label class="col-sm-1 control-label" >克重说明：</label>
+                                        <div class="col-sm-5">
+                                            <input id="weightDes" name="weightDes" th:value="${spu.weightDes}" class="form-control" data-rule-required="true" 	type="text">
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-1 control-label" >尺寸说明：</label>
+                                        <div class="col-sm-5">
+                                            <input id="sizeDes" name="sizeDes" th:value="${spu.sizeDes}" class="form-control" data-rule-required="true" 	type="text">
+                                        </div>
+                                        <label class="col-sm-1 control-label" >工费说明：</label>
+                                        <div class="col-sm-5">
+                                            <input id="feeDes" name="feeDes" th:value="${spu.feeDes}" class="form-control" data-rule-required="true" 	type="text">
+                                        </div>
+                                    </div>
+
+
+                                </block>
+
+
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-1 control-label" >列表图：</label>
+                                    <!--<div class="col-sm-5">
+                                        <input id="imgUrl" name="imgUrl" class="form-control" data-rule-required="true" 	type="text">
+                                    </div>-->
+
+                                    <input id="imgUrl" hidden="hidden" name="imgUrl" th:value="${spu.imgUrl}">
+                                    <div class="col-sm-4">
+                                        <img id="thumImg" src="" th:src="${spu.imgUrl}+'?x-oss-process=image/resize,m_fixed,h_50,w_100'">
+                                    </div>
+                                    <div class="col-sm-1 file-manager">
+                                        <div class="ibox float-e-margins">
+                                            <div class="">
+                                                <div class="file-manager">
+                                                    <form id="uploadForm" class="form-horizontal m-t hidden">
+                                                        <input type="file" id="file" class="form-control" th:style="'display:none!important;'" name="file"
+                                                               style="height: 100px;" />
+                                                    </form>
+                                                    <button class="btn btn-success btn-block hidden"
+                                                            onclick="doUpload()">上传图片</button>
+
+                                                    <button type="button" class="layui-btn" id="test1">
+                                                        <i class="fa fa-cloud"></i>上传图片
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <label class="col-sm-1 control-label" >排序：</label>
+                                    <div class="col-sm-5">
+                                        <input id="sort" name="sort" th:value="${spu.sort}" class="form-control" data-rule-required="true" data-rule-number="true"	type="text">
+                                    </div>
+                                </div>
+
+
+                                <div class="text-center form-group">
+                                    <a class="btn btn-default waves-effect waves-light"
+                                       onclick="returnList()">返回列表</a>
+                                    <button class="btn btn-primary waves-effect waves-light" id="baseBtn"  type="button">提交</button>
+                                </div>
+                            </block>
+
+
+                            <!--规格-->
+                            <div id="skuTabBlock" v-if="seen" style="display:none"  class="">
+
+
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>条码</th>
+                                            <th>规格</th>
+                                            <th>价格</th>
+                                            <th>库存</th>
+                                            <th>工本费</th>
+                                            <th>排序</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr v-for="dataVo in list">
+                                            <input type="hidden" name="id" v-model="dataVo.id">
+                                            <!--<input type="hidden" name="spuId" v-model="dataVo.spuId">-->
+                                            <!-- <td style="vertical-align: middle;">
+                                                 <input type="checkbox" id="checkbox_{{$index}}" name="dataVo.isCheck" v-model="dataVo.isCheck" class="css-checkbox">
+                                                 <label for="checkbox_{{$index}}" class="css-label"></label>
+                                             </td>-->
+                                            <td>
+                                                <input type="text" class="form-control" name="barcode"
+                                                       v-model="dataVo.barcode" placeholder="条码" />
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" name="spec"
+                                                       v-model="dataVo.spec" placeholder="规格" />
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control"  name="price"
+                                                       v-model="dataVo.price" placeholder="价格" />
+                                            </td>
+
+                                            <td>
+                                                <input type="text" class="form-control"  name="stock"
+                                                       v-model="dataVo.stock" placeholder="库存" />
+                                            </td>
+
+                                            <td>
+                                                <input type="text" class="form-control"  name="fee"
+                                                       v-model="dataVo.fee" placeholder="工本费" />
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control"  name="sort"
+                                                       v-model="dataVo.sort" placeholder="排序" />
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger" onclick="delLine('{{$index}}')">删除</button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="text-center form-group">
+                                    <a class="btn btn-default waves-effect waves-light"
+                                       onclick="returnList()">返回列表</a>
+                                    <button class="btn btn-primary waves-effect waves-light" id="skuBtn" onclick="doSubmitSkus()"  type="button">提交</button>
+                                    <button type="button" class="btn btn-primary" onclick="addLine()">增加一行</button>
+                                </div>
+                            </div>
+
+                        </block>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/vue.min.js"></script>
+<script type="text/javascript" src="/js/appjs/goods/spu/edit.js"></script>
+<script type="text/javascript" src="/js/layui.js"></script>
+<!--<script type="text/javascript" src="/js/appjs/goods/spu/sku.js"></script>-->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var model = new Vue({
+        el : "#skuTabBlock",
+        data : {
+            list: /*[[${skuList}]]*/,
+            seen:true
+        }
+    });
+
+//    model.list=/*[[${skuList}]]*/;
+
+    /*]]>*/
+</script>
+</body>
+
+</html>

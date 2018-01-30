@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 联系我们</title>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../css/css_reset.css"/>
+    <link rel="stylesheet" href="../css/pc.css"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+
+    <style type="text/css">
+
+    </style>
+</head>
+<body class="body">
+
+<div id="wrapper_news_list">
+    <div th:include="pc/include/template :: header(tab='aboutUs')"></div>
+
+    <div style="border:8px solid #f5f5f5"></div>
+</div>
+
+<div class="news_list_wrapper">
+    <div class="tr">
+        <div class="td left">
+            <ul>
+                <li>
+                    <a href="/pc/aboutUs">关于我们</a>
+                </li>
+                <li>
+                    <a href="/pc/teamIntroduction">团队介绍</a>
+                </li>
+                <li>
+                    <a href="/pc/specialist">专家顾问</a>
+                </li>
+                <li>
+                    <a class="active" href="/pc/contactUs">联系我们</a>
+                </li>
+            </ul>
+
+
+        </div>
+        <div class="td middle"></div>
+        <div class="td right">
+            <div class="caption"><span style="font-size:30px;margin-right:20px">&bull;</span>联系我们</div>
+            <div class="detail_table">
+                <div class="detail_tr">
+
+                    <div class="detail_td">
+                        <p class="title">客服热线：</p>
+                        <p class="introduction2">4000 328 128</p>
+                    </div>
+                </div>
+                <div class="detail_tr">
+
+                    <div class="detail_td">
+                        <p class="title">地址：</p>
+                        <p class="introduction2">广东省广州市天河区天河路232号万菱国际中心39层兆丰恒业</p>
+                    </div>
+                </div>
+                <div class="detail_tr">
+
+                    <div class="detail_td">
+                        <iframe class="ueditor_baidumap"
+                                src="http://www.zfhy.com//data/ueditor136/dialogs/map/show.html#center=113.336694,23.138517&amp;zoom=18&amp;width=1006&amp;height=545&amp;markers=113.336694,23.138517&amp;markerStyles=l,A"
+                                frameborder="0" width="860" height="549"></iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="pc/include/template :: homeFooter"></div>
+</body>
+
+</html>

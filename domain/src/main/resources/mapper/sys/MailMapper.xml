@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.sys.dao.MailMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.sys.entity.Mail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="mail_Title" jdbcType="VARCHAR" property="mailTitle" />
+    <result column="send_Time" jdbcType="TIMESTAMP" property="sendTime" />
+    <result column="sender" jdbcType="BIGINT" property="sender" />
+    <result column="reciver" jdbcType="BIGINT" property="reciver" />
+    <result column="mail_Type" jdbcType="INTEGER" property="mailType" />
+    <result column="mail_Status" jdbcType="INTEGER" property="mailStatus" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="mail_Content" jdbcType="LONGVARCHAR" property="mailContent" />
+  </resultMap>
+</mapper>

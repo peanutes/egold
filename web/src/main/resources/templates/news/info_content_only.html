@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 内容详情</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="/css/home.css"/>
+    <style type="text/css"></style>
+</head>
+<body>
+<div class="top_title_4_app">
+    <div class="return"><img src="/images/return.png"/></div>
+    <p class="title">内容</p>
+</div>
+<div class="hotinfo_detail_4_app">
+    <div class="content" th:utext="${detail.content}">
+    </div>
+</div>
+
+<div th:replace="include/template::commonJavascript"></div>
+</body>
+
+</html>

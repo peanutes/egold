@@ -1,0 +1,60 @@
+.wap-header {
+  background: #F5F5F5;
+  z-index: 9999;
+  border-bottom: 1px solid #ccc;
+}
+
+.wap-header .top {
+  height: 0.933333rem;
+  display: table;
+  padding-right: 0.413333rem;
+}
+
+.wap-header .top .logo {
+  width: 4rem;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.wap-header .top .logo img {
+  width: 1.92rem;
+  height: 0.666667rem;
+  margin-left: 0.266667rem;
+}
+
+.wap-header .top .download-app {
+  width: 6rem;
+  display: table-cell;
+  vertical-align: middle;
+  height: 0.933333rem;
+  padding-right: 0.133333rem;
+  text-align: right;
+}
+
+.wap-header .top .download-app img {
+  width: 5.213333rem;
+  height: 0.933333rem;
+}
+
+.wap-header .top .close_top {
+  display: table-cell;
+  vertical-align: middle;
+  height: 0.933333rem;
+  width: 1.066667rem;
+  text-align: right;
+}
+
+.wap-header .top .close_top img {
+  width: 0.266667rem;
+  height: 0.266667rem;
+}
+
+.banner .banner-slider img {
+  height: 3.906667rem;
+  width: 100%;
+}
+
+.notice {
+  height: 0.933333rem;
+}

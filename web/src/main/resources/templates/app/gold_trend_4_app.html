@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 金价走势</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+
+
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css"></style>
+
+</head>
+<body>
+<div class="latest_gold_price">
+    <p>最新金价:<span class="number current_price">加载中...</span><span class="unit">元/克</span></p>
+</div>
+<div class="trend-tab">
+    <ul>
+        <li id="trend_one_day" class="trend_one_day active">24小时</li>
+        <li id="trend_seven_day" class="trend_seven_day">7日</li>
+        <li id="trend_one_month" class="trend_one_month">30日</li>
+        <li id="trend_one_year" class="trend_one_year">365日</li>
+        <!--
+                <li id="trend_history" class="trend_history">历史走势&nbsp;<img src="../images/arrow-right.png"/></li>
+        -->
+    </ul>
+</div>
+<div id="date_and_price"></div>
+<div id="trend-chart">
+</div>
+<div class="gold_price_reference_note">金价参考上海黄金交易所，实时变动</div>
+<div class="current_gold_title_4_trend"><p th:text="${buyGold.currentDepositProduct.productName}">活期金</p></div>
+<ul class="current_gold_4_trend">
+    <li class="price_compare">
+        <div class="line1" th:text="${buyGold.currentDepositProduct.annualRate} +'%'"></div>
+        <div class="market_price">预期年化收益</div>
+    </li>
+    <li class="buy_gold"><img class="buy_gold_btn" src="../images/gold_transfer.png"/></li>
+    <li class="trend">
+        <div class="line1" th:text="${buyGold.currentDepositProduct.keyPoint}">存取灵活</div>
+        <div class="market_price">一元起购，日日生息</span></div>
+    </li>
+</ul>
+<div th:replace="include/template::commonJavascript" ></div>
+
+<script type="text/javascript" src="/js/echarts.js"></script>
+<script type="text/javascript" src="/js/wap/discover4App.js"></script>
+<script type="text/javascript">
+	$(".current_gold_4_trend").click(function () {
+		window.location = "egold://gold/currentgold";
+	});
+</script>
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 产品订单</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+
+        .mui-switch-orange.mui-active {
+            border: 2px solid #ff8800;
+            background-color: #ff8800;
+        }
+    </style>
+</head>
+<body>
+<th:block th:if="${session.auth_member_session==null}">
+    <script type="text/javascript">
+		alert("您还没有登录,请先登录!");
+		window.location = "/wap/mine";
+    </script>
+</th:block>
+<th:block th:if="${session.auth_member_session!=null}">
+
+    <input type="hidden" id="hasLogin" th:value="${session.auth_member_session!= null}">
+    <input type="hidden" id="productId" th:value="${product.id}">
+    <input type="hidden" id="productType" th:value="1">
+    <input type="hidden" id="financeProductType" th:value="${product.productType}">
+    <input type="hidden" id="productName" th:value="${product.productName}">
+
+    <input type="hidden" id="memberId" th:value="${session.memberOutPutDto.id}">
+    <input type="hidden" id="bankcardBind" th:value="${session.memberOutPutDto.bankcardBind}">
+    <input type="hidden" id="realNameValid" th:value="${session.memberOutPutDto.realNameValid}">
+    <input type="hidden" id="enableBalance" th:value="${session.memberOutPutDto.memberAccountDto.enableBalance}">
+
+    <input type="hidden" id="annualRate" th:value="${product.annualRate}">
+    <input type="hidden" id="annualRateMax" th:value="${product.annualRateMax}">
+
+    <div class="top_title">
+        <div class="return"><img src="../images/return.png"/></div>
+        <p class="title" th:text="${product.productName}"></p>
+    </div>
+
+    <div class="gold_detail" id="goldFormInput">
+        <p class="price  ta_center" style="width:100%;">
+            <th:block th:text="${product.annualRate}+'%'"></th:block>
+            ~
+            <th:block th:text="${product.annualRateMax}+'%'"></th:block>
+        </p>
+        <p class="expect_annual_rate">预期年化利率</p>
+        <div class="height20 bg_F5F5F5"></div>
+
+        <p class="errorPlaceHolder"></p>
+
+        <th:block th:if="${product.newUser != '1'}">
+            <input type="hidden" id="buyGoldWeightHidden">
+            <input type="hidden" id="shouldPayAmountHidden">
+            <input type="hidden" id="totalAmountHidden">
+            <input type="hidden" id="balancePayAmountHidden">
+            <input type="hidden" id="couponAmountHidden">
+            <input type="hidden" id="isNewUserGold" value="N">
+            <input type="hidden" id="minAmount" th:value="${product.minAmount}">
+            <input type="hidden" id="term" th:value="${product.term}">
+            <div class="detail_table list_control">
+                <div class="buying_input_amount">
+                    <input type="text" id="amount_money" placeholder="购买金额(100元起购)"
+                           th:placeholder="'购买金额('+ ${product.minAmount}+'起购)'" class="buying_amount">
+                    <p class="left_balance">余额<span
+                            th:text="${session.memberOutPutDto.memberAccountDto.enableBalance}"></span>元</p>
+                </div>
+                <div class="estimate_amount"><p class=" fz_28">预计收益:<span
+                        class="color_ff8800 estimate_profit">0.00</span>元</p></div>
+            </div>
+        </th:block>
+
+        <div class="height20 bg_F5F5F5"></div>
+        <div class="df  jc_center ai_center background_white h_100 line_height_100 border_bottom_1_f5f5f5">
+            <p class="pl_45 f2 fz_32 ta_left color_666666">计息日</p>
+            <p class="f1 ta_right pr_45 fz_32 ta_left color_666666"
+               th:text="${#httpServletRequest.getParameter('beginDate')}"></p>
+
+        </div>
+        <div class="df  jc_center ai_center background_white h_100 line_height_100 border_bottom_1_f5f5f5">
+            <p class="pl_45 f2 fz_32 ta_left color_666666">到期日</p>
+            <p class="f1 ta_right pr_45 fz_32 ta_left color_666666"
+               th:text="${#httpServletRequest.getParameter('endDate')}"></p>
+
+        </div>
+
+
+        <th:block th:if="${product.productType == 'TERM_DEPOSIT'}">
+
+            <div class="df  jc_center ai_center background_white h_100 line_height_100 border_bottom_1_f5f5f5">
+                <p class="pl_45 f2 fz_32 ta_left color_666666">到期日</p>
+                <p class="f1 ta_right pr_45 fz_32 ta_left color_666666"
+                   th:text="${#httpServletRequest.getParameter('endDate')}"></p>
+            </div>
+        </th:block>
+        <div class="agree_to_protocol pl_45 pr_45"><input type="checkbox" name="agree" id="agree"/><span><label
+                for="agree" class="fz_32">我已阅读并同意
+            <th:block th:if="${product.productType == 'TERM_DEPOSIT'}">
+            <a style="text-align: center; width:80%;"
+               href="/app/article?terminalType=wap&articleType=AGREEMENT_FIXED_GOLD"
+               target="_blank">定期金-黄金消费综合服务协议</a>
+                </th:block>
+
+               <th:block th:if="${product.productType == 'CURRENT_DEPOSIT'}">
+            <a style="text-align: center; width:80%;"
+               href="/app/article?terminalType=wap&articleType=AGREEMENT_CURRENT_GOLD"
+               target="_blank">活期金-黄金消费综合服务协议</a>
+                </th:block>
+             <th:block th:if="${product.productType == 'RISE_FALL'}">
+            <a style="text-align: center; width:80%;"
+               href="/app/article?terminalType=wap&articleType=AGREEMENT_RISE_N_FALL_GOLD"
+               target="_blank">看涨跌-黄金消费综合服务协议</a>
+                </th:block>
+        </label></span>
+        </div>
+        <div class="align_center pr_45 pl_45 ">中华联合财产保险承保用户黄金财产安全,请放心交易</div>
+        <button class="buy_sell_button" id="toGoldFormDetail">确认下单</button>
+        <div class="fix-height2"></div>
+    </div>
+
+    <div class="gold_order_detail" id="goldFormDetail" style="display: none;">
+        <p class="realtime_price">实时金价<span class="current_price">加载中</span>元/克</p>
+        <div class="order_detail_list">
+            <div class="detail_row">
+                <span class="detail_caption" th:text="${product.productName}"></span><span
+                    class="detail estimate_profit"></span>
+            </div>
+            <div class="detail_row">
+                <span class="detail_caption"></span><span class="detail">预计收益</span>
+            </div>
+        </div>
+        <div class="remind_info"><span>由于金价实时变动，实际购买克重可能与预计克重有所偏差。</span></div>
+        <div class="order_detail_list">
+            <div class="detail_row">
+                <span class="detail_caption">订单总额</span><span class="orange detail totalAmount"></span>
+            </div>
+            <div class="detail_row">
+                <span class="detail_caption">红包</span><span class=" detail cashCouponAmount"
+                                                            id="cashCouponDesc">暂无可用红包</span>
+                <input type="hidden" id="cashCouponIdHidden"/>
+            </div>
+            <!--有优惠劵时候显示-->
+            <div class="detail_row hide has-discount-coupon-display">
+                <span class="detail_caption">优惠劵:&nbsp;&nbsp;<span class="orange" id="discountCouponDesc"></span><span class="orange hide" id="dont-use-discount-coupon">不使用优惠劵</span></span>
+                <span class="orange detail">
+                <span id="useDiscountCoupon" class="mui-switch mui-switch-orange mui-switch-mini mui-active"
+                      style="display:inline-block; float:right;"> <span class="mui-switch-handle"></span></span>
+                <input type="hidden" id="discountCouponIdHidden"/>
+                </span>
+            </div>
+            <!--没有优惠劵时候显示-->
+            <div class="detail_row hide no-discount-coupon-display">
+                <span class="detail_caption">优惠劵</span><span class="detail">暂无可用优惠劵</span>
+            </div>
+        </div>
+        <div class="split_bar_2"></div>
+        <div class="order_detail_list">
+            <div class="detail_row">
+            <span class="detail_caption">余额支付:&nbsp;&nbsp;<span class="orange balancePayAmount"
+                                                                id="balancePayAmount"></span></span>
+                <span class="orange detail">
+                <span id="useEnableBalance" class="mui-switch mui-switch-orange mui-switch-mini"
+                      style="display:inline-block; float:right;">
+  <span class="mui-switch-handle"></span>
+</span>
+            </span>
+            </div>
+            <div class="detail_row">
+                <span class="detail_caption">尾号(<span th:text="${bankCardLastNumber}"></span>) 储蓄卡</span><span
+                    class="orange detail shouldPayAmount"></span>
+            </div>
+        </div>
+        <div class="small_remind_info">
+            单笔限额20万元 单日限额20万元
+        </div>
+        <div class="remind_info"><span>请在<span class="orderExpiredTime">90</span>秒之内完成在线支付<br/>
+        易宝、中华联合财产保险共同保障用户交易资金安全</span>
+        </div>
+        <div class="order_detail_list payAtBottom">
+            <div class="detail_row">
+            <span class="detail_caption">在线支付:&nbsp;&nbsp;<span class="orange shouldPayAmount"
+                                                                id="shouldPayAmount2"></span></span><span
+                    class="detail"><span class="confirm_button" id="submitOrder">提交订单</span></span>
+            </div>
+        </div>
+        <div class="fix-height2"></div>
+
+        <div class="popUpMask">
+        </div>
+        <div id="requestPayPasswordWrapper"
+             style="display: none;">
+            <div class="close_pay" id="closePay">x</div>
+            <p class="detail_caption"> 在线支付:&nbsp;&nbsp;<span class="orange shouldPayAmount"></span></p>
+            <div class="use_bank_card" id="aa" style="display: none;">
+
+            </div>
+            <div class="use_bank_card" id="remindInfo" style="display: none;">短信验证码已发送至您的手机
+                <th:block th:text="${bankCardBindMobile}"></th:block>
+            </div>
+            <input type="password" id="payPwd" placeholder="请输入交易密码" class="payPwd">
+            <input type="text" style="display: none;" id="smsCode" placeholder="请输入短信验证码" class="payPwd">
+            <div class="use_bank_card">使用<span th:text="${bankCardName}"></span>尾号(<span
+                    th:text="${bankCardLastNumber}"></span>)储蓄卡付款
+            </div>
+
+            <button class="confirm_pay_button" id="payOrder">确认支付</button>
+            <button class="confirm_pay_button" style="display: none;" id="payOrderSmsCode">确认支付</button>
+
+        </div>
+
+    </div>
+    </div>
+
+    <div class="gold_order_detail" id="buyingSuccess" style="display: none;">
+        <div class="success_buying_summary">
+            <div class="ok"><img src="../images/success_tick.png"/>
+                <span class="white success_info">成功买入黄金</span><span class="white finish_info">完成</span></div>
+
+            <div class="color_ffea00 dealGoldWeight"></div>
+            <div class="color_ffedc8" th:text="${product.productName}"></div>
+            <div class="color_ffedc8"><span class="dealGoldPrice"></span>/克</div>
+        </div>
+        <div class="order_detail_list">
+            <div class="detail_row">
+                <span class="detail_caption">订单总额</span><span class="orange detail "><span
+                    class="orange dealTotalAmount"></span></span>
+            </div>
+            <div class="detail_row">
+                <span class="detail_caption">红包</span><span class="detail dealCashCouponAmount">未使用红包</span></span>
+            </div>
+            <div class="detail_row">
+                <span class="detail_caption">优惠劵</span><span class="detail dealDiscountCouponAmount">未使用优惠劵</span>
+            </div>
+        </div>
+        <div class="split_bar_f5f5f5 height20"></div>
+        <div class="order_detail_list">
+            <div class="detail_row">
+                <span class="detail_caption">计息日</span><span class="orange detail interestDate"
+                                                             th:text="${#httpServletRequest.getParameter('beginDate')}"></span>
+            </div>
+
+            <th:block th:if="${product.productType == 'TERM_DEPOSIT'}">
+                <div class="detail_row">
+                    <span class="detail_caption">到期日</span><span class="orange detail interestDate"
+                                                                 th:text="${#httpServletRequest.getParameter('endDate')}"></span>
+                </div>
+            </th:block>
+        </div>
+    </div>
+</th:block>
+<div th:replace="include/template::commonJavascript"></div>
+<script type="text/javascript" src="../js/wap/goldOrder.js"></script>
+</body>
+</html>

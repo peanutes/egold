@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="id" name="id" type="hidden" th:value="${order.id}">
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >订单编码：</label>
+                            <div class="col-sm-8">
+                                <input id="orderSn" name="orderSn" class="form-control" data-rule-required="true" 	type="text" th:value="${order.orderSn}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >购买重量：</label>
+                            <div class="col-sm-8">
+                                <input id="goldWeight" name="goldWeight" class="form-control" data-rule-required="true" 	type="text" th:value="${order.goldWeight}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >支付方式：</label>
+                            <div class="col-sm-8">
+                                <!--<input id="payType" name="payType" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${order.payType}" >-->
+                                <select class="form-control m-b" data-rule-required="true" id="payType" name="payType" readonly="readonly" disabled="disabled">
+                                    <option th:each="item:${payTypes}" th:value="${item.code}" th:text="${item.label}" th:selected="(${item.code eq order.payType})" >选项 1</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >订单总额：</label>
+                            <div class="col-sm-8">
+                                <input id="totalAmount" name="totalAmount" class="form-control" data-rule-required="true" 	type="text" th:value="${order.totalAmount}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >余额支付金额：</label>
+                            <div class="col-sm-8">
+                                <input id="balancePayAmount" name="balancePayAmount" class="form-control" data-rule-required="true" 	type="text" th:value="${order.balancePayAmount}" >
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >理财金类型：</label>
+                            <div class="col-sm-8">
+                                <!--<input id="financeProductType" name="financeProductType" class="form-control" data-rule-required="true" 	type="text" th:value="${order.financeProductType}" >-->
+                                <select class="form-control m-b" data-rule-required="true" id="financeProductType" name="financeProductType" readonly="readonly" disabled="disabled">
+                                    <option th:each="item:${allFinancialProductType}" th:value="${item.toString()}" th:text="${item.label}" th:selected="(${item.toString() eq order.financeProductType})" >选项 1</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >产品名称：</label>
+                            <div class="col-sm-8">
+                                <input id="productName" name="productName" class="form-control" data-rule-required="true" 	type="text" th:value="${order.productName}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <!--<div class="form-group">
+                            <label class="col-sm-3 control-label" >当前金价：</label>
+                            <div class="col-sm-8">
+                                <input id="currentGoldPrice" name="currentGoldPrice" class="form-control" data-rule-required="true" 	type="text" th:value="${order.currentGoldPrice}" >
+                            </div>
+                        </div>-->
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >还需应付：</label>
+                            <div class="col-sm-8">
+                                <input id="shouldPayAmount" name="shouldPayAmount" class="form-control" data-rule-required="true" 	type="text" th:value="${order.shouldPayAmount}" >
+                            </div>
+                        </div>
+
+
+
+
+
+                       <!-- <div class="form-group">
+                            <label class="col-sm-3 control-label" >红包id：</label>
+                            <div class="col-sm-8">
+                                <input id="cashCouponId" name="cashCouponId" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${order.cashCouponId}" >
+                            </div>
+                        </div>-->
+                    
+
+
+                       <!-- <div class="form-group">
+                            <label class="col-sm-3 control-label" >优惠卷id：</label>
+                            <div class="col-sm-8">
+                                <input id="discountCouponId" name="discountCouponId" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${order.discountCouponId}" >
+                            </div>
+                        </div>-->
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >红包金额：</label>
+                            <div class="col-sm-8">
+                                <input id="cashCouponAmount" name="cashCouponAmount" class="form-control" data-rule-required="true" 	type="text" th:value="${order.cashCouponAmount}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >优惠卷百份比：</label>
+                            <div class="col-sm-8">
+                                <input id="discountCouponRate" name="discountCouponRate" class="form-control" data-rule-required="true" 	type="text" th:value="${order.discountCouponRate}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >是否从流动金转入(1:是，0：否)：</label>
+                            <div class="col-sm-8">
+                                <input id="switchInto" name="switchInto" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${order.switchInto}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <!--<div class="form-group">
+                            <label class="col-sm-3 control-label" >发起支付请求的时间：</label>
+                            <div class="col-sm-8">
+                                <input id="requestPayTime" name="requestPayTime" class="form-control" data-rule-required="true" type="text" th:value="${#calendars.format(order.requestPayTime,'yyyy-MM-dd HH:mm:ss')}"  >
+                            </div>
+                        </div>-->
+
+
+
+
+
+                        <div class="text-center form-group">
+                            <a class="btn btn-default waves-effect waves-light"
+                               onclick="returnList()">返回列表</a>
+                            <!--<button class="btn btn-primary waves-effect waves-light"  type="submit">提交</button>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script src="/js/appjs/order/order/edit.js"></script>
+</body>
+
+</html>

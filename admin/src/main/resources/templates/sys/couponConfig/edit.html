@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="id" name="id" type="hidden" th:value="${couponConfig.id}">
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >使用场景：</label>
+                            <div class="col-sm-8">
+                                <!--<input id="useScene" name="useScene" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${couponConfig.useScene}" >-->
+                                <select class="form-control m-b" data-rule-required="true" id="useScene" name="useScene" readonly="readonly" disabled="disabled">
+                                    <option th:each="item:${useScenes}" th:value="${item.code}" th:text="${item.label}" th:selected="(${item.code eq couponConfig.useScene})" >选项 1</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >优惠卷类型：</label>
+                            <div class="col-sm-8">
+                                <!--<input id="type" name="type" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${couponConfig.type}" >-->
+                                <select class="form-control m-b" data-rule-required="true" id="type" name="type" readonly="readonly" disabled="disabled">
+                                    <option th:each="item:${couponTypes}" th:value="${item.code}" th:text="${item.label}" th:selected="(${item.code eq couponConfig.type})" >选项 1</option>
+                                </select>
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >优惠卷面值：</label>
+                            <div class="col-sm-8">
+                                <input id="couponAmount" name="couponAmount" class="form-control" data-rule-required="true" 	type="text" th:value="${couponConfig.couponAmount}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >有效时间(天)：</label>
+                            <div class="col-sm-8">
+                                <input id="effectDay" name="effectDay" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${couponConfig.effectDay}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >使用条件:起投金额(元),0 为无限制：</label>
+                            <div class="col-sm-8">
+                                <input id="investAmountMin" name="investAmountMin" class="form-control" data-rule-required="true" 	type="text" th:value="${couponConfig.investAmountMin}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >起投金额说明：</label>
+                            <div class="col-sm-8">
+                                <input id="investAmountMinDesc" name="investAmountMinDesc" class="form-control" data-rule-required="true" 	type="text" th:value="${couponConfig.investAmountMinDesc}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >使用条件:标的起始期限(天),0无限制：</label>
+                            <div class="col-sm-8">
+                                <input id="investDeadlineMin" name="investDeadlineMin" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${couponConfig.investDeadlineMin}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >起投项目期限说明：</label>
+                            <div class="col-sm-8">
+                                <input id="investDeadlineMinDesc" name="investDeadlineMinDesc" class="form-control" data-rule-required="true" 	type="text" th:value="${couponConfig.investDeadlineMinDesc}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >产品类型：</label>
+                            <div class="col-sm-8">
+                                <input id="productType" name="productType" type="hidden" th:value="${couponConfig.productType}" >
+                                <div class="checkbox checkbox-inline"  th:each="productType, stat:${productTypes}">
+                                    <input type="checkbox" id="inlineCheckbox1" name="productTypeCheckBox" th:id="${productType}" th:value="${productType}">
+                                    <label for="inlineCheckbox1" th:for="${productType}" th:text="${productType.label}"> 选项01 </label>
+                                </div>
+                                <!--<div class="checkbox checkbox-success checkbox-inline">
+                                    <input type="checkbox"  id="inlineCheckbox2" value="option1" checked="">
+                                    <label for="inlineCheckbox2"> 选项02 </label>
+                                </div>
+                                <div class="checkbox checkbox-inline">
+                                    <input type="checkbox"  id="inlineCheckbox3" value="option1">
+                                    <label for="inlineCheckbox3"> 选项03 </label>
+                                </div>-->
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="text-center form-group">
+                            <a class="btn btn-default waves-effect waves-light"
+                               onclick="returnList()">返回列表</a>
+                            <button class="btn btn-primary waves-effect waves-light"  type="submit">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script src="/js/appjs/sys/couponConfig/edit.js"></script>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var checkedProductTypes = /*[[${couponConfig.productType}]]*/;
+
+    if (checkedProductTypes && (checkedProductTypes != '0')) {
+        var productTypes = checkedProductTypes.split(",");
+
+        for(var i=0;i<productTypes.length;i++){
+            var checkType = productTypes[i];
+            if (checkType) {
+                $("#"+checkType).attr("checked",true);
+
+            }
+
+        }
+
+
+    }
+
+
+    /*]]>*/
+</script>
+</body>
+
+</html>

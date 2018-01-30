@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 团队介绍</title>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../css/css_reset.css"/>
+    <link rel="stylesheet" href="../css/pc.css"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+
+    <style type="text/css">
+
+    </style>
+</head>
+<body class="body">
+
+<div id="wrapper_news_list">
+    <div th:include="pc/include/template :: header(tab='aboutUs')"></div>
+
+    <div style="border:8px solid #f5f5f5"></div>
+</div>
+
+<div class="news_list_wrapper">
+    <div class="tr">
+        <div class="td left">
+            <ul>
+                <li>
+                    <a href="/pc/aboutUs">关于我们</a>
+                </li>
+                <li  >
+                    <a class="active" href="/pc/teamIntroduction">团队介绍</a>
+                </li>
+                <li>
+                    <a href="/pc/specialist">专家顾问</a>
+                </li>
+                <li>
+                    <a href="/pc/contactUs">联系我们</a>
+                </li>
+            </ul>
+
+        </div>
+        <div class="td middle"></div>
+        <div class="td right">
+            <div class="caption"><span style="font-size:30px;margin-right:20px">&bull;</span>团队介绍</div>
+            <div class="detail_table">
+                <div class="detail_tr">
+                    <div class="detail_td">
+                        <img src="../pcImages/teamIntroduction/01.png">
+                    </div>
+                    <div class="detail_td">
+                        <p class="title">余泽生/创始人兼CEO</p>
+                        <p class="introduction">著名企业家，曾任广东新时代总公司、广州新时代房地产开发有限公司、神通期货经纪有限公司等公司董事长。</p>
+                        <p class="introduction">
+                            现任广东兆丰恒业控股集团有限公司董事长、广东兆丰恒业黄金有限公司董事长、广东现代教育传媒股份有限公司（广东广播电视台现代教育频道）总经理、中华新闻通讯社董事局主席、广东陆小凤品牌策划管理有限公司董事长。</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="detail_table">
+                <div class="detail_tr">
+                    <div class="detail_td">
+                        <img src="../pcImages/teamIntroduction/02.png">
+                    </div>
+                    <div class="detail_td">
+                        <p class="title">陈洋成/联合创始人兼产品总监</p>
+                        <p class="introduction">
+                            复合型互联网产品人，PMP项目管理认证专家。10年互联网产品设计与管理经验。历任500强企业高级产品经理、知名企业项目总监等。成功运作过电商、电信、金融等多行业项目。</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="detail_table">
+                <div class="detail_tr">
+                    <div class="detail_td">
+                        <img src="../pcImages/teamIntroduction/03.png">
+                    </div>
+                    <div class="detail_td">
+                        <p class="title">梁来养/技术总监</p>
+                        <p class="introduction">
+                            系统架构师，信息系统项目管理师，10年技术背景，参与过多个大型开源项目。曾就职于唯品会平台架构部，专注分布式架构，微服务等前沿领域的研究及实践。</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="detail_table">
+                <div class="detail_tr">
+                    <div class="detail_td">
+                        <img src="../pcImages/teamIntroduction/04.png">
+                    </div>
+                    <div class="detail_td">
+                        <p class="title">尤水明/风控总监</p>
+                        <p class="introduction">
+                            港、台及大陆地区从事金融业务32年，丰富的风险控制管理经验，对黄金投资领域有深入的研究，研究成果已取得市场的认可，先后任职于香港、台湾及国内知名金融企业投资部。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="pc/include/template :: homeFooter"></div>
+</body>
+
+</html>

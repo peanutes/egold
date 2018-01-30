@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 黄金商城</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<!--<div class="top_title">-->
+    <!--<div class="return"><img src="../images/return.png"/></div>-->
+    <!--<p class="title">黄金商城</p>-->
+    <!--<div class="right"><img src="../images/market/share.png"></div>-->
+<!--</div>-->
+<input type="hidden" id="token" th:value="${session.token}">
+<div class="gold_market">
+    <div class="order-by">
+        <ul>
+            <li class="active orderBy" id="NEW_GOOD" data-order-by="NEW_GOOD">新品&nbsp;
+            </li>
+            <li class="orderBy" id="PRICE" data-order-by="_DESC">价格&nbsp;<img src="../images/market/order_desc.png">
+            </li>
+            <!--<li id="toIndex">首页</li>-->
+        </ul>
+    </div>
+    <div class="gold_list">
+    </div>
+    <div class="load_more">我是有底线的</div>
+    <div class="gold_market_bottom">
+        <p>优质购金合作伙伴</p>
+        <p class=""><img src="../images/market/ring_icon.png">&nbsp;&nbsp;<span
+                class="color_666666"><a href="http://www.njc.com.cn/" target="_blank">国家首饰质量监督检测中心</a> </span></p>
+        <p class=""><img src="../images/market/shunfeng_icon.png">&nbsp;&nbsp;<span
+                class="color_666666"><a href="http://www.sf-express.com/cn/sc/" target="_blank">顺丰速运</a></span></p>
+    </div>
+
+</div>
+
+<div th:replace="include/template::commonJavascript"></div>
+<script type="text/javascript" src="../js/wap/goldMarket4App.js"></script>
+
+</body>
+
+</html>

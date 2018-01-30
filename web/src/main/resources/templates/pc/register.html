@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 注册</title>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+
+    <link rel="stylesheet" href="../js/plugin/toast/css/toast.css" th:href="@{/js/plugin/toast/css/toast.css}"/>
+    <link rel="stylesheet" href="../js/plugin/toast/css/animate.css" th:href="@{/js/plugin/toast/css/animate.css}"/>
+    <link rel="stylesheet" href="../css/css_reset.css" th:href="@{/css/css_reset.css}"/>
+    <link rel="stylesheet" href="../css/pc.css" th:href="@{/css/pc.css}"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+
+    <style type="text/css">
+
+    </style>
+</head>
+<body class="body">
+
+<div id="wrapper_login">
+    <div th:include="pc/include/template :: header(tab='home')" ></div>
+
+</div>
+<div class="cb"></div>
+
+<div class="register_page" style="display: block">
+    <div class="register_login_wrapper_4_login">
+        <div class="register_form">
+            <div class="caption"><span style="font-size:20px; color:#ff8800; text-align: left">帐户注册</span><span
+                    style="font-size:14px;text-align: right;" class="no_account">已有帐号,<a href="#" th:href="@{/pc/gotoLogin}">立即登陆</a> </span></div>
+            <div class="input_telephone">
+                <div class="icon"><img src="../pcImages/loginAndRegister/icon_phone.png" width="20" height="29"/></div>
+                <div class="input_clear"><span>x</span></div>
+                <input type="text" name="mobile" id="mobile" required="required" maxlength="11" placeholder="请输入手机号码"
+                       class="need_input_clear">
+            </div>
+            <div class="input_telephone">
+                <div class="icon"><img src="../pcImages/loginAndRegister/icon_password.png" width="26" height="30"/>
+                </div>
+                <div class="input_clear"><span>x</span></div>
+                <input type="password" name="password" id="password" required="required" maxlength="11" placeholder="请输入6-32位密码，区分大小写"
+                       class="need_input_clear">
+            </div>
+            <div class="input_telephone">
+                <div class="icon"><img src="../pcImages/loginAndRegister/icon_password.png" width="26" height="30"/>
+                </div>
+                <div class="input_clear"><span>x</span></div>
+                <input type="password" name="repassword" id="repassword" required="required" maxlength="11" placeholder="请再次输入密码"
+                       class="need_input_clear">
+            </div>
+           <!-- <div class="input_telephone pic_check_code">
+                <div class="icon"><img src="../pcImages/loginAndRegister/icon_checkcode.png" width="25" height="29"/>
+                </div>
+                <div class="input_clear"><span>x</span></div>
+                <input type="text" name="checkcode" id="checkcode" required="required" maxlength="11" placeholder="请填写图片中的字符，不区分大小写"
+                       class="need_input_clear">
+                <div class="check_code">
+                    <img title="点击刷新" src="../pcImages/loginAndRegister/checkCodeSample.png" />
+                </div>
+
+            </div>-->
+            <div class="input_telephone sms_check_code">
+                <div class="icon"><img src="../pcImages/loginAndRegister/icon_info.png" width="28" height="22"/>
+                </div>
+                <div class="input_clear"><span>x</span></div>
+                <input type="text" name="smsCode" id="smsCode" required="required" maxlength="11" placeholder="请查收手机短信，并填写短信中的验证码"
+                       class="need_input_clear">
+                <button class="register_get_checkcode_btn">获取短信验证码</button>
+            </div>
+            <div class="input_telephone">
+                <div class="icon"><img src="../pcImages/loginAndRegister/icon_phone.png" width="20" height="29"/>
+                </div>
+                <div class="input_clear"><span>x</span></div>
+                <input type="text" name="referee" id="referee"  placeholder="请输入您的推荐人手机号/推荐码(选填)"
+                       class="need_input_clear">
+            </div>
+            <div style="text-align: left; width: 60%; font-size:16px;"><input type="checkbox" name="agree" id="agree"/><span><label for="agree">&nbsp;我已阅读并同意<a
+                    href="/app/article?articleType=AGREEMENT_REGISTER&terminalType=app" target="_blank">E黄金服务协议</a></label></span></div>
+            <div>
+                <button id="registerBtn" class="pc_btn_1">注册领黄金</button>
+            </div>
+
+        </div>
+        <p class="security_guard"><img src="../pcImages/loginAndRegister/icon_guard.png" width="24" height="25"/>由中华联合财产保险承保黄金实物存放安全
+        </p>
+    </div>
+</div>
+<div class="cb"></div>
+
+<div th:include="pc/include/template :: homeFooter" ></div>
+<script type="text/javascript" src="../js/pc/register.js" th:src="@{/js/pc/register.js}"></script>
+
+</body>
+
+</html>

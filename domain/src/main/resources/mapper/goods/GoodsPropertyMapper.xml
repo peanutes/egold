@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.goods.dao.GoodsPropertyMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.goods.entity.GoodsProperty">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="spu_id" jdbcType="INTEGER" property="spuId" />
+    <result column="property_name" jdbcType="VARCHAR" property="propertyName" />
+    <result column="property_value" jdbcType="VARCHAR" property="propertyValue" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+  </resultMap>
+
+  <delete id="batchDeleteNotExists" >
+    DELETE FROM goods_goods_property where spu_id = #{param1}  and id NOT IN
+    <foreach collection="param2" item="item" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </delete>
+</mapper>

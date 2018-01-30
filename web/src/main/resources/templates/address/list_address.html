@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 我的收货地址</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+</head>
+<body>
+<div class="top_title">
+    <div class="return"><img src="../images/return.png"/></div>
+    <p class="title">我的收货地址</p>
+</div>
+<th:block th:if="${session.auth_member_session==null}">
+    <script type="text/javascript">
+		alert("您还没有登录,请先登录!");
+		window.location = "/wap/mine";
+    </script>
+</th:block>
+<th:block th:each="addressOutputDto,iterStat:${addressOutputDtoList}">
+    <div class="address_name" id="chooseAddress">
+        <p class="title_4_market_order"><img src="../images/market/name_icon.png"/><span
+                th:text="${addressOutputDto.receiver}">张三丰</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="telephone"
+                                          th:text="${addressOutputDto.receiverTel}"></span>
+        </p>
+        <p class="address"><span th:text="${addressOutputDto.address}"></span>
+            <span class="gt "><a href="/myAddress/addOrEdit"
+                                                     th:href="${'/myAddress/addOrEdit?addressId='+addressOutputDto.id}"><img
+                    src="../images/address/edit.png"/></a> </span></p>
+    </div>
+</th:block>
+<div class="fix-height2"></div>
+<button class="buy_sell_button goToAddAddress">添加收货地址</button>
+<div th:replace="include/template::commonJavascript"></div>
+<script type="text/javascript" src="../js/wap/listAddress.js"></script>
+<script type="text/javascript" src="../widget/layer_mobile/layer.js"></script>
+
+
+</body>
+
+</html>

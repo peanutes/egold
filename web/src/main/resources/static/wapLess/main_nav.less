@@ -1,0 +1,95 @@
+@import "common";
+
+.fix-navbar {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	border-top:2px solid #d2d2d2;/*no*/
+	z-index: 9999999;
+	height: @mainNavHeight;
+	padding: 10px 0px;
+	background: #FFFFFF;
+}
+
+.fix-bar-ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	li {
+		flex: 1;
+		float: left;
+
+		text-align: center;
+		height: 60px;
+		line-height:50px;
+		span {
+			.fontSize(24px);
+			color: @mainNavOffColor;
+			font-family: "SimHei";
+			a {
+				display: block;
+				padding: 5px 0 0 0;
+			}
+		}
+	}
+
+	.nav-icon {
+		display: block;
+		margin: 0 auto;
+		height: 46px;
+		width: 51px;
+	}
+
+	.mainNavOff(@pictureName) {
+		background: url("../images/mainNav/@{pictureName}_off.png") no-repeat center center;
+		.backgroundSize(100%);
+	}
+
+	.mainNavOn(@pictureName) {
+		background: url("../images/mainNav/@{pictureName}_on.png") no-repeat center center;
+		.backgroundSize(100%);
+	}
+
+	.navbar_home {
+		.mainNavOff("home");
+
+	}
+
+	.navbar_buy_gold {
+		.mainNavOff("buy_gold");
+	}
+
+	.navbar_discover {
+		.mainNavOff("discover");
+	}
+
+	.navbar_mine {
+		.mainNavOff("mine");
+	}
+
+	.on {
+		.navbar_home {
+			.mainNavOn("home");
+
+		}
+
+		.navbar_buy_gold {
+			.mainNavOn("buy_gold");
+		}
+
+		.navbar_discover {
+			.mainNavOn("discover");
+		}
+
+		.navbar_mine {
+			.mainNavOn("mine");
+		}
+
+		span {
+			color: @mainNavOnColor;
+		}
+	}
+
+}

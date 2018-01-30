@@ -1,0 +1,62 @@
+.to_page_center {
+  width: 1200px;
+  margin: 0 auto;
+}
+.cb {
+  clear: both;
+}
+.color_ff8800 {
+  color: #ff8800;
+}
+.color_ff5100 {
+  color: #ff5100;
+}
+.color_996c33 {
+  color: #996c33;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+.height_21 {
+  height: 21px;
+}
+.background_color_f7f8fd {
+  background: #F7F8FD;
+}
+.input_telephone {
+  position: relative;
+  text-align: left;
+  width: 80%;
+  height: 55px;
+  line-height: 55px;
+}
+.input_telephone input {
+  line-height: normal;
+  height: 55px;
+  line-height: 55px;
+  border: 1px solid #cccccc;
+  /*no*/
+  width: 100%;
+  padding-left: 60px;
+  font-size: 18px;
+}
+.input_telephone .input_clear {
+  position: absolute;
+  font-size: 20px;
+  right: 15px;
+  cursor: pointer;
+  display: none;
+  color: #DADADA;
+  height: 55px;
+  line-height: 55px;
+}
+.input_telephone .icon {
+  position: absolute;
+  left: 20px;
+}
+.input_telephone .icon img {
+  vertical-align: middle;
+}

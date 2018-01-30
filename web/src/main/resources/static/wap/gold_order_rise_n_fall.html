@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 会赚钱的黄金</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div class="gold_order_detail">
+    <div class="top_title">
+        <div class="return"><img src="../images/return.png"/></div>
+        <p class="title">活期金订单工</p></div>
+    <p class="realtime_price">实时金价<span class="current_price">280.22</span>元/克</p>
+    <div class="order_detail_list">
+        <div class="detail_row">
+            <span class="detail_caption">流动金</span><span class="detail">3.569克</span>
+        </div>
+        <div class="detail_row">
+            <span class="detail_caption"></span><span class="detail">预计克重</span>
+        </div>
+    </div>
+    <div class="remind_info"><span>由于金价实时变动，实际购买克重可能与预计克重有所偏差。</span></div>
+    <div class="order_detail_list">
+        <div class="detail_row">
+            <span class="detail_caption">订单总额</span><span class="orange detail ">10000元</span>
+        </div>
+        <div class="detail_row">
+            <span class="detail_caption">红包</span><span class="orange detail">10000元</span>
+        </div>
+        <div class="detail_row">
+            <span class="detail_caption">优惠劵</span><span class="detail">暂无可用优惠劵</span>
+        </div>
+    </div>
+    <div class="split_bar_2"></div>
+    <div class="order_detail_list">
+        <div class="detail_row">
+            <span class="detail_caption">余额支付:&nbsp;&nbsp;<span class="orange">99999.54元</span></span>
+            <span class="orange detail">
+                <span class="mui-switch mui-switch-mini" style="background:red">
+  <span class="mui-switch-handle"></span>
+</span>
+            </span>
+        </div>
+        <div class="detail_row">
+            <span class="detail_caption">招商银行尾号9900</span><span class="orange detail">999.54元</span>
+        </div>
+    </div>
+    <div class="small_remind_info">
+        单笔限额20万元 单日限额20万元
+    </div>
+    <div class="remind_info"><span>请在90秒之内完成在线支付<br/>
+        易宝、中华联合财产保险共同保障用户交易资金安全</span>
+    </div>
+    <div class="order_detail_list payAtBottom">
+        <div class="detail_row">
+            <span class="detail_caption">在线支付:&nbsp;&nbsp;<span class="orange">99999.54元</span></span><span
+                class="detail"><span class="confirm_button" id="requestPayPassword">确认支付</span></span>
+        </div>
+    </div>
+    <div class="fix-height2"></div>
+    <div class="popUpMask">
+    </div>
+    <div id="requestPayPasswordWrapper"
+         style="display: none;">
+        <div class="close_pay" id="closePay">x</div>
+        <p class="detail_caption"> 在线支付:&nbsp;&nbsp;<span class="orange">99999.54元</span></p>
+        <input type="hidden" id="orderSn" class="buying_amount">
+        <input type="text" id="payPwd" placeholder="请输入交易密码" class="payPwd">
+        <div class="use_bank_card">使用招商银行(5546)付款</div>
+        <button class="confirm_pay_button" id="confirmPay">确认</button>
+    </div>
+</div>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../widget/mui/js/mui.min.js"></script>
+<script type="text/javascript" src="../js/fastclick.js"></script>
+<script type="text/javascript" src="../js/wap/goldOrder.js"></script>
+
+</body>
+
+</html>

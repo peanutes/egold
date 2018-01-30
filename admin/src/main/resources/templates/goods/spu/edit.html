@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="id" name="id" type="hidden" >
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >商品类型：</label>
+                            <div class="col-sm-8">
+                                <input id="goodsTypeId" name="goodsTypeId" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${spu.goodsTypeId}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >商品类型名称：</label>
+                            <div class="col-sm-8">
+                                <input id="goodsTypeName" name="goodsTypeName" class="form-control" data-rule-required="true" 	type="text" th:value="${spu.goodsTypeName}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >商品名称：</label>
+                            <div class="col-sm-8">
+                                <input id="goodsName" name="goodsName" class="form-control" data-rule-required="true" 	type="text" th:value="${spu.goodsName}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >纯度说明：</label>
+                            <div class="col-sm-8">
+                                <input id="purityDes" name="purityDes" class="form-control" data-rule-required="true" 	type="text" th:value="${spu.purityDes}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >克重说明：</label>
+                            <div class="col-sm-8">
+                                <input id="weightDes" name="weightDes" class="form-control" data-rule-required="true" 	type="text" th:value="${spu.weightDes}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >尺寸说明：</label>
+                            <div class="col-sm-8">
+                                <input id="sizeDes" name="sizeDes" class="form-control" data-rule-required="true" 	type="text" th:value="${spu.sizeDes}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >工费说明：</label>
+                            <div class="col-sm-8">
+                                <input id="feeDes" name="feeDes" class="form-control" data-rule-required="true" 	type="text" th:value="${spu.feeDes}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >图片url：</label>
+                            <div class="col-sm-8">
+                                <input id="imgUrl" name="imgUrl" class="form-control" data-rule-required="true" 	type="text" th:value="${spu.imgUrl}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >价格范围：</label>
+                            <div class="col-sm-8">
+                                <input id="priceRange" name="priceRange" class="form-control" data-rule-required="true" 	type="text" th:value="${spu.priceRange}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >销售活动分类：</label>
+                            <div class="col-sm-8">
+                                <input id="activityType" name="activityType" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${spu.activityType}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >备注：</label>
+                            <div class="col-sm-8">
+                                <input id="remarks" name="remarks" class="form-control" data-rule-required="true" 	type="text" th:value="${spu.remarks}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >排序：</label>
+                            <div class="col-sm-8">
+                                <input id="sort" name="sort" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${spu.sort}" >
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >状态（0：草稿，1：上架，2：下架）：</label>
+                            <div class="col-sm-8">
+                                <input id="status" name="status" class="form-control" data-rule-required="true" data-rule-number="true"	type="text" th:value="${spu.status}" >
+                            </div>
+                        </div>
+                    
+
+
+
+                        <div class="text-center form-group">
+                            <a class="btn btn-default waves-effect waves-light"
+                               onclick="returnList()">返回列表</a>
+                            <button class="btn btn-primary waves-effect waves-light"  type="submit">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script src="/js/appjs/goods/spu/edit.js"></script>
+</body>
+
+</html>

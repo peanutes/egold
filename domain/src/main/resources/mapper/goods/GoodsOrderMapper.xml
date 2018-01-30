@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zfhy.egold.domain.goods.dao.GoodsOrderMapper">
+  <resultMap id="BaseResultMap" type="com.zfhy.egold.domain.goods.entity.GoodsOrder">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+    <result column="sup_id" jdbcType="INTEGER" property="supId" />
+    <result column="sku_id" jdbcType="INTEGER" property="skuId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_number" jdbcType="INTEGER" property="goodsNumber" />
+    <result column="order_amount" jdbcType="DECIMAL" property="orderAmount" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="express_fee" jdbcType="DECIMAL" property="expressFee" />
+    <result column="insurance_fee" jdbcType="DECIMAL" property="insuranceFee" />
+    <result column="balance_amount" jdbcType="DECIMAL" property="balanceAmount" />
+    <result column="should_pay" jdbcType="DECIMAL" property="shouldPay" />
+    <result column="address_id" jdbcType="INTEGER" property="addressId" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="address_receiver" jdbcType="VARCHAR" property="addressReceiver" />
+    <result column="address_receiver_mobile" jdbcType="VARCHAR" property="addressReceiverMobile" />
+    <result column="  man_made_fee" jdbcType="DECIMAL" property="  manMadeFee" />
+  </resultMap>
+
+
+  <resultMap id="listOrderDto" type="com.zfhy.egold.domain.goods.entity.GoodsOrder">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="member_id" jdbcType="INTEGER" property="memberId" />
+    <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+    <result column="sup_id" jdbcType="INTEGER" property="supId" />
+    <result column="sku_id" jdbcType="INTEGER" property="skuId" />
+    <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
+    <result column="goods_number" jdbcType="INTEGER" property="goodsNumber" />
+    <result column="order_amount" jdbcType="DECIMAL" property="orderAmount" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="express_fee" jdbcType="DECIMAL" property="expressFee" />
+    <result column="insurance_fee" jdbcType="DECIMAL" property="insuranceFee" />
+    <result column="balance_amount" jdbcType="DECIMAL" property="balanceAmount" />
+    <result column="should_pay" jdbcType="DECIMAL" property="shouldPay" />
+    <result column="address_id" jdbcType="INTEGER" property="addressId" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="del_flag" jdbcType="VARCHAR" property="delFlag" />
+    <result column="remarks" jdbcType="VARCHAR" property="remarks" />
+    <result column="address_receiver" jdbcType="VARCHAR" property="addressReceiver" />
+    <result column="address_receiver_mobile" jdbcType="VARCHAR" property="addressReceiverMobile" />
+    <result column="man_made_fee" jdbcType="DECIMAL" property="manMadeFee" />
+  </resultMap>
+
+  <select id="list" parameterType="Map" resultMap="listOrderDto">
+    SELECT o.*, m.mobile_phone mobile FROM goods_goods_order o, member_member m where o.member_id = m.id
+    <if test="goodsName!='' and goodsName!=null"> and o.goods_name like '%${goodsName}%'</if>
+    <if test="mobile!='' and mobile != null"> and m.mobile_phone = #{mobile}</if>
+    order by o.create_date desc
+  </select>
+</mapper>

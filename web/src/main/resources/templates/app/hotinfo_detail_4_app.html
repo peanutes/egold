@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 内容详情</title>
+    <!--<script type="text/javascript" src="/js/flexible.js"></script>-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/css/home.css"/>
+    <style type="text/css"></style>
+</head>
+<body>
+<div class="hotinfo_detail_4_app">
+    <div class="title" th:text="${detail.title}"></div>
+    <div class="infos" ><span th:text="${detail.publishTime}"></span></div>
+    <div class="content" th:utext="${detail.content}"></div>
+</div>
+<div th:replace="include/template::commonJavascript" ></div>
+</body>
+</html>

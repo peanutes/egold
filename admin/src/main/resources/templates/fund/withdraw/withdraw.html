@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh_CN" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="col-sm-12">
+        <div class="ibox">
+            <div class="ibox-body">
+                <div id="exampleToolbar" role="group">
+                    <input type="hidden" th:value="${status}" id="searchStatus">
+                    <div class="form-group col-sm-6">
+                        <input id="searchRealName" type="text" class="form-control"
+                               placeholder="真实姓名">
+                    </div>
+                    <div class="form-group col-sm-6">
+                        <input id="searchMobile" type="text" class="form-control"
+                               placeholder="手机号">
+                    </div>
+                    <!--<div class="form-group col-sm-6">
+                        <select class="form-control m-b" id="searchStatus" name="searchStatus">
+                            <option value="">&#45;&#45;请选择&#45;&#45;</option>
+                            <option th:each="item:${withdrawStatusList}" th:value="${item.code}" th:text="${item.label}">选项 1</option>
+                        </select>
+                    </div>-->
+                    <button class="btn btn-success" onclick="reLoad()">查询</button>
+                    <button shiro:hasPermission="fund:withdraw:add" type="button" class="btn btn-primary" onclick="add()">
+                        <i class="fa fa-plus" aria-hidden="true"></i>添加
+                    </button>
+                    <button shiro:hasPermission="fund:withdraw:batchRemove" type="button" class="btn btn-danger"
+                            onclick="batchRemove()">
+                        <i class="fa fa-trash" aria-hidden="true"></i>删除
+                    </button>
+                </div>
+                <table id="exampleTable" data-mobile-responsive="true">
+                </table>
+            </div>
+        </div>
+    </div>
+    <div>
+        <script type="text/javascript">
+            var s_edit_h = 'hidden';
+        </script>
+    </div>
+    <div shiro:hasPermission="fund:withdraw:edit">
+        <script type="text/javascript">
+            s_edit_h = '';
+        </script>
+    </div>
+
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/fund/withdraw/withdraw.js">
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 会赚钱的黄金</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div class="my_order_detail">
+    <div class="top_title">
+        <div class="return"><img src="../images/return.png"/></div>
+        <p class="title">我的订单</p>
+        <div class="right">筛选</div>
+    </div>
+
+    <ul class="display_tab">
+        <li id="tab_1" class="tab_title_default active">全部</li>
+        <li id="tab_2" class="tab_title_default">已完成</li>
+        <li id="tab_3" class="tab_title_default">已过期</li>
+    </ul>
+
+    <div class="split_bar_f5f5f5 height20"></div>
+    <div id="tab_1_content" class="detail_table list_control">
+        <div class="detail_row"><span class="detail_caption color_929292">2017-09-30</span><span
+                class="detail_desc orange">已完成</span></div>
+        <div class="detail_row"><span class="detail_caption">提现</span><span
+                class="detail_desc">5.00元&gt;</span></div>
+        <div class="detail_row color_929292"><span class="detail_caption">余额提现</span><span
+                class="detail_desc">订单总额：¥5.00元&gt;</span></div>
+        <div class="split_bar_f5f5f5 height20"></div>
+
+        <div class="detail_row"><span class="detail_caption color_929292">2017-09-30</span><span
+                class="detail_desc orange">已过期</span></div>
+        <div class="detail_row"><span class="detail_caption">提现</span><span
+                class="detail_desc">5.00元&gt;</span></div>
+        <div class="detail_row color_929292"><span class="detail_caption">余额提现</span><span
+                class="detail_desc">订单总额：¥5.00元&gt;</span></div>
+        <div class="split_bar_f5f5f5 height20"></div>
+
+        <div class="detail_row"><span class="detail_caption color_929292">2017-09-30</span><span
+                class="detail_desc orange">已完成</span></div>
+        <div class="detail_row"><span class="detail_caption">提现</span><span
+                class="detail_desc">5.00元&gt;</span></div>
+        <div class="detail_row color_929292"><span class="detail_caption">余额提现</span><span
+                class="detail_desc">订单总额：¥5.00元&gt;</span></div>
+        <div class="split_bar_f5f5f5 height20"></div>
+    </div>
+
+    <div id="tab_2_content" class="detail_table list_control" style="display: none">
+        <div class="detail_row"><span class="detail_caption color_929292">2017-09-30</span><span
+                class="detail_desc orange">已完成</span></div>
+        <div class="detail_row"><span class="detail_caption">提现</span><span
+                class="detail_desc">5.00元&gt;</span></div>
+        <div class="detail_row color_929292"><span class="detail_caption">余额提现</span><span
+                class="detail_desc">订单总额：¥5.00元&gt;</span></div>
+        <div class="split_bar_f5f5f5 height20"></div>
+
+        <div class="detail_row"><span class="detail_caption color_929292">2017-09-30</span><span
+                class="detail_desc orange">已完成</span></div>
+        <div class="detail_row"><span class="detail_caption">提现</span><span
+                class="detail_desc">5.00元&gt;</span></div>
+        <div class="detail_row color_929292"><span class="detail_caption">余额提现</span><span
+                class="detail_desc">订单总额：¥5.00元&gt;</span></div>
+        <div class="split_bar_f5f5f5 height20"></div>
+
+        <div class="detail_row"><span class="detail_caption color_929292">2017-09-30</span><span
+                class="detail_desc orange">已完成</span></div>
+        <div class="detail_row"><span class="detail_caption">提现</span><span
+                class="detail_desc">5.00元&gt;</span></div>
+        <div class="detail_row color_929292"><span class="detail_caption">余额提现</span><span
+                class="detail_desc">订单总额：¥5.00元&gt;</span></div>
+        <div class="split_bar_f5f5f5 height20"></div>
+    </div>
+
+    <div id="tab_3_content" class="detail_table list_control" style="display: none">
+        <div class="detail_row"><span class="detail_caption color_929292">2017-09-30</span><span
+                class="detail_desc orange">已过期</span></div>
+        <div class="detail_row"><span class="detail_caption">提现</span><span
+                class="detail_desc">5.00元&gt;</span></div>
+        <div class="detail_row color_929292"><span class="detail_caption">余额提现</span><span
+                class="detail_desc">订单总额：¥5.00元&gt;</span></div>
+        <div class="split_bar_f5f5f5 height20"></div>
+
+        <div class="detail_row"><span class="detail_caption color_929292">2017-09-30</span><span
+                class="detail_desc orange">已过期</span></div>
+        <div class="detail_row"><span class="detail_caption">提现</span><span
+                class="detail_desc">5.00元&gt;</span></div>
+        <div class="detail_row color_929292"><span class="detail_caption">余额提现</span><span
+                class="detail_desc ">订单总额：¥5.00元&gt;</span></div>
+        <div class="split_bar_f5f5f5 height20"></div>
+
+        <div class="detail_row"><span class="detail_caption color_929292">2017-09-30</span><span
+                class="detail_desc orange">已过期</span></div>
+        <div class="detail_row"><span class="detail_caption">提现</span><span
+                class="detail_desc">5.00元&gt;</span></div>
+        <div class="detail_row color_929292"><span class="detail_caption">余额提现</span><span
+                class="detail_desc">订单总额：¥5.00元&gt;</span></div>
+        <div class="split_bar_f5f5f5 height20"></div>
+    </div>
+</div>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../widget/mui/js/mui.min.js"></script>
+<script type="text/javascript" src="../js/fastclick.js"></script>
+<script type="text/javascript" src="../js/wap/buyGold.js"></script>
+
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>

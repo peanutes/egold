@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<head th:include="include::header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm">
+                
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >会员id：</label>
+                            <div class="col-sm-8">
+                                <input id="memberId" name="memberId" class="form-control" data-rule-required="true" data-rule-number="true"	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >手持身份证照片：</label>
+                            <div class="col-sm-8">
+                                <input id="idcardHandImg" name="idcardHandImg" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >身份证正面照：</label>
+                            <div class="col-sm-8">
+                                <input id="idcardFrontImg" name="idcardFrontImg" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >身份证反面照：</label>
+                            <div class="col-sm-8">
+                                <input id="idcardBackImg" name="idcardBackImg" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >银行卡照片：</label>
+                            <div class="col-sm-8">
+                                <input id="bankCardImg" name="bankCardImg" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >新手机号：</label>
+                            <div class="col-sm-8">
+                                <input id="newMobile" name="newMobile" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >原手机号：</label>
+                            <div class="col-sm-8">
+                                <input id="oldMobile" name="oldMobile" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >状态(0:待审核，1：审核通过，2：审核不通过)：</label>
+                            <div class="col-sm-8">
+                                <input id="status" name="status" class="form-control" data-rule-required="true" data-rule-number="true"	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >审核人：</label>
+                            <div class="col-sm-8">
+                                <input id="auditor" name="auditor" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >审核时间：</label>
+                            <div class="col-sm-8">
+                                <input id="auditDate" name="auditDate" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" >备注：</label>
+                            <div class="col-sm-8">
+                                <input id="remarks" name="remarks" class="form-control" data-rule-required="true" 	type="text">
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="text-center form-group">
+                            <a class="btn btn-default waves-effect waves-light"
+                               onclick="returnList()">返回列表</a>
+                            <button class="btn btn-primary waves-effect waves-light"  type="submit">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script type="text/javascript" src="/js/appjs/member/changeMobileApplication/add.js"></script>
+</body>
+
+</html>

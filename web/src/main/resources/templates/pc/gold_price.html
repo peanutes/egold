@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 黄金价格</title>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../css/css_reset.css"/>
+    <link rel="stylesheet" href="../css/pc.css"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" th:href="@{/images/favicon.ico}">
+
+    <style type="text/css">
+
+    </style>
+</head>
+<body class="body">
+
+<div id="wrapper_login">
+    <div th:include="pc/include/template :: header(tab='home')"></div>
+
+</div>
+
+<div class="real_time_gold_price">
+    <a th:href="@{/pc/myAccount}"><p class="color_ff8800">实时金价</p></a>
+    <a th:href="@{/pc/myAccount}">
+        <p style="border-right:1px solid #dddddd;"><span class="current_price color_ff8800">222.22</span>元/克</p>
+    </a>
+    <a th:href="@{/pc/myAccount}">
+        <p style="text-align: right"><a href="#" class="color_ff8800">金价趋势</a></p>
+    </a>
+</div>
+<div class="account_summary">
+
+    <div class="trend-tab" >
+        <ul>
+            <li id="trend_one_day" class="trend_one_day active">24小时</li>
+            <li id="trend_seven_day" class="trend_seven_day">7日</li>
+            <li id="trend_one_month" class="trend_one_month">30日</li>
+            <li id="trend_one_year" class="trend_one_year">365日</li>
+        </ul>
+    </div>
+    <div id="date_and_price"></div>
+    <div id="trend-chart" style="position: relative; overflow: hidden; width: 1150px; height: 350px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;">
+    </div>
+</div>
+
+
+<div class="cb"></div>
+<div th:include="pc/include/template :: homeFooter"></div>
+
+<script type="text/javascript" src="../js/echarts.js"></script>
+<script type="text/javascript" src="../js/pc/goldTrend.js"></script>
+
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>

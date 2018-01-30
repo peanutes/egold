@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 帮助中心</title>
+    <script type="text/javascript" src="/js/flexible.js"></script>
+    <link rel="stylesheet" href="/css/home.css"/>
+    <style type="text/css"></style>
+</head>
+<body>
+<div class="my_order_detail">
+    <ul class="list_title">
+        <li th:each="article:${articleList}">
+            <a href="#" th:href="@{'infoContent?terminalType=app&id='+${article.id}}"><span th:text="${article.title}">新手指引</span> <span class="greater">&gt;</span></a>
+        </li>
+    </ul>
+
+
+</div>
+<div th:replace="include/template::commonJavascript" ></div>
+
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>

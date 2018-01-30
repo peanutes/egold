@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!--下载App二维码弹出开始 -->
+<th:block th:fragment="downloadApp">
+    <div id="download_model" class="reveal-modal">
+        <img src="../images/downloadCode.png"/>
+    </div>
+</th:block>
+<!--下载App二维码弹出结束-->
+
+<!-- 顶部 -->
+<header th:fragment="header" class="wap-header">
+    <th:block th:replace="include/template::downloadApp"></th:block>
+
+    <div class="top">
+        <div class="logo">
+            <a href="/wap/index">
+                <img src="../../images/logo.png"/>
+            </a>
+        </div>
+
+        <div class="download-app">
+            <!--<a href="#" data-reveal-id="download_model">-->
+                <img src="/images/download_app.png"/>
+            <!--</a>-->
+        </div>
+    </div>
+</header>
+
+<!-- 保险及电话模板 -->
+<div th:fragment="securityInfo" class="footer">
+    <div class="security_company">中华联合财产保险承保用户账户安全</div>
+    <div class="check_bill_sample"><a href="#" target="_blank">查看保单样本</a></div>
+    <div class="hot_line">全国免费热线：4000 328 128</div>
+</div>
+
+<!-- 底部主菜单 -->
+<div th:fragment="mainMenu" class="fix-navbar" id="fix-navbar">
+    <ul class="fix-bar-ul" id="fix-bar-ul">
+        <li>
+            <a href="/wap/index">
+                <span class="nav-icon navbar_home"></span><span>首页</span>
+            </a>
+        </li>
+        <li>
+            <a href="/wap/buyGold">
+                <span class="nav-icon navbar_buy_gold"></span><span>买金</span>
+            </a>
+        </li>
+        <li>
+            <a href="/wap/discover">
+                <span class="nav-icon navbar_discover"></span><span>发现</span>
+            </a>
+        </li>
+        <li>
+            <a href="/wap/mine">
+                <span class="nav-icon navbar_mine"></span><span>我的</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- 公共javascript引入 -->
+<th:block th:fragment="commonJavascript">
+
+   <!-- <a href="#" class="go-to-top">返回顶部</a>-->
+
+    <div th:replace="include/template::loading"></div>
+    <script type="text/javascript" src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/js/posfixed.js"></script>
+
+    <script type="text/javascript" src="/js/zepto.min.js" th:src="@{'/js/zepto.min.js'}"></script>
+    <script type="text/javascript" src="/js/zepto.fx.js" th:src="@{'/js/zepto.fx.js'}"></script>
+    <script type="text/javascript" src="/js/zepto.fx.method.js" th:src="@{'/js/zepto.fx.method.js'}"></script>
+
+    <script type="text/javascript" src="/js/common.js" th:src="@{'/js/common.js'}"></script>
+    <script type="text/javascript" src="/js/wap/wapCommon.js" th:src="@{'/js/wap/wapCommon.js'}"></script>
+    <script type="text/javascript" src="/widget/mui/js/mui.min.js" th:src="@{'/widget/mui/js/mui.min.js'}"></script>
+    <script type="text/javascript" src="/js/fastclick.js" th:src="@{'/js/fastclick.js'}"></script>
+
+
+
+</th:block>
+
+<!-- 底部统一引入 -->
+<th:block th:fragment="footer">
+    <div class="fix-height"></div>
+    <div th:replace="include/template::mainMenu"></div>
+    <div th:replace="include/template::commonJavascript"></div>
+</th:block>
+
+<!-- 没有底部主菜单的底部 -->
+<th:block th:fragment="footerWithoutMainMenu">
+    <div th:replace="include/template::commonJavascript"></div>
+</th:block>
+
+<th:block th:fragment="loading">
+    <div class="loading">
+        <div class="loadingMask"></div>
+        <div class="loadingContent"><img src="../images/loading.gif"/> 加载中...</div>
+    </div>
+</th:block>
+

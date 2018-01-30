@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>E黄金 - 产品详情</title>
+    <script type="text/javascript" src="../js/flexible.js"></script>
+    <meta name="keywords" content="黄金买卖，黄金投资"/>
+    <meta name="description" content="黄金买卖，黄金投资"/>
+    <link rel="stylesheet" href="../widget/mui/css/mui.min.css"/>
+    <link rel="stylesheet" href="../css/home.css"/>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div class="gold_detail">
+    <div class="top_title">
+        <div class="return"><img src="../images/return.png"/></div>
+        <p class="title" th:text="${detail.productName}"></p></div>
+    <input type="hidden" id="detailId" th:value="${detail.id}"></input>
+    <input type="hidden" id="productId" th:value="${detail.id}">
+    <input type="hidden" id="financeProductType" th:value="${detail.productType}">
+    <input type="hidden" id="productType" th:value="1">
+    <input type="hidden" id="productName" th:value="${detail.productName}">
+    <input type="hidden" id="beginDate" th:value="${#dates.format(detail.beginDate, 'yyyy-MM-dd')}">
+    <input type="hidden" id="endDate" th:value="${#dates.format(detail.endDate, 'yyyy-MM-dd')}">
+
+    <p class="price" th:text="${detail.annualRate}+'%'"></p>
+    <p class="expect_annual_rate">预期年化利率</p>
+    <p class="plus_rate">金价波动收益</p>
+    <th:block th:if="${detail.productType == 'CURRENT_DEPOSIT'}">
+        <p class="more_info">买涨买跌,都能赚钱</p>
+    </th:block>
+    <th:block th:if="${detail.productType != 'CURRENT_DEPOSIT'}">
+        <p class="more_info">近一年金价已长涨<span th:text="${detail.currentYearPriceRisePercent}"></span>%,相当于年化收益<span
+                th:text="${#numbers.formatDecimal(detail.currentYearPriceRisePercent + detail.annualRate,0,2) }"></span>%
+        </p>
+    </th:block>
+
+    <ul class="key_info">
+        <li>
+            <p th:text="${detail.productType == 'TERM_DEPOSIT'} ? (${detail.term}+'天'):${detail.termDesc}"></p>
+            <p th:text="${detail.productType == 'TERM_DEPOSIT'} ? '投资期限':'存取灵活'"></p>
+        </li>
+        <li>
+
+
+            <p th:text="${detail.newUser == '1'} ? (${detail.annualRate}+'%'):'可兑实物黄金'"></p>
+            <p th:text="${detail.newUser == '1'} ? '预期年化收益':'低于市价'"></p>
+        </li>
+        <li>
+            <p th:text="${detail.minAmount != null && detail.newUser != '1'} ? ${#numbers.formatDecimal(detail.minAmount,0,0)} + '元起购': (${detail.newUser == '1'} ? '1克':'1元起购')"></p>
+            <p th:text="${detail.newUser == '1'} ? '限购克重':'起购金额'"></p>
+
+        </li>
+    </ul>
+
+    <ul class="detail_tab">
+        <li id="product_detail" class="product_detail active">产品详情</li>
+        <li id="buying_record" class="buying_record">购买记录</li>
+    </ul>
+
+
+    <div id="product_detail_list" class="product_detail_list list_control">
+        <div class="detail_row" th:each="property:${detail.propertyDtoList}"><span class="detail_caption"
+                                                                                   th:text="${property.propertyLabel}"></span><span
+                class="detail_desc" th:text="${property.propertyValue}"></span></div>
+
+    </div>
+    <div id="buying_record_list" class="buying_record_list list_control" style="display: none">
+    </div>
+</div>
+<div class="warning_info">市场有风险，投资需谨慎</div>
+<div class="fix-height2"></div>
+<th:block th:if="${detail.productType == 'CURRENT_DEPOSIT'}">
+    <div class="buy_sell_button">
+        <div id="buy_now_fall" style="float:left;width:50%; ">买跌</div>
+        <div id="buy_now_rise" style="float:left;width:50%; background: #ff5d37;">买涨</div>
+    </div>
+</th:block>
+<th:block th:if="${detail.productType != 'CURRENT_DEPOSIT'}">
+    <button class="buy_sell_button" id="buy_now">立即存入</button>
+</th:block>
+<div th:replace="include/template::footerWithoutMainMenu"></div>
+<script type="text/javascript" src="../js/wap/goldDetail.js"></script>
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>
